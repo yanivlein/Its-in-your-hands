@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://SITE-URL/sitemap.xml
+Sitemap: https://yanivlein.github.io/Its-in-your-hands/sitemap.xml
