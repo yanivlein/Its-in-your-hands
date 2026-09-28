@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>טעימה מהערכה – שלפו קלף</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.taste{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(60% 70% at 28% 50%,rgba(255,253,248,.85) 0%,rgba(241,235,222,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 132px}
+.taste-w1{width:420px;top:-120px;right:-110px;opacity:.55}
+.taste-w2{width:380px;bottom:-140px;left:-90px;opacity:.5}
+.taste-w3{width:260px;top:36%;left:44%;opacity:.28}
+.taste-w4{width:300px;bottom:6%;right:30%;opacity:.3}
+.taste-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"copy stage" "more stage";column-gap:80px;align-items:center}
+.taste-copy{grid-area:copy;align-self:end}
+.taste-more{grid-area:more;align-self:start}
+.taste-stagecol{grid-area:stage;display:flex;flex-direction:column;align-items:center;gap:22px}
+.taste-copy .lb-lead{margin-top:18px;max-width:34ch}
+.taste-h2{margin-top:12px}
+.taste-note{margin-top:26px;max-width:40ch;padding:18px 22px;border-radius:16px;background:rgba(255,253,248,.62);border:1px solid rgba(55,40,6,.10);font-size:17.5px;line-height:1.7;color:var(--ink-soft,#634d31)}
+.taste-more .lb-btn{margin-top:26px}
+/* stage */
+.tc-stage{position:relative;width:400px;aspect-ratio:800/1120}
+.tc-deck{position:absolute;inset:0}
+.tc-deck span{position:absolute;inset:0;border-radius:16px;background:#fffdf8;border:1px solid rgba(55,40,6,.10);box-shadow:0 18px 30px -24px rgba(55,40,6,.55)}
+.tc-deck span:nth-child(1){transform:translate(-22px,16px) rotate(-7deg)}
+.tc-deck span:nth-child(2){transform:translate(-11px,8px) rotate(-3.5deg)}
+.tc-deck span:nth-child(3){transform:translate(-3px,3px) rotate(-1deg)}
+.tc-deck.sh-a span{animation:tc-shuffle-a .6s var(--ease-out)}
+.tc-deck.sh-b span{animation:tc-shuffle-b .6s var(--ease-out)}
+.tc-deck.sh-a span:nth-child(2),.tc-deck.sh-b span:nth-child(2){animation-delay:.05s}
+.tc-deck.sh-a span:nth-child(1),.tc-deck.sh-b span:nth-child(1){animation-delay:.1s}
+@keyframes tc-shuffle-a{40%{translate:-10px -6px;rotate:-3deg}}
+@keyframes tc-shuffle-b{40%{translate:-10px -6px;rotate:-3deg}}
+.tc-slot{position:absolute;inset:0}
+.tc-slot.deal-a{animation:tc-deal-a .8s var(--ease-out)}
+.tc-slot.deal-b{animation:tc-deal-b .8s var(--ease-out)}
+@keyframes tc-deal-a{0%{transform:translate(-30px,24px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
+@keyframes tc-deal-b{0%{transform:translate(-30px,24px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
+.tc-tilt{position:absolute;inset:0;--rx:0deg;--ry:0deg;--gx:50%;--gy:30%;transform:perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .6s var(--ease-out)}
+.tc-card{position:absolute;inset:0}
+.tc-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s var(--ease-out)}
+.tc-card.is-flipped .tc-inner{transform:rotateY(180deg)}
+.tc-face{position:absolute;inset:0;border-radius:16px;overflow:hidden;background:#fffdf8;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+  box-shadow:0 34px 60px -30px rgba(55,40,6,.55),0 6px 14px -6px rgba(55,40,6,.2);border:1px solid rgba(255,255,255,.7);display:flex;flex-direction:column}
+.tc-back{transform:rotateY(180deg)}
+.tc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tc-glare{position:absolute;inset:0;border-radius:16px;pointer-events:none;background:radial-gradient(circle at var(--gx) var(--gy),rgba(255,255,255,.38),rgba(255,255,255,0) 52%);opacity:0;transition:opacity .4s;mix-blend-mode:soft-light}
+.tc-tilt:hover .tc-glare{opacity:1}
+.tc-caption{font-size:14px;letter-spacing:.12em;font-weight:600;color:var(--ink-muted,#6f6048);display:flex;align-items:center;gap:10px}
+.tc-caption::before,.tc-caption::after{content:"";width:22px;height:1px;background:currentColor;opacity:.5}
+.tc-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.tc-gates{display:flex;gap:9px;align-items:center}
+.tc-gdot{width:9px;height:9px;border-radius:50%;opacity:.45;transform:scale(.85);transition:transform .5s var(--ease-out),opacity .4s}
+.tc-gdot.is-on{opacity:1;transform:scale(1.35);box-shadow:0 0 0 3px rgba(255,253,248,.9),0 0 0 4px rgba(55,40,6,.12)}
+.tc-actions .lb-btn svg{transition:transform .5s var(--ease-out)}
+.tc-actions .lb-btn:hover svg{transform:rotate(-14deg)}
+@media (prefers-reduced-motion: reduce){
+  .tc-inner{transform:none!important}
+  .tc-back{transform:none;opacity:0}
+  .tc-card.is-flipped .tc-back{opacity:1}
+  .tc-card.is-flipped .tc-front{opacity:0}
+  .tc-tilt{transform:none!important}
+}
+@media (max-width: 760px){
+  .taste{padding-block:80px 88px}
+  .taste-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"copy" "stage" "more" !important;row-gap:38px !important}
+  .taste-copy,.taste-more{text-align:center;justify-self:center}
+  .taste-copy .lb-eyebrow{justify-content:center}
+  .taste-copy .lb-lead{margin-inline:auto}
+  .taste-note{margin-top:0;margin-inline:auto;font-size:17px}
+  .taste-more .lb-btn{width:100%}
+  .tc-stage{width:min(350px, calc(100vw - 48px))}
+  .tc-actions{width:100%}
+  .tc-actions .lb-btn{flex:1 1 0;padding:0 14px}
+  .taste-w3,.taste-w4{display:none}
+}
+</style>
+</helmet>
+<section class="lb lb-sec taste" id="taste" data-nav="taste" dir="rtl" data-motion="{{ motion }}" aria-labelledby="taste-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wash taste-w1" aria-hidden="true"><img src="/_blob/a55c02abef18aed1d26d4c16131da133" alt=""></div>
+<div class="lb-wash taste-w2" aria-hidden="true"><img src="/_blob/0977697e66b4a06c2ac621937356a3cf" alt=""></div>
+<div class="lb-wash taste-w3" aria-hidden="true"><img src="/_blob/979c7295dee92e058f5d35011f7d96d8" alt=""></div>
+<div class="lb-wash taste-w4" aria-hidden="true"><img src="/_blob/d1591a19896738fb3cc0184fdead1e7e" alt=""></div>
+<div class="lb-wrap taste-grid">
+<div class="taste-copy" data-blk="c" data-in="{{ inC }}">
+<p class="lb-eyebrow lb-rv">טעימה מהערכה</p>
+<h2 id="taste-title" class="lb-h2 taste-h2 lb-rv lb-d1">שלפו קלף</h2>
+<p class="lb-lead lb-rv lb-d2">לפעמים קלף אחד פותח כיוון חדש. שלפו קלף, התבוננו בפרקטיקה – ואז הפכו אותו כדי לקרוא את ההרחבה ואת השאלות.</p>
+</div>
+<div class="taste-stagecol" data-blk="s" data-in="{{ inS }}">
+<div class="lb-rv lb-rv--scale lb-d1">
+<div class="tc-stage">
+<div class="tc-deck {{ deckCls }}" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="tc-slot {{ dealCls }}">
+<div class="tc-tilt" ref="{{ setTilt }}" onMouseMove="{{ onTilt }}" onMouseLeave="{{ onTiltEnd }}">
+<div class="tc-card {{ flipCls }}" role="group" aria-label="{{ cardLabel }}">
+<div class="tc-inner">
+<div class="tc-face tc-front" aria-hidden="{{ frontHidden }}">
+<img class="tc-img" src="{{ card.face }}" alt="" width="800" height="1120">
+</div>
+<div class="tc-face tc-back" aria-hidden="{{ backHidden }}">
+<img class="tc-img" src="{{ card.back }}" alt="" width="800" height="1120">
+<div class="sr"><p>{{ card.x }}</p><p>{{ card.q1 }}</p><p>{{ card.q2 }}</p><p>{{ card.q3 }}</p></div>
+</div>
+</div>
+<span class="tc-glare" aria-hidden="true"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tc-gates lb-rv lb-d2" aria-hidden="true"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="6"><span class="tc-gdot {{ d.cls }}" style="background: {{ d.color }};"></span></sc-for></div>
+<p class="tc-caption lb-rv lb-d2">טעימה מתוך הערכה</p>
+<div class="tc-actions lb-rv lb-d3">
+<button type="button" class="lb-btn lb-btn--gold" onClick="{{ draw }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="11" height="16" rx="2" transform="rotate(-8 9.5 12)"></rect><rect x="9" y="4" width="11" height="16" rx="2" transform="rotate(7 14.5 12)"></rect></svg>שלפו קלף אחר</button>
+<button type="button" class="lb-btn lb-btn--ghost" onClick="{{ flip }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8.5"></path><path d="M20 4v4.5h-4.5"></path><path d="M20 12a8 8 0 0 1-13.6 5.7L4 15.5"></path><path d="M4 20v-4.5h4.5"></path></svg>{{ flipLabel }}</button>
+</div>
+<p class="sr" aria-live="polite">{{ live }}</p>
+</div>
+<div class="taste-more" data-blk="m" data-in="{{ inM }}">
+<p class="taste-note lb-rv">שישה קלפים לדוגמה, אחד מכל שער – בדיוק כפי שהם מודפסים בערכה: בצד אחד הפרקטיקה, ובצד השני הרחבה ושלוש שאלות לחקירה ולהנעה לפעולה.</p>
+<a class="lb-btn lb-btn--wa lb-rv lb-d1" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנת הערכה בוואטסאפ</a>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":970}}'>
+const GATES = {
+  1: { name: 'התבוננות ושחרור', band: '#acc3cf', deep: '#3f6678' },
+  2: { name: 'דיוק עצמי', band: '#c5c4b9', deep: '#5b5a4c' },
+  3: { name: 'איזון בעשייה', band: '#c087bb', deep: '#7a3f76' },
+  4: { name: 'בריאות הגוף והנפש', band: '#f193bb', deep: '#a3336f' },
+  5: { name: 'מערכות יחסים', band: '#d6aa3c', deep: '#7d5a10' },
+  6: { name: 'צמיחה והתרחבות', band: '#bbc374', deep: '#5f6a2e' }
+};
+/* one card from each gate, exactly as printed: front and back are the print files. The text below is the back of each card, word for word, for screen readers */
+const CARDS = [
+  { n: 3, g: 1, t: 'לפשט דברים', face: '/_blob/66dc712ba5d0c5f290a56102d44b2ea9', back: '/_blob/f148dcd3c339b78f92a9e901072841ba',
+    x: 'לרוב אנחנו עצמנו מסבכים דברים – מניחים הנחות ומשלימים פערי מידע כדי להימנע מאי-ודאות. במקום להפריד בין עובדות לרגשות ולהמתין שדברים יתבהרו ואולי אף יסתדרו מעצמם, אנו נוטים להסתבך בחשיבת יתר, פרשנויות דרמטיות ומערבולות רגשיות. האפשרות לפשט את ההתמודדות עם מצבים מורכבים ולפעול מתוך אורך נשימה, שקט פנימי ואופטימיות – היא בידינו.',
+    q: ['מה מרוויחים מפשטות, הרפיה והמתנה שדברים יתבהרו?', 'באלו מצבים את נוטה להסתבך מחשבתית ורגשית ובאילו לפשט?', 'איזו גישה היית רוצה לפתח ומה יעזור לך בזה?'] },
+  { n: 19, g: 2, t: 'להשוות רק לעצמי', face: '/_blob/6a926548b13d18211ba12283dbb419b0', back: '/_blob/f83e5a81093b7d81b8d33a8a56fa4471',
+    x: 'השוואה למי שהיינו בעבר מאפשרת לנו להכיר בדרך שעשינו ולזהות הישגים. לעומת זאת, השוואה לאחרים עלולה להקטין אותנו ולעורר תחושת נחיתות, במיוחד כשהיא ניזונה מהצלחות מלוטשות ברשתות החברתיות. גם לו הכרנו את הרקע לאותן הצלחות, המסע הרלוונטי עבורנו הוא זה הנמדד מול עצמנו; זה המעיד על ההתפתחות שלנו ועל מימוש הפוטנציאל הייחודי שבנו.',
+    q: ['על מה את גאה בדרך שעשית במהלך השנים?', 'מה קורה לך כשאת משווה עצמך למישהי אחר?', 'מה יעזור לך להתמקד בציר ההתפתחות שלך?'] },
+  { n: 26, g: 3, t: 'להמתין ולהשהות תגובה', face: '/_blob/3450590ad02fde198174c82bb2662e8c', back: '/_blob/97efff37bb217fb9bdbe4570b84036c9',
+    x: 'להמתנה לפני תגובה יש תועלת רבה. מילה שנאמרה או פעולה שנעשתה, קשה לעיתים לתקן. בעוד שתגובה אימפולסיבית מופעלת לעיתים על ידי דחף הישרדותי ועלולה להוביל לחרטה, השהיית התגובה מאפשרת לאזורי ההיגיון במוח להיכנס לפעולה. התגברות על הצורך לפרוק רגשות באופן מיידי ותרגול איפוק תורמים להתנהלות שקולה, לשמירה על מערכות יחסים ולחיים שלווים יותר.',
+    q: ['כמה את מרוצה מזמן התגובה הטבעי שלך במצבים שונים?', 'מה נכון לך לשפר בנוגע לזמן התגובה שלך?', 'מה יכול לעזור לך לדייק תגובות שלך?'] },
+  { n: 37, g: 4, t: 'להזין בכבוד את הנפש', face: '/_blob/8f95c380f780252877d018e4166fdc0f', back: '/_blob/75dee19244c01e48f870c495f378bf86',
+    x: 'הבחירה במה להזין את נפשנו היא בידינו. הנפש זקוקה ל״מזון״ איכותי בדיוק כמו הגוף שלנו. יופי, תרבות, השראה ומילים טובות הם דוגמאות לאבות המזון שלה. כבוד לנפש משמעו בחירת מקורות הזנה מעצימים, לצד הגבלה של צריכת תכנים שיכולים להחליש או לרוקן כמו חדשות או רשתות חברתיות. תשומת לב בבחירה של התפריט הרגשי שלנו מבטאת אחריות, כבוד ודאגה לבריאותנו הנפשית.',
+    q: ['אילו תכנים ממלאים אותך באנרגיה, ואילו מרוקנים?', 'עד כמה את מקפידה לבחור תכנים שמיטיבים איתך?', 'אילו פעולות דרושות לך כדי לנקות את התפריט הרגשי-רוחני שלך?'] },
+  { n: 54, g: 5, t: 'להיענות לאחרים ללא ריצוי', face: '/_blob/7e910590bf731817e3e73734c520d85a', back: '/_blob/0db715e8b7ff08bae4fc546718ed0d08',
+    x: 'היענות לאחרים יכולה לבטא נדיבות, כל עוד היא נובעת מבחירה כנה ולא מתוך צורך לרצות. ריצוי הוא דפוס מרוקן שבו שני הצדדים מפסידים: הצד המרצה צובר תסכול ומרמור, והצד השני אמנם מקבל מחווה אך ממניע כוזב. ריצוי שגורם לביטול עצמי אינו מביא ברכה. נתינה אמיתית ומיטיבה מתקיימת רק כשהיא נובעת ממקום אותנטי בתוכנו.',
+    q: ['מה את עושה כשמבקשים ממך משהו שלא בדיוק מתאים לך?', 'מה זה בשבילך לאכזב אחרים?', 'כמה מהנתינה שלך היא אותנטית?'] },
+  { n: 64, g: 6, t: 'לכבד את הקצב הטבעי', face: '/_blob/315d288af584bd8752119d6b5b1e16d4', back: '/_blob/b8d3592b4cb523721eee1debc0270f6d',
+    x: 'הטבע הוא השראה ומורה לסבלנות ולהקשבה לקצב פנימי. התבוננות בטבע מלמדת שבכל תהליך יש סדר ויש שלבים הדורשים תנאים להבשלה כדי להתפתח משלב לשלב: מהזרע השוהה בחושך ועד ללבלוב. כך גם אצלנו, כחלק מהטבע, התפתחות מתרחשת על פי סדר של שלבים ובקצב אישי שלא נותר לנו אלא לכבד.',
+    q: ['איך היית מגדירה את הקצב האישי שלך?', 'באיזו מידה את מכבדת את הקצב הטבעי שלך?', 'מה קורה כשאת מנסה להאיץ או להאט את הקצב הטבעי שלך?'] }
+];
+function shuffle(a) { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = b[i]; b[i] = b[j]; b[j] = t; } return b; }
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const rest = shuffle(CARDS.map((c, i) => i).slice(1));
+    this.state = { motion: 'off', inb: {}, order: [0].concat(rest), pos: 0, flipped: false, deal: '', deck: '', live: '' };
+    this.setRoot = (el) => { this.root = el; };
+    this.setTilt = (el) => { this.tilt = el; };
+    this.draw = () => {
+      const go = () => {
+        let order = this.state.order, pos = this.state.pos + 1;
+        if (pos >= order.length) {
+          const last = order[order.length - 1];
+          do { order = shuffle(CARDS.map((c, i) => i)); } while (order[0] === last);
+          pos = 0;
+        }
+        const c = CARDS[order[pos]];
+        const flipDeal = this.state.deal === 'deal-a' ? 'deal-b' : 'deal-a';
+        const flipDeck = this.state.deck === 'sh-a' ? 'sh-b' : 'sh-a';
+        this.setState({ order: order, pos: pos, flipped: false, deal: flipDeal, deck: flipDeck,
+          live: 'נשלף קלף ' + c.n + ': ' + c.t + ', מהשער ' + GATES[c.g].name + '.' });
+      };
+      if (this.state.flipped && !this.reduce) { this.setState({ flipped: false }); setTimeout(go, 420); }
+      else go();
+    };
+    this.flip = () => {
+      const c = CARDS[this.state.order[this.state.pos]];
+      const f = !this.state.flipped;
+      this.setState({ flipped: f, live: f ? 'הצד השני של הקלף ' + c.t + ': הרחבה ושלוש שאלות.' : 'הצד של הפרקטיקה: ' + c.t });
+    };
+    this.onTilt = (e) => {
+      if (!this.tilt || this.reduce) return;
+      const r = this.tilt.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      const k = this.state.flipped ? 0.35 : 1;
+      this.tilt.style.setProperty('--ry', ((px - 0.5) * 14 * k).toFixed(2) + 'deg');
+      this.tilt.style.setProperty('--rx', ((0.5 - py) * 12 * k).toFixed(2) + 'deg');
+      this.tilt.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+      this.tilt.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+    };
+    this.onTiltEnd = () => {
+      if (!this.tilt) return;
+      this.tilt.style.setProperty('--rx', '0deg');
+      this.tilt.style.setProperty('--ry', '0deg');
+    };
+  }
+  componentDidMount() {
+    this.preload = () => { if (this.loaded) return; this.loaded = true; CARDS.forEach((c) => { const a = new Image(); a.src = c.face; const b = new Image(); b.src = c.back; }); };
+    this.pre = setTimeout(this.preload, 3500);
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); clearTimeout(this.pre); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const s = this.state;
+    const c = CARDS[s.order[s.pos]];
+    const g = GATES[c.g];
+    const msg = 'היי רונית, אשמח להזמין את ערכת הקלפים ״לחיות טוב יותר - זה בידיים שלך״. אפשר לקבל פרטים על הזמנה ומשלוח?';
+    return {
+      motion: s.motion,
+      inC: s.inb.c || '0', inS: s.inb.s || '0', inM: s.inb.m || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '970px',
+      card: { n: c.n, t: c.t, x: c.x, q1: c.q[0], q2: c.q[1], q3: c.q[2], face: c.face, back: c.back },
+      dots: [1, 2, 3, 4, 5, 6].map((k) => ({ color: GATES[k].band, cls: k === c.g ? 'is-on' : '' })),
+      cardLabel: 'קלף ' + c.n + ', ' + c.t + ', שער ' + g.name,
+      flipCls: s.flipped ? 'is-flipped' : '',
+      frontHidden: s.flipped ? 'true' : 'false',
+      backHidden: s.flipped ? 'false' : 'true',
+      flipLabel: s.flipped ? 'חזרה לחזית' : 'הפכו את הקלף',
+      dealCls: s.deal, deckCls: s.deck,
+      live: s.live,
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      draw: this.draw, flip: this.flip, onTilt: this.onTilt, onTiltEnd: this.onTiltEnd,
+      setRoot: this.setRoot, setTilt: this.setTilt
+    };
+  }
+}
+</script>
+</body>
+</html>

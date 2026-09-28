@@ -1,0 +1,11 @@
+# system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editors and tools
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+node_modules/

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>זה בידיים שלך – האתר המלא</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+html{scroll-behavior:smooth;background:#f9f4ea}
+body{margin:0;background:#f9f4ea}
+.page{width:100%;min-height:100vh;background:#f9f4ea;overflow-x:clip}
+</style>
+</helmet>
+<div class="lb page" dir="rtl">
+<dc-import name="Nav" fluid="{{ yes }}" hint-size="100%,76px"></dc-import>
+<main>
+<dc-import name="Hero" fluid="{{ yes }}" hint-size="100%,900px"></dc-import>
+<dc-import name="Welcome" fluid="{{ yes }}" hint-size="100%,860px"></dc-import>
+<dc-import name="Approach" fluid="{{ yes }}" hint-size="100%,1480px"></dc-import>
+<dc-import name="Kit" fluid="{{ yes }}" hint-size="100%,1200px"></dc-import>
+<dc-import name="Inside" fluid="{{ yes }}" hint-size="100%,1560px"></dc-import>
+<dc-import name="Taste" fluid="{{ yes }}" hint-size="100%,1000px"></dc-import>
+<dc-import name="Who" fluid="{{ yes }}" hint-size="100%,1700px"></dc-import>
+<dc-import name="About" fluid="{{ yes }}" hint-size="100%,1400px"></dc-import>
+<dc-import name="Voices" fluid="{{ yes }}" hint-size="100%,1300px"></dc-import>
+<dc-import name="How" fluid="{{ yes }}" hint-size="100%,2300px"></dc-import>
+<dc-import name="Workshops" fluid="{{ yes }}" hint-size="100%,1000px"></dc-import>
+<dc-import name="Products" fluid="{{ yes }}" hint-size="100%,760px"></dc-import>
+<dc-import name="Pricing" fluid="{{ yes }}" hint-size="100%,1080px"></dc-import>
+<dc-import name="Faq" fluid="{{ yes }}" hint-size="100%,900px"></dc-import>
+</main>
+<dc-import name="Footer" fluid="{{ yes }}" hint-size="100%,1000px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { yes: true };
+  }
+}
+</script>
+</body>
+</html>

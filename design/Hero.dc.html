@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>פתיחה</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.hero{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(120% 90% at 85% 0%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 60%);background-size:320px 320px,100% 100%;padding-block:calc(var(--nav-h) + 22px) 96px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-areas:"head visual" "buy visual";column-gap:72px;row-gap:0;align-items:center}
+.hero-head{grid-area:head;align-self:end}
+.hero-buy{grid-area:buy;align-self:start}
+.hero-visual{grid-area:visual;position:relative}
+.hero-h1{margin:18px 0 0;line-height:0}
+.hero-lockup{width:min(296px,66%);height:auto;margin-block:-6px -20px;
+  -webkit-mask-image:linear-gradient(to left,#000 0%,#000 42%,transparent 58%,transparent 100%);mask-image:linear-gradient(to left,#000 0%,#000 42%,transparent 58%,transparent 100%);
+  -webkit-mask-size:260% 100%;mask-size:260% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:100% 0;mask-position:100% 0;
+  transition:-webkit-mask-position 2s var(--ease-soft) .15s,mask-position 2s var(--ease-soft) .15s}
+.lb[data-motion="on"] [data-in="0"] .hero-lockup{-webkit-mask-position:0 0;mask-position:0 0;transition:none}
+.hero-sub{margin-top:8px;font-family:var(--f-hand);font-size:36px;line-height:1.3;color:var(--ink,#372806)}
+.hero-lead{margin-top:10px;max-width:40ch;font-size:20px;line-height:1.75;color:var(--ink-soft,#634d31)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-ctas .lb-btn--ghost svg{transition:transform .35s var(--ease-out)}
+.hero-ctas .lb-btn--ghost:hover svg{transform:translateY(3px)}
+/* visual */
+.hero-stage{position:relative;width:min(440px,100%);margin-inline:auto 36px;--mx:0;--my:0}
+.hero-par-a,.hero-par-b,.hero-par-c{transition:transform 1s var(--ease-out)}
+.hero-par-a{transform:translate3d(calc(var(--mx) * -26px),calc(var(--my) * -18px),0)}
+.hero-par-b{transform:translate3d(calc(var(--mx) * 12px),calc(var(--my) * 10px),0)}
+.hero-par-c{transform:translate3d(calc(var(--mx) * 20px),calc(var(--my) * 14px),0)}
+.hero-wash-a{width:128%;top:-16%;left:-30%}
+.hero-wash-b{width:78%;bottom:-18%;right:-16%;opacity:.8}
+.hero-frame{position:absolute;inset:0;border-radius:34px;border:1.5px solid rgba(183,133,21,.5);transform:translate(-18px,18px) rotate(2deg);pointer-events:none}
+.hero-photo{position:relative;z-index:1;margin:0;border-radius:32px;overflow:hidden;aspect-ratio:1100/1283;background:#e9e1cf;transform:rotate(-2deg);
+  box-shadow:0 46px 90px -46px rgba(55,40,6,.6),0 14px 26px -14px rgba(55,40,6,.28);transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.03);transition:transform 1.8s var(--ease-out)}
+.hero-photo::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);pointer-events:none}
+.hero-stage:hover .hero-photo{transform:rotate(-.6deg) translateY(-4px)}
+.hero-stage:hover .hero-photo img{transform:scale(1.07)}
+.lb[data-motion="on"] [data-in="0"] .hero-photo{clip-path:inset(10% 10% 10% 10% round 32px)}
+.hero-photo{clip-path:inset(0 0 0 0 round 32px);transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out),clip-path 1.6s var(--ease-out) .2s}
+@media (max-width: 760px){
+  .hero{padding-block:calc(64px + 18px) 64px;text-align:center}
+  .hero-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "visual" "buy" !important;row-gap:26px !important}
+  .hero-head,.hero-buy{justify-self:center;align-self:auto}
+  .hero-head .lb-eyebrow{justify-content:center}
+  .hero-h1{margin-top:12px}
+  .hero-lockup{width:214px;margin:-4px auto -12px}
+  .hero-sub{font-size:27px}
+  .hero-lead{font-size:18px;margin-inline:auto}
+  .hero-ctas{flex-direction:column;align-items:stretch;margin-top:22px}
+  .hero-stage{width:min(262px,76%);margin-inline:auto}
+  .hero-frame{transform:translate(-12px,12px) rotate(2deg)}
+}
+</style>
+</helmet>
+<section class="lb lb-sec hero" id="top" dir="rtl" data-motion="{{ motion }}" aria-labelledby="hero-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap hero-grid" data-blk="hero" data-in="{{ inHero }}">
+<div class="hero-head">
+<p class="lb-eyebrow lb-rv">הזמנה למסע של גילוי והתפתחות</p>
+<h1 id="hero-title" class="hero-h1 lb-rv lb-rv--fade"><img class="hero-lockup" src="/_blob/f691f5024e2a74c952c331a484871dfe" alt="לחיות טוב יותר – זה בידיים שלך" width="800" height="932"></h1>
+<p class="hero-sub lb-rv lb-d3">קלפי השראה למסע אישי, זוגי, משפחתי או קבוצתי</p>
+<p class="hero-lead lb-rv lb-d4">66 פרקטיקות פשוטות ויומיומיות לחיים טובים יותר. בצדו האחד של כל קלף פרקטיקה, ובצדו השני הרחבה ושאלות להעמקה ולהנעה לפעולה.</p>
+</div>
+<div class="hero-visual">
+<div class="hero-stage" ref="{{ setStage }}" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}">
+<div class="lb-wash hero-wash-a hero-par-a" aria-hidden="true"><img src="/_blob/8bbf041f171e041357d3716362950003" alt=""></div>
+<div class="lb-wash hero-wash-b hero-par-c" aria-hidden="true"><img src="/_blob/141d0dad3dc3bad315fe8a700fa8c70d" alt=""></div>
+<div class="hero-par-b">
+<div class="hero-frame" aria-hidden="true"></div>
+<div class="lb-rv lb-rv--scale lb-d2"><figure class="hero-photo"><img src="/_blob/2a0579ccb8821f29b960919b839bf2e0" alt="קלף מהערכה על סטנד עץ לצד קופסת הערכה, על שולחן עץ עם אגרטלי זכוכית ירוקים" width="1100" height="1283"></figure></div>
+</div>
+</div>
+</div>
+<div class="hero-buy">
+<div class="hero-ctas lb-rv lb-d5">
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנת הערכה בוואטסאפ</a>
+<a class="lb-btn lb-btn--ghost" href="#taste">לטעימה מהקלפים<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M6 13l6 6 6-6"></path></svg></a>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":865}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {} };
+    this.setRoot = (el) => { this.root = el; };
+    this.setStage = (el) => { this.stage = el; };
+    this.onMove = (e) => {
+      if (!this.stage || this.reduce) return;
+      const r = this.stage.getBoundingClientRect();
+      const mx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+      const my = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
+      this.stage.style.setProperty('--mx', mx.toFixed(3));
+      this.stage.style.setProperty('--my', my.toFixed(3));
+    };
+    this.onLeave = () => {
+      if (!this.stage) return;
+      this.stage.style.setProperty('--mx', '0');
+      this.stage.style.setProperty('--my', '0');
+    };
+  }
+  componentDidMount() {
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const msg = 'היי רונית, אשמח להזמין את ערכת הקלפים ״לחיות טוב יותר - זה בידיים שלך״. אפשר לקבל פרטים על הזמנה ומשלוח?';
+    return {
+      motion: this.state.motion,
+      inHero: this.state.inb.hero || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '865px',
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      setRoot: this.setRoot, setStage: this.setStage, onMove: this.onMove, onLeave: this.onLeave
+    };
+  }
+}
+</script>
+</body>
+</html>

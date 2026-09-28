@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>סדנאות התנסות עם הקלפים</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.ws{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 26%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:128px 136px}
+.ws-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);column-gap:84px;align-items:center}
+.ws-copy .lb-h2{margin-top:12px;max-width:24ch}
+.ws-copy .lb-lead{margin-top:20px;max-width:44ch}
+.ws-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.ws-chips li{padding:8px 16px;border-radius:999px;background:rgba(255,253,248,.72);border:1px solid rgba(183,133,21,.3);font-size:15px;font-weight:600;color:var(--ink,#372806);transition:transform .4s var(--ease-out),background-color .3s}
+.ws-chips li:hover{transform:translateY(-2px);background:#fffdf8}
+.ws-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:34px}
+.ws-card{position:relative;padding:26px 26px 28px;border-radius:22px;background:#fffdf8;border:1px solid rgba(55,40,6,.08);box-shadow:0 24px 48px -40px rgba(55,40,6,.55);transition:transform .7s var(--ease-out),box-shadow .7s var(--ease-out)}
+.ws-card:hover{transform:translateY(-5px);box-shadow:0 34px 60px -40px rgba(55,40,6,.6)}
+.ws-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:rgba(216,190,115,.3);color:#372806;margin-bottom:14px}
+.ws-ic svg{width:23px;height:23px}
+.ws-card h3{font-size:24px;line-height:1.25}
+.ws-card p{margin-top:8px;font-size:18px;line-height:1.75;color:var(--ink-soft,#634d31)}
+.ws-cta{display:flex;align-items:center;flex-wrap:wrap;gap:14px 20px;margin-top:34px}
+.ws-cta p{font-family:var(--f-serif);font-size:21px;color:var(--ink,#372806)}
+/* photo */
+.ws-media{position:relative;width:min(470px,100%);margin-inline:auto 0;padding:26px 0 0 26px}
+.ws-wash{width:125%;top:-12%;left:-22%;opacity:.8}
+.ws-frame{position:absolute;inset:0 26px 26px 0;border-radius:32px;border:1.5px solid rgba(183,133,21,.45);transform:rotate(-2deg);pointer-events:none;transition:transform 1.2s var(--ease-out)}
+.ws-photo{position:relative;z-index:1;margin:0;border-radius:30px;overflow:hidden;aspect-ratio:474/630;background:#e9e1cf;box-shadow:0 46px 90px -46px rgba(55,40,6,.62),0 12px 26px -14px rgba(55,40,6,.28);
+  clip-path:inset(0 0 0 0 round 30px);transition:clip-path 1.6s var(--ease-out),transform 1.2s var(--ease-out)}
+.ws-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s var(--ease-out)}
+.ws-media:hover .ws-photo{transform:translateY(-4px)}
+.ws-media:hover .ws-photo img{transform:scale(1.05)}
+.ws-media:hover .ws-frame{transform:rotate(-3.5deg) translate(6px,6px)}
+.lb[data-motion="on"] [data-in="0"] .ws-photo{clip-path:inset(0 0 100% 0 round 30px);transition:none}
+@media (max-width: 900px){
+  .ws{padding-block:84px 92px}
+  .ws-grid{grid-template-columns:minmax(0,1fr) !important;row-gap:46px}
+  .ws-media{order:-1;width:min(340px,86%);margin-inline:auto;padding:18px 0 0 18px}
+  .ws-frame{inset:0 18px 18px 0}
+  .ws-copy{text-align:center}
+  .ws-copy .lb-eyebrow{justify-content:center}
+  .ws-copy .lb-h2,.ws-copy .lb-lead{margin-inline:auto}
+  .ws-chips{justify-content:center}
+  .ws-cards{grid-template-columns:minmax(0,1fr) !important;text-align:right}
+  .ws-cta{flex-direction:column;align-items:stretch;text-align:center}
+  .ws-cta .lb-btn{width:100%}
+}
+</style>
+</helmet>
+<section class="lb lb-sec ws" id="workshops" data-nav="workshops" dir="rtl" data-motion="{{ motion }}" aria-labelledby="ws-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap ws-grid">
+<div class="ws-copy" data-blk="c" data-in="{{ inC }}">
+<p class="lb-eyebrow lb-rv">לצוותים, לקבוצות ולחגיגות</p>
+<h2 id="ws-title" class="lb-h2 lb-rv lb-d1">סדנאות התנסות עם הקלפים – אישי או מקצועי</h2>
+<p class="lb-lead lb-rv lb-d2">ניתן להזמין סדנאות להיכרות והתנסות בקלפים לצוותים וקבוצות, לפעילות גיבוש, היערכות לפתיחת שנה או לסיכום שנה, לשיפור אווירה או כצ׳ופר.</p>
+<ul class="ws-chips lb-rv lb-d3" aria-label="למשל"><li>פעילות גיבוש</li><li>פתיחת שנה</li><li>סיכום שנה</li><li>שיפור אווירה</li><li>צ׳ופר</li></ul>
+<div class="ws-cards">
+<article class="ws-card lb-rv lb-d3">
+<span class="ws-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v9H4z"></path><path d="M3 7.5h18V11H3z"></path><path d="M12 7.5V20"></path><path d="M12 7.5c-1.4-2.6-4.6-3.6-5.4-1.8-.7 1.6 2.4 1.8 5.4 1.8z"></path><path d="M12 7.5c1.4-2.6 4.6-3.6 5.4-1.8.7 1.6-2.4 1.8-5.4 1.8z"></path></svg></span>
+<h3>לאירוע אישי</h3>
+<p>אפשר להזמין סדנת קלפים לציון יום הולדת או לערב חברתי.</p>
+</article>
+<article class="ws-card lb-rv lb-d4">
+<span class="ws-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v4M16 3v4"></path><path d="M8.5 14h3M8.5 17h6"></path></svg></span>
+<h3>לקהל הרחב</h3>
+<p>סדנאות לקהל הרחב מתקיימות מדי פעם וכדאי להתעדכן בהן.</p>
+</article>
+</div>
+<div class="ws-cta lb-rv lb-d5">
+<p>להתייעצות ופרטים נוספים</p>
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>לפרטים על סדנה בוואטסאפ</a>
+</div>
+</div>
+<div class="ws-media" data-blk="p" data-in="{{ inP }}">
+<div class="lb-wash ws-wash" aria-hidden="true"><img src="/_blob/8bbf041f171e041357d3716362950003" alt=""></div>
+<span class="ws-frame" aria-hidden="true"></span>
+<figure class="ws-photo"><img src="/_blob/389bd291b7a25061e43913b7dfbb900b" alt="חבילות קלפים ארוזות בשקיות אורגנזה עם הלוגו ״זה בידיים שלך״, ליד נר דולק על שטיח" width="474" height="630"></figure>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":966}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {} };
+    this.setRoot = (el) => { this.root = el; };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const b = this.state.inb;
+    const msg = 'היי רונית, אשמח לשמוע על סדנת היכרות והתנסות עם הקלפים. אפשר לקבל פרטים?';
+    return {
+      motion: this.state.motion,
+      inC: b.c || '0', inP: b.p || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '966px',
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>

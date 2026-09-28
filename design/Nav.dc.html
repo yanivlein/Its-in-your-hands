@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>תפריט עליון</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.nav-root{position:relative;z-index:60;width:100%}
+.nav-root.is-fixed{position:fixed;top:0;left:0;right:0}
+.nav-bar{position:relative;transition:background-color .35s ease,box-shadow .35s ease,backdrop-filter .35s ease}
+.nav-root.is-scrolled .nav-bar{background:rgba(249,244,234,.84);-webkit-backdrop-filter:blur(16px) saturate(1.15);backdrop-filter:blur(16px) saturate(1.15);box-shadow:0 1px 0 rgba(55,40,6,.10),0 14px 30px -24px rgba(55,40,6,.45)}
+.nav-inner{display:flex;align-items:center;gap:28px;height:var(--nav-h);width:min(1280px, calc(100% - 56px));margin-inline:auto;transition:height .35s var(--ease-out)}
+.nav-root.is-scrolled .nav-inner{height:66px}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.nav-bfly{width:30px;height:auto;transform:scaleX(-1) rotate(-8deg);transition:transform .6s var(--ease-out)}
+.nav-brand:hover .nav-bfly{transform:scaleX(-1) rotate(4deg) translateY(-3px)}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1}
+.nav-brand-name{font-family:var(--f-hand);font-size:27px;line-height:1.05;background:linear-gradient(100deg,#372806 0%,#7a5a0e 45%,#b78515 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:2px}
+.nav-brand-sub{font-size:11.5px;letter-spacing:.24em;color:var(--ink-muted,#6f6048);margin-top:3px}
+.nav-links{position:relative;display:flex;align-items:center;gap:2px;margin-inline:auto}
+.nav-pill{position:absolute;left:0;top:50%;height:40px;margin-top:-20px;width:40px;border-radius:999px;pointer-events:none;opacity:0;
+  background:linear-gradient(135deg,rgba(234,212,151,.62) 0%,rgba(216,190,115,.42) 100%);box-shadow:inset 0 0 0 1px rgba(183,133,21,.28),0 10px 20px -14px rgba(122,90,14,.7);
+  transition:transform .5s var(--ease-out),width .5s var(--ease-out),opacity .3s ease}
+.nav-links a{position:relative;z-index:1;padding:10px 11px;font-size:15.5px;font-weight:600;color:var(--ink-soft,#634d31);text-decoration:none;border-radius:999px;white-space:nowrap;transition:color .25s,transform .35s var(--ease-out)}
+.nav-links a::after{content:"";position:absolute;inset-inline:11px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#b78515,#d8be73);transform:scaleX(0);transition:transform .45s var(--ease-out)}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--ink,#372806);transform:translateY(-1px)}
+.nav-links a.is-active{color:var(--ink,#372806)}
+.nav-links a.is-active::after{transform:scaleX(1)}
+.nav-cta{flex:none}
+.nav-menu-btn{display:none;width:46px;height:46px;border-radius:14px;align-items:center;justify-content:center;border:1.5px solid rgba(55,40,6,.22);background:rgba(255,253,248,.6);margin-inline-start:auto}
+.nav-burger{position:relative;width:20px;height:14px;display:block}
+.nav-burger span{position:absolute;inset-inline:0;height:2px;border-radius:2px;background:var(--ink,#372806);transition:transform .35s var(--ease-out),opacity .25s,top .35s var(--ease-out)}
+.nav-burger span:nth-child(1){top:0}.nav-burger span:nth-child(2){top:6px}.nav-burger span:nth-child(3){top:12px}
+.nav-root.is-open .nav-burger span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-root.is-open .nav-burger span:nth-child(2){opacity:0}
+.nav-root.is-open .nav-burger span:nth-child(3){top:6px;transform:rotate(-45deg)}
+.nav-progress{position:absolute;inset-inline:0;bottom:0;height:2px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .3s}
+.nav-root.is-scrolled .nav-progress{opacity:1}
+.nav-progress span{display:block;height:100%;background:linear-gradient(270deg,#b78515,#d8be73 60%,#a6ab74);transform-origin:right center;transform:scaleX(0)}
+/* mobile sheet */
+.nav-sheet{position:fixed;inset:0;z-index:-1;visibility:hidden;pointer-events:none}
+.nav-root.is-open .nav-sheet{visibility:visible;pointer-events:auto}
+.nav-scrim{position:absolute;inset:0;background:rgba(55,40,6,.28);opacity:0;transition:opacity .35s;width:100%;height:100%}
+.nav-root.is-open .nav-scrim{opacity:1}
+.nav-panel{position:absolute;top:0;inset-inline:0;max-height:100%;overflow-y:auto;overscroll-behavior:contain;padding:calc(var(--nav-h) + 4px) 24px 26px;background:#f9f4ea;box-shadow:0 30px 60px -30px rgba(55,40,6,.55);transform:translateY(-104%);transition:transform .5s var(--ease-out);display:flex;flex-direction:column;gap:22px;border-radius:0 0 28px 28px}
+.nav-root.is-open .nav-panel{transform:none}
+.nav-panel nav{display:flex;flex-direction:column}
+.nav-panel nav a{font-family:var(--f-serif);font-size:22px;line-height:1.25;padding:11px 4px;text-decoration:none;border-bottom:1px solid rgba(55,40,6,.10);color:var(--ink,#372806);display:flex;justify-content:space-between;align-items:center}
+.nav-panel nav a::after{content:"";width:8px;height:8px;border-left:1.5px solid rgba(55,40,6,.45);border-bottom:1.5px solid rgba(55,40,6,.45);transform:rotate(45deg);margin-left:6px}
+.nav-panel .lb-btn{width:100%}
+/* mobile bottom action */
+.nav-mbar{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:59;display:none;transform:translateY(140%);transition:transform .5s var(--ease-out)}
+.nav-root.show-bar .nav-mbar{transform:none}
+.nav-root.is-open .nav-mbar{transform:translateY(140%)}
+.nav-mbar .lb-btn{width:100%;min-height:56px;box-shadow:0 18px 36px -14px rgba(64,72,30,.9)}
+@media (max-width: 1360px){
+  .nav-links a{padding:10px 8px;font-size:15px}
+  .nav-links a::after{inset-inline:8px}
+  .nav-inner{gap:18px;width:calc(100% - 40px)}
+}
+@media (max-width: 1200px){
+  .nav-links,.nav-cta{display:none}
+  .nav-menu-btn{display:inline-flex}
+  .nav-inner{width:calc(100% - 32px);height:64px}
+  .nav-root.is-scrolled .nav-inner{height:60px}
+  .nav-mbar{display:block}
+  .nav-brand-name{font-size:24px}
+}
+</style>
+</helmet>
+<header class="lb nav-root {{ rootCls }}" dir="rtl" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="nav-bar">
+<div class="nav-inner">
+<a class="nav-brand" href="#top" aria-label="זה בידיים שלך – לראש העמוד">
+<img class="nav-bfly" src="/_blob/d9aae751e8266c9debe7227b662c4e9d" alt="" width="267" height="320">
+<span class="nav-brand-text"><span class="nav-brand-name">זה בידיים שלך</span><span class="nav-brand-sub">לחיות טוב יותר</span></span>
+</a>
+<nav class="nav-links" aria-label="ניווט באתר" ref="{{ setLinks }}" onMouseLeave="{{ onLinksLeave }}">
+<span class="nav-pill" aria-hidden="true" ref="{{ setPill }}"></span>
+<a href="#approach" class="{{ c.approach }}" aria-current="{{ a.approach }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">הרעיון</a>
+<a href="#kit" class="{{ c.kit }}" aria-current="{{ a.kit }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">מבנה הערכה</a>
+<a href="#taste" class="{{ c.taste }}" aria-current="{{ a.taste }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">שלפו קלף</a>
+<a href="#who" class="{{ c.who }}" aria-current="{{ a.who }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">למי מתאים</a>
+<a href="#about" class="{{ c.about }}" aria-current="{{ a.about }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">מי אני?</a>
+<a href="#voices" class="{{ c.voices }}" aria-current="{{ a.voices }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">המלצות</a>
+<a href="#how" class="{{ c.how }}" aria-current="{{ a.how }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">איך משתמשים</a>
+<a href="#workshops" class="{{ c.workshops }}" aria-current="{{ a.workshops }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">סדנאות</a>
+<a href="#pricing" class="{{ c.pricing }}" aria-current="{{ a.pricing }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">מחירים</a>
+<a href="#faq" class="{{ c.faq }}" aria-current="{{ a.faq }}" onMouseEnter="{{ onLinkEnter }}" onFocus="{{ onLinkEnter }}" onBlur="{{ onLinksLeave }}">שאלות</a>
+</nav>
+<a class="lb-btn lb-btn--wa lb-btn--sm nav-cta" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנה בוואטסאפ</a>
+<button type="button" class="nav-menu-btn" aria-expanded="{{ openStr }}" aria-controls="nav-sheet" aria-label="{{ menuLabel }}" onClick="{{ toggle }}" ref="{{ setMenuBtn }}"><span class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></span></button>
+</div>
+<div class="nav-progress" aria-hidden="true"><span ref="{{ setProg }}"></span></div>
+</div>
+<div class="nav-sheet" id="nav-sheet">
+<button type="button" class="nav-scrim" tabindex="-1" aria-label="סגירת התפריט" onClick="{{ close }}"></button>
+<div class="nav-panel" role="dialog" aria-label="תפריט" onKeyDown="{{ onSheetKey }}" ref="{{ setPanel }}">
+<nav aria-label="ניווט באתר">
+<a href="#approach" onClick="{{ close }}">הרעיון</a>
+<a href="#kit" onClick="{{ close }}">מבנה הערכה</a>
+<a href="#taste" onClick="{{ close }}">שלפו קלף</a>
+<a href="#who" onClick="{{ close }}">למי מתאים</a>
+<a href="#about" onClick="{{ close }}">מי אני?</a>
+<a href="#voices" onClick="{{ close }}">המלצות</a>
+<a href="#how" onClick="{{ close }}">איך משתמשים</a>
+<a href="#workshops" onClick="{{ close }}">סדנאות</a>
+<a href="#pricing" onClick="{{ close }}">מחירים</a>
+<a href="#faq" onClick="{{ close }}">שאלות</a>
+</nav>
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנה בוואטסאפ</a>
+</div>
+</div>
+<div class="nav-mbar">
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנת הערכה בוואטסאפ</a>
+</div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":80}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { scrolled: false, open: false, active: '', bar: false };
+    this.setRoot = (el) => { this.root = el; };
+    this.setProg = (el) => { this.prog = el; };
+    this.setMenuBtn = (el) => { this.menuBtn = el; };
+    this.setPanel = (el) => { this.panel = el; };
+    this.setLinks = (el) => { this.links = el; };
+    this.setPill = (el) => { this.pill = el; };
+    this.movePill = (el) => {
+      if (!this.pill || !this.links) return;
+      if (!el || !el.offsetWidth) { this.pill.style.opacity = '0'; return; }
+      const lr = this.links.getBoundingClientRect(), r = el.getBoundingClientRect();
+      this.pill.style.width = r.width.toFixed(1) + 'px';
+      this.pill.style.transform = 'translateX(' + (r.left - lr.left).toFixed(1) + 'px)';
+      this.pill.style.opacity = '1';
+    };
+    this.onLinkEnter = (e) => { this.hovering = true; this.movePill(e.currentTarget); };
+    this.onLinksLeave = () => { this.hovering = false; this.movePill(this.links ? this.links.querySelector('a.is-active') : null); };
+    this.toggle = () => {
+      const open = !this.state.open;
+      this.setState({ open: open });
+      if (open) setTimeout(() => { const a = this.panel && this.panel.querySelector('a'); if (a) a.focus(); }, 120);
+    };
+    this.close = () => {
+      if (!this.state.open) return;
+      this.setState({ open: false });
+      setTimeout(() => { if (this.menuBtn) this.menuBtn.focus(); }, 60);
+    };
+    this.onResize = () => { this.onScroll(); setTimeout(() => { if (!this.hovering) this.movePill(this.links ? this.links.querySelector('a.is-active') : null); }, 80); };
+    this.onSheetKey = (e) => { if (e.key === 'Escape') { e.stopPropagation(); this.close(); } };
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => { this.raf = null; this.update(); });
+    };
+  }
+  findScroller(el) {
+    let p = el ? el.parentElement : null;
+    while (p && p !== document.body && p !== document.documentElement) {
+      const oy = getComputedStyle(p).overflowY;
+      if (oy === 'auto' || oy === 'scroll') return p;
+      p = p.parentElement;
+    }
+    return window;
+  }
+  update() {
+    const sc = this.scroller || window;
+    const isWin = sc === window;
+    const st = isWin ? window.scrollY : sc.scrollTop;
+    const vh = isWin ? window.innerHeight : sc.clientHeight;
+    const sh = isWin ? document.documentElement.scrollHeight : sc.scrollHeight;
+    const top0 = isWin ? 0 : sc.getBoundingClientRect().top;
+    const prog = sh - vh > 0 ? Math.min(1, Math.max(0, st / (sh - vh))) : 0;
+    if (this.prog) this.prog.style.transform = 'scaleX(' + prog.toFixed(4) + ')';
+    let active = '';
+    document.querySelectorAll('[data-nav]').forEach((s) => {
+      const r = s.getBoundingClientRect();
+      if (r.top - top0 <= vh * 0.38 && r.bottom - top0 > vh * 0.2) active = s.getAttribute('data-nav');
+    });
+    const scrolled = st > 24;
+    const bar = st > vh * 0.8;
+    if (scrolled !== this.state.scrolled || active !== this.state.active || bar !== this.state.bar) {
+      const moved = active !== this.state.active;
+      this.setState({ scrolled: scrolled, active: active, bar: bar });
+      if (moved && !this.hovering) setTimeout(() => { if (!this.hovering) this.movePill(this.links ? this.links.querySelector('a.is-active') : null); }, 60);
+    }
+  }
+  componentDidMount() {
+    this.scroller = this.findScroller(this.root);
+    const t = this.scroller === window ? window : this.scroller;
+    t.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.update();
+    this.late = setTimeout(() => this.update(), 1200);
+  }
+  componentWillUnmount() {
+    const t = this.scroller === window ? window : this.scroller;
+    if (t) t.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    clearTimeout(this.late);
+  }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const s = this.state;
+    const ids = ['approach', 'kit', 'taste', 'who', 'about', 'voices', 'how', 'workshops', 'pricing', 'faq'];
+    const c = {}, a = {};
+    ids.forEach((id) => { c[id] = s.active === id ? 'is-active' : ''; a[id] = s.active === id ? 'location' : 'false'; });
+    const msg = 'היי רונית, אשמח להזמין את ערכת הקלפים ״לחיות טוב יותר - זה בידיים שלך״. אפשר לקבל פרטים על הזמנה ומשלוח?';
+    return {
+      rootCls: [fluid ? 'is-fixed' : '', s.scrolled || !fluid ? 'is-scrolled' : '', s.open ? 'is-open' : '', s.bar ? 'show-bar' : ''].join(' '),
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '80px',
+      c: c, a: a,
+      openStr: s.open ? 'true' : 'false',
+      menuLabel: s.open ? 'סגירת התפריט' : 'פתיחת התפריט',
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      toggle: this.toggle, close: this.close, onSheetKey: this.onSheetKey,
+      onLinkEnter: this.onLinkEnter, onLinksLeave: this.onLinksLeave,
+      setRoot: this.setRoot, setProg: this.setProg, setMenuBtn: this.setMenuBtn, setPanel: this.setPanel, setLinks: this.setLinks, setPill: this.setPill
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>למי הערכה מתאימה?</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.who{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(70% 60% at 12% 18%,rgba(255,253,248,.9) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 132px}
+.who-wash{width:120%;top:-18%;left:-16%;opacity:.75}
+.who-top{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);column-gap:80px;align-items:center}
+.who-copy .lb-h2{margin-top:12px}
+.who-lead{margin-top:22px;font-family:var(--f-serif);font-size:clamp(24px,2.3cqi,31px);line-height:1.5;color:var(--ink,#372806);max-width:24ch;text-wrap:balance}
+.who-hl{background-image:linear-gradient(transparent 62%,var(--hc) 62%,var(--hc) 92%,transparent 92%);background-repeat:no-repeat;background-position:right bottom;background-size:100% 100%;transition:background-size 1.1s var(--ease-out) var(--hd)}
+.lb[data-motion="on"] [data-in="0"] .who-hl{background-size:0% 100%;transition:none}
+/* photos */
+.who-photos{position:relative;padding:0 0 64px 0}
+.who-ph{margin:0;overflow:hidden;background:#e9e1cf;transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out),clip-path 1.5s var(--ease-out)}
+.who-ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s var(--ease-out)}
+.who-ph-a{position:relative;border-radius:30px;aspect-ratio:1216/936;transform:rotate(-1.5deg);box-shadow:0 44px 80px -46px rgba(55,40,6,.6);clip-path:inset(0 0 0 0 round 30px)}
+.who-ph-b{position:absolute;right:-26px;bottom:0;width:38%;aspect-ratio:903/1036;border-radius:22px;border:8px solid #fffdf8;transform:rotate(4deg);box-shadow:0 34px 60px -30px rgba(55,40,6,.6)}
+.who-photos:hover .who-ph-a{transform:rotate(-.6deg) translateY(-4px)}
+.who-photos:hover .who-ph-a img{transform:scale(1.05)}
+.who-photos:hover .who-ph-b{transform:rotate(2deg) translate(-6px,-8px)}
+.lb[data-motion="on"] [data-in="0"] .who-ph-a{clip-path:inset(12% 12% 12% 12% round 30px);transition:none}
+.lb[data-motion="on"] [data-in="0"] .who-ph-b{transform:rotate(12deg) translate(40px,40px);opacity:0;transition:none}
+.who-ph-b{transition:transform 1.3s var(--ease-out) .35s,opacity .8s .35s,box-shadow 1s}
+/* contexts */
+.who-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:92px}
+.who-card{position:relative;padding:34px 36px 36px;border-radius:24px;background:rgba(255,253,248,.82);border:1px solid rgba(55,40,6,.08);box-shadow:0 26px 50px -42px rgba(55,40,6,.55);transition:transform .7s var(--ease-out),box-shadow .7s var(--ease-out),background-color .4s}
+.who-card:hover{transform:translateY(-6px);background:#fffdf8;box-shadow:0 38px 64px -40px rgba(55,40,6,.6)}
+.who-card::before{content:"";position:absolute;top:0;right:36px;width:54px;height:3px;border-radius:0 0 3px 3px;background:var(--ac);transition:width .7s var(--ease-out)}
+.who-card:hover::before{width:110px}
+.who-ic{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--at);color:#372806;margin-bottom:18px;transition:transform .7s var(--ease-out)}
+.who-card:hover .who-ic{transform:rotate(-8deg) scale(1.06)}
+.who-ic svg{width:25px;height:25px}
+.who-card h3{font-size:27px;line-height:1.2}
+.who-card p{margin-top:12px;font-size:18.5px;line-height:1.85;color:var(--ink-soft,#634d31)}
+/* good to know */
+.who-notes{display:grid;grid-template-columns:170px repeat(3,minmax(0,1fr));gap:30px;margin-top:40px;padding:30px 36px;border-radius:24px;background:rgba(216,190,115,.16);border:1px solid rgba(183,133,21,.18)}
+.who-notes-t{font-family:var(--f-serif);font-size:25px;line-height:1.2;color:var(--gold-deep,#7a5a0e);padding-top:2px}
+.who-note{position:relative;padding-inline-start:22px;font-size:17.5px;line-height:1.75;color:var(--ink,#372806)}
+.who-note::before{content:"";position:absolute;right:0;top:.62em;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e3c77c,#b78515)}
+@media (max-width: 860px){
+  .who{padding-block:84px 92px}
+  .who-top{grid-template-columns:minmax(0,1fr) !important;row-gap:44px}
+  .who-copy{text-align:center}
+  .who-copy .lb-eyebrow{justify-content:center}
+  .who-lead{margin-inline:auto;font-size:23px}
+  .who-photos{padding:0 0 46px 0;width:min(100%,420px);margin-inline:auto}
+  .who-ph-a{border-radius:24px;clip-path:inset(0 0 0 0 round 24px)}
+  .who-ph-b{right:-8px;width:42%;border-width:6px}
+  .who-grid{grid-template-columns:minmax(0,1fr) !important;gap:16px;margin-top:56px}
+  .who-card{padding:26px 24px 28px}
+  .who-card::before{right:24px}
+  .who-card h3{font-size:24px}
+  .who-card p{font-size:18px}
+  .who-notes{grid-template-columns:minmax(0,1fr) !important;gap:14px;padding:24px 22px}
+  .who-notes-t{font-size:23px}
+}
+</style>
+</helmet>
+<section class="lb lb-sec who" id="who" data-nav="who" dir="rtl" data-motion="{{ motion }}" aria-labelledby="who-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap">
+<div class="who-top">
+<div class="who-copy" data-blk="h" data-in="{{ inH }}">
+<p class="lb-eyebrow lb-rv">לעבודה עצמית ועם אחרים</p>
+<h2 id="who-title" class="lb-h2 lb-rv lb-d1">למי הערכה מתאימה?</h2>
+<p class="who-lead lb-rv lb-d2">ערכת הקלפים יכולה לשמש למגוון רחב של אפשרויות והקשרים – <span class="who-hl" style="--hc: rgba(172,195,207,.75); --hd: .7s;">אישי</span>, <span class="who-hl" style="--hc: rgba(192,135,187,.55); --hd: .9s;">זוגי</span>, <span class="who-hl" style="--hc: rgba(214,170,60,.5); --hd: 1.1s;">משפחתי</span>, <span class="who-hl" style="--hc: rgba(187,195,116,.65); --hd: 1.3s;">קבוצתי</span>.</p>
+</div>
+<div class="who-photos" data-blk="p" data-in="{{ inP }}">
+<div class="lb-wash who-wash" aria-hidden="true"><img src="/_blob/8bbf041f171e041357d3716362950003" alt=""></div>
+<figure class="who-ph who-ph-a"><img src="/_blob/11a92f579393e110425417e4c6a85cfd" alt="קבוצת נשים סביב שולחן עגול שעליו פרושים קלפים רבים מהערכה" width="1216" height="936"></figure>
+<figure class="who-ph who-ph-b"><img src="/_blob/c79f567a5c5a81a327116c1c4b3ddf67" alt="שתי נשים יושבות על הרצפה בסטודיו ומשוחחות עם קלף ביד, ובקבוצה סביבן משתתפות נוספות בזוגות" width="903" height="1036"></figure>
+</div>
+</div>
+<div class="who-grid" data-blk="g" data-in="{{ inG }}">
+<article class="who-card lb-rv" style="--ac: #acc3cf; --at: rgba(172,195,207,.42);">
+<span class="who-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"></path></svg></span>
+<h3>לעבודה עצמית</h3>
+<p>היא מתאימה לעבודה עצמית, לכל מי שמעוניין להיטיב עם עצמו, לשפר את איכות חייו ולצעוד במסע אישי של התפתחות וצמיחה באמצעות העמקת המודעות העצמית, הפניית תשומת הלב להיבטים שונים בחיי היומיום והיכרות עם כלים נגישים ופשוטים ליישום.</p>
+</article>
+<article class="who-card lb-rv lb-d2" style="--ac: #c087bb; --at: rgba(192,135,187,.3);">
+<span class="who-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8.5" r="3"></circle><circle cx="16.5" cy="8.5" r="3"></circle><path d="M2.8 19.5c.6-3 2.7-4.7 5.2-4.7 1.4 0 2.6.5 3.5 1.4"></path><path d="M12.8 16.2c.9-.9 2.2-1.4 3.7-1.4 2.5 0 4.6 1.7 5.2 4.7"></path></svg></span>
+<h3>לעבודה אימונית וטיפולית</h3>
+<p>הקלפים שימושיים ומתאימים לעבודה אימונית, טיפולית או דיאדית אחרת, בין בני זוג, אחיות או חברות תוך שהם מסייעים להמליל ולפתוח גם סוגיות רגישות ומורכבות עם הזמנה לכיווני חשיבה ופעולה חדשים.</p>
+</article>
+<article class="who-card lb-rv lb-d3" style="--ac: #d6aa3c; --at: rgba(214,170,60,.3);">
+<span class="who-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.8" r="2.4"></circle><circle cx="5.2" cy="12.6" r="2.4"></circle><circle cx="18.8" cy="12.6" r="2.4"></circle><circle cx="12" cy="18.6" r="2.4"></circle><path d="M8.6 7.6l-1.6 2.4M15.4 7.6l1.6 2.4M7 15l2.6 2.3M17 15l-2.6 2.3"></path></svg></span>
+<h3>לקבוצות, סדנאות וריטריטים</h3>
+<p>מניסיוני האישי ומעדויות של מנחות שמשתמשות בקלפים בסדנאות וריטריטים, הקלפים פועלים כמו קסם מהיר בתוך קבוצות, עם או בלי היכרות מוקדמת בין המשתתפים. הם יוצרים שיח עמוק ואותנטי ומאפשרים דיאלוגים מקרבים מיוחדים.</p>
+</article>
+<article class="who-card lb-rv lb-d4" style="--ac: #bbc374; --at: rgba(187,195,116,.38);">
+<span class="who-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.2L12 4l8.5 7.2"></path><path d="M5.8 9.6V20h12.4V9.6"></path><path d="M12 17.2s-3-1.8-3-3.8a1.7 1.7 0 0 1 3-1.1 1.7 1.7 0 0 1 3 1.1c0 2-3 3.8-3 3.8z"></path></svg></span>
+<h3>למשפחה, לחברים ולצוותים</h3>
+<p>גם במפגש משפחתי, בין חברים או עם צוותי עבודה, הקלפים מתאימים ומועילים.</p>
+</article>
+</div>
+<aside class="who-notes" aria-label="טוב לדעת" data-blk="n" data-in="{{ inN }}">
+<p class="who-notes-t lb-rv">טוב לדעת</p>
+<p class="who-note lb-rv lb-d1">ערכת הקלפים מתאימה ומכוונת לגברים ונשים כאחד.</p>
+<p class="who-note lb-rv lb-d2">רוב הקלפים מתאימים לעבודה גם עם ילדים, אפילו צעירים, בחלקם ייתכן שדרוש תיווך מבוגרים.</p>
+<p class="who-note lb-rv lb-d3">ההרחבה על כל פרקטיקה כתובה בגוף ראשון רבים (״אנחנו״), והשאלות מנוסחות בגוף שני בלשון נקבה, אך מתאימות כמובן לכל המינים.</p>
+</aside>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {} };
+    this.setRoot = (el) => { this.root = el; };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const b = this.state.inb;
+    return {
+      motion: this.state.motion,
+      inH: b.h || '0', inP: b.p || '0', inG: b.g || '0', inN: b.n || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '1760px',
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>

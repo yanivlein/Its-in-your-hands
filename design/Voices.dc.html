@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>תגובות מהשטח</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.voices{--vx-ink:#f3ebdb;--vx-soft:#d8ccb4;--vx-muted:#b9ab8f;--vx-gold:#dcc27a;
+  background-color:#2c2817;background-image:radial-gradient(80% 60% at 85% 0%,rgba(216,190,115,.16) 0%,rgba(44,40,23,0) 60%),radial-gradient(70% 60% at 0% 100%,rgba(166,171,116,.16) 0%,rgba(44,40,23,0) 60%),linear-gradient(180deg,#312c19 0%,#26220f 100%);
+  color:var(--vx-ink);padding-block:128px 136px;isolation:isolate}
+.voices::before{content:"";position:absolute;inset:0;z-index:-1;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;opacity:.22;mix-blend-mode:soft-light;pointer-events:none}
+.vx-rings{position:absolute;z-index:0;width:900px;height:900px;left:-300px;top:-260px;pointer-events:none;opacity:.5}
+.vx-rings circle{fill:none;stroke:#dcc27a;stroke-width:1;opacity:.28;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 2.6s var(--ease-soft)}
+.vx-rings circle:nth-child(2){transition-delay:.25s;opacity:.2}.vx-rings circle:nth-child(3){transition-delay:.5s;opacity:.14}.vx-rings circle:nth-child(4){transition-delay:.75s;opacity:.08}
+.lb[data-motion="on"] [data-in="0"] .vx-rings circle{stroke-dashoffset:1;transition:none}
+.vx-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+.vx-head .lb-eyebrow{color:var(--vx-gold)}
+.vx-head .lb-h2{margin-top:12px;color:var(--vx-ink)}
+.vx-mark{flex:none;width:110px;height:auto;color:var(--vx-gold);opacity:.9;transform-origin:50% 60%;transition:transform 1.4s var(--ease-out) .2s,opacity 1s .2s}
+.lb[data-motion="on"] [data-in="0"] .vx-mark{transform:scale(.4) rotate(-20deg);opacity:0;transition:none}
+.vx-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;margin-top:56px}
+.vx-col{display:flex;flex-direction:column;gap:24px}
+.vx-col-2{margin-top:64px}
+.vx-card{margin:0;padding:32px 32px 28px;border-radius:24px;background:linear-gradient(160deg,rgba(255,253,248,.075),rgba(255,253,248,.035));border:1px solid rgba(220,194,122,.2);
+  box-shadow:0 30px 60px -44px rgba(0,0,0,.8);transition:transform .7s var(--ease-out),border-color .5s,background-color .5s}
+.vx-card:hover{transform:translateY(-6px);border-color:rgba(220,194,122,.45)}
+.vx-q{position:relative;font-size:18.5px;line-height:1.85;color:var(--vx-ink)}
+.vx-q p + p{margin-top:2px}
+.vx-q-icon{display:block;width:30px;height:auto;color:var(--vx-gold);margin-bottom:14px;opacity:.9}
+.vx-who{margin-top:22px;padding-top:16px;border-top:1px solid rgba(220,194,122,.2);display:flex;flex-direction:column;gap:3px}
+.vx-name{font-family:var(--f-serif);font-size:21px;line-height:1.25;color:var(--vx-gold)}
+.vx-role{font-size:14.5px;line-height:1.5;color:var(--vx-muted)}
+.vx-cta{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:40px}
+.vx-cta p{font-family:var(--f-serif);font-size:23px;color:var(--vx-soft)}
+.voices :focus-visible{outline-color:#dcc27a}
+@media (max-width: 1100px){ .vx-list{grid-template-columns:minmax(0,1fr);max-width:720px;margin-inline:auto} .vx-col{display:contents} .vx-col-2{margin-top:0} .vx-o1{order:1} .vx-o2{order:2} .vx-o3{order:3} .vx-o4{order:4} .vx-o5{order:5} }
+@media (max-width: 760px){
+  .voices{padding-block:84px 92px}
+  .vx-head{align-items:flex-start;flex-direction:column;gap:16px}
+  .vx-mark{width:70px;order:-1}
+  .vx-list{margin-top:34px;gap:16px}
+  .vx-card{padding:26px 22px 22px}
+  .vx-q{font-size:18px}
+  .vx-rings{width:560px;height:560px;left:-240px;top:-180px}
+  .vx-cta{flex-direction:column;gap:14px;margin-top:26px}
+  .vx-cta p{font-size:20px;text-align:center}
+  .vx-cta .lb-btn{width:100%}
+}
+</style>
+</helmet>
+<section class="lb lb-sec voices" id="voices" data-nav="voices" dir="rtl" data-motion="{{ motion }}" aria-labelledby="voices-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<svg class="vx-rings" viewBox="0 0 600 600" aria-hidden="true" data-blk="r" data-in="{{ inR }}"><circle cx="300" cy="300" r="120" pathLength="1"></circle><circle cx="300" cy="300" r="180" pathLength="1"></circle><circle cx="300" cy="300" r="240" pathLength="1"></circle><circle cx="300" cy="300" r="296" pathLength="1"></circle></svg>
+<div class="lb-wrap">
+<header class="vx-head" data-blk="h" data-in="{{ inH }}">
+<div>
+<p class="lb-eyebrow lb-rv">המלצות</p>
+<h2 id="voices-title" class="lb-h2 lb-rv lb-d1">תגובות מהשטח</h2>
+</div>
+<svg class="vx-mark" viewBox="0 0 120 90" fill="currentColor" aria-hidden="true"><path d="M50 8C27 16 12 34 12 58c0 16 9 26 22 26 11 0 19-8 19-19 0-10-7-17-16-18 2-12 10-22 23-28z"></path><path d="M108 8C85 16 70 34 70 58c0 16 9 26 22 26 11 0 19-8 19-19 0-10-7-17-16-18 2-12 10-22 23-28z"></path></svg>
+</header>
+<div class="vx-list" data-blk="l" data-in="{{ inL }}">
+<div class="vx-col vx-col-1">
+<figure class="vx-card vx-o1 lb-rv">
+<blockquote class="vx-q"><p>רציתי לשתף אותך שאתמול עבדנו עם הקלפים, אחיות שלי ואני וזה היה כל כך מדהים, כל כך עוצמתי. דיברנו על דברים שלא אמרנו אותם בקול או למישהו אף פעם. כל אחת ניסתה להבין דרך הקלפים ממה הדברים נובעים, ממש עמוק בפנים. התחייבנו לשנות, לראות אחרת ולעשות תהליך. הקלפים כל כך מדוייקים, כל כך מקצועיים, מעשירים, מכוונים שזה היה ממש טיפול אישי וקבוצתי.</p><p>תודה על הכל</p></blockquote>
+<figcaption class="vx-who"><span class="vx-name">שרון נבון</span></figcaption>
+</figure>
+<figure class="vx-card vx-o2 lb-rv lb-d3">
+<blockquote class="vx-q"><p>אני עובדת עם הקלפים שלך המון, הם מדהימים ומדברים את השפה הטיפולית שלי בדיוק. כל קלף מבטא יפה את המסרים שאני מדברת תמיד עם מטופלי. כאילו קראת את מחשבותי, כאילו אני יצרתי את הקלפים הללו.</p></blockquote>
+<figcaption class="vx-who"><span class="vx-name">רוני בן המוריה</span><span class="vx-role">מטפלת במגוון שיטות, רוקחת טבעית ועוד, עמק חפר</span></figcaption>
+</figure>
+</div>
+<div class="vx-col vx-col-2">
+<figure class="vx-card vx-o3 lb-rv lb-d1">
+<blockquote class="vx-q"><p>אני חייבת לומר לך שהקלפים שלך הם פשוט ווואוו,</p><p>היתה לי התלבטות אם לקנות אותם ואני כל כך מרוצה שקניתי, עברתי על כל הקלפים - הניסוח, הכותרות הכל, רואים שיש כאן עבודה עמוקה מאוד עם המון המון מחשבה.</p><p>זה מדהים ברמות. כבר השתמשתי עם מתאמנות וזה עושה עבודה כל כך טובה ומקדמת. אני מתפעלת ברמות. בשבוע הבא יש לי סדנא ואני לגמרי בונה אותה על הקלפים כי זה ווואוו. אני ממש מתלהבת ומתרגשת. קניתי לא מזמן קלפים אחרים אבל בניסוח שלך יש כל כך הרבה יותר ופתוח לפרשנויות וזה מדהים</p><p>יישר כוח גדול!</p></blockquote>
+<figcaption class="vx-who"><span class="vx-name">מיכל בומבך</span><span class="vx-role">מאמנת אישית</span></figcaption>
+</figure>
+</div>
+<div class="vx-col vx-col-3">
+<figure class="vx-card vx-o5 lb-rv lb-d2">
+<blockquote class="vx-q"><p>הקלפים נהדרים!</p><p>עברתי עליהם בעיון והמסקנה היתה שעלי לפנות עוד זמן וללמוד אותם יותר לעומק.</p><p>הם באמת יצירת מופת.</p><p>מעבר להיקף של התוכן, גם הניסוח, הידידותיות למשתמש, העיצוב המותאם בדיוק....</p><p>נכס אמיתי!</p></blockquote>
+<figcaption class="vx-who"><span class="vx-name">הדס דרוטמן</span><span class="vx-role">מטפלת זוגית ומאמנת אישית, ירושלים</span></figcaption>
+</figure>
+<figure class="vx-card vx-o4 lb-rv lb-d4">
+<blockquote class="vx-q"><p>היי רונית, אנחנו במפגש משפחתי ופתחתי את הערכה שלך.</p><p>מדהים, מרגש!</p><p>מעודד שיח כייפי</p><p>תודה!!!</p></blockquote>
+<figcaption class="vx-who"><span class="vx-name">אורלי שלמה ארויו</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="vx-cta" data-blk="c" data-in="{{ inCta }}">
+<p class="lb-rv">רוצים לחוות את זה בעצמכם?</p>
+<a class="lb-btn lb-btn--gold lb-rv lb-d1" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנת הערכה בוואטסאפ</a>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1338}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {} };
+    this.setRoot = (el) => { this.root = el; };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const b = this.state.inb;
+    const msg = 'היי רונית, אשמח להזמין את ערכת הקלפים ״לחיות טוב יותר - זה בידיים שלך״. אפשר לקבל פרטים על הזמנה ומשלוח?';
+    return {
+      motion: this.state.motion,
+      inR: b.r || '0', inH: b.h || '0', inL: b.l || '0', inCta: b.c || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '1338px',
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>

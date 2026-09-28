@@ -1,0 +1,210 @@
+/* לחיות טוב יותר — generated from tokens.json */
+:root, [data-theme="light"] {
+  --paper: #f9f4ea; /* Page and card ground. Sampled from the box-cover artwork. Every ink token reads on it. */
+  --paper-raised: #fffdf8; /* Card faces and panels lifted off `paper` (the printed card stock). Text: `ink`, `ink-soft`. */
+  --paper-sunken: #f1ebde; /* Recessed areas, table backgrounds behind cards, input wells. */
+  --linen: #e9e3d5; /* Bag/organza texture stand-in: dividers, secondary chips, disabled fills. */
+  --kraft: #c79c6b; /* The kraft box. Packaging panels, product tiles, photo frames. Text on it: `on-tint` only. */
+  --artwork-paper: #f9f4ea; /* The cream ground baked into the box-cover artwork and every Logos asset. Panels that frame that artwork use it in both themes so the artwork never sits on a dark field. */
+  --wood: #ddb28b; /* The wooden card stand. Small structural accents (card stand bar, table rules). Decorative only. */
+  --ink: #372806; /* Primary text and the dark end of the calligraphy gradient. On `paper`, `paper-raised`, `paper-sunken`, `olive-gold`, `kraft`, every gate wash. */
+  --ink-soft: #634d31; /* Secondary text, card body copy, the author line. On `paper` and `paper-raised`. */
+  --ink-muted: #6f6048; /* Captions, metadata, card numbers in the stamp. On `paper` and `paper-raised` (4.5:1 in both themes). */
+  --hairline: #e3dccb; /* 1px rules and card edges. Never for text. */
+  --hairline-strong: #8f8266; /* Outline buttons, input borders, focus-visible outer ring (3:1 on `paper`). */
+  --gold: #b78515; /* The gold end of the logo gradient. Display type 24px+ only on `paper` (3:1). Accents, stamp ink, active tabs. Never body text. */
+  --gold-deep: #7a5a0e; /* Gold that reads as small text: links, labels, the card number, `Button` text variant. 4.5:1 on `paper`. */
+  --olive-gold: #d8be73; /* The banner ground (sampled exact from the campaign banner). Hero panels, primary `Button` fill, the tote print. Same value in both themes; text on it: `on-tint`. */
+  --on-tint: #372806; /* Text and icons on every tinted fill that keeps its value across themes: `olive-gold`, `kraft`, and the six `gate-*-band` tokens. Dark ink in both themes; never `ink` there. */
+  --sage-100: #dfdec4; /* Faintest ring of the logo wash. Hover fills, selected rows, the cover's relief tint. */
+  --sage-200: #c7ca9e; /* Outer logo ring. Chips, tags, section backgrounds. */
+  --sage-300: #b7ba8a; /* Middle logo ring. Secondary button fill, progress tracks. */
+  --sage-400: #a6ab74; /* Innermost logo ring and the stroke of the decorative line drawings (butterfly, sunflower, branch). Decorative only — icons that carry meaning use `sage-700`. */
+  --sage-700: #5c6636; /* Sage as text: success messages, secondary button text, `GateChip` text on `sage-100`. 4.5:1 on `paper`. */
+  --gate-1-wash: #cfe7f0; /* שער 1 · התבוננות ושחרור (cards 1–11). Teal watercolour card face. Text on it: `ink`. */
+  --gate-1-band: #62a5c6; /* Gate 1 footer band and stamp tint. Same in both themes; text on it: `on-tint`, never white. */
+  --gate-1-deep: #1d6d8c; /* Gate 1 as text or icon on `paper`: chip text, links, the concentric-ring motif stroke. */
+  --gate-2-wash: #dde5ee; /* שער 2 · דיוק עצמי (cards 12–22). Grey-blue wash with the fingerprint motif. Text: `ink`. */
+  --gate-2-band: #9caab5; /* Gate 2 footer band. Same in both themes; text on it: `on-tint`. */
+  --gate-2-deep: #3d5468; /* Gate 2 as text or icon on `paper`; the fingerprint ink. */
+  --gate-3-wash: #e8dcea; /* שער 3 · איזון בעשייה (cards 23–33). Lavender wash — inferred from wide workshop photos; no close-up in the sources. Text: `ink`. */
+  --gate-3-band: #ccb4cb; /* Gate 3 footer band. Same in both themes; text on it: `on-tint`. */
+  --gate-3-deep: #6b4f70; /* Gate 3 as text or icon on `paper`. */
+  --gate-4-wash: #f7dbec; /* שער 4 · בריאות הגוף והנפש (cards 34–44). Pink watercolour with the sunflower. Text: `ink`. */
+  --gate-4-band: #e786cd; /* Gate 4 footer band and the hot-pink bloom. Text on it: `ink`. */
+  --gate-4-deep: #a3336f; /* Gate 4 as text or icon on `paper`. */
+  --gate-5-wash: #eddcc4; /* שער 5 · מערכות יחסים (cards 45–55). Ochre wash with the two birds on a branch. Text: `ink`. */
+  --gate-5-band: #b37230; /* Gate 5 footer band. Darkest band: `on-tint` reads at 3.65:1, so set band text in `label` (13px bold) only for the gate name, or lighten to `gate-5-wash` behind small text. */
+  --gate-5-deep: #7d4a17; /* Gate 5 as text or icon on `paper`. */
+  --gate-6-wash: #eeeccf; /* שער 6 · צמיחה והתרחבות (cards 56–66). Yellow-green wash with the olive tree. Text: `ink`. */
+  --gate-6-band: #afb66c; /* Gate 6 footer band. Same in both themes; text on it: `on-tint`. */
+  --gate-6-deep: #5f6a2e; /* Gate 6 as text or icon on `paper`. */
+  --danger: #9b3a2a; /* Errors and destructive actions as text on `paper`; pairs with a word, never colour alone. */
+  --danger-wash: #f6e0da; /* Error message background. Text on it: `danger`. */
+  --focus: #1d6d8c; /* The focus ring: 2px solid outside every focusable element, offset 2px. Same hue as `gate-1-deep`. */
+  --shadow-card: 0 1px 2px rgba(55,40,6,0.10), 0 10px 24px rgba(55,40,6,0.12); /* A card standing on the wooden stand. `PracticeCard`, `CardBack`, `ProductTile`. */
+  --shadow-lift: 0 18px 40px rgba(55,40,6,0.18); /* A card being picked up: hover on interactive cards, modals. */
+}
+[data-theme="dark"] {
+  --paper: #241d15;
+  --paper-raised: #2f271d;
+  --paper-sunken: #1b1510;
+  --linen: #3a3227;
+  --kraft: #c79c6b;
+  --artwork-paper: #f9f4ea;
+  --wood: #6b5137;
+  --ink: #f3ebdd;
+  --ink-soft: #d9cbb5;
+  --ink-muted: #b3a68f;
+  --hairline: #3d3428;
+  --hairline-strong: #7d7160;
+  --gold: #d9a83a;
+  --gold-deep: #e8c26a;
+  --olive-gold: #d8be73;
+  --on-tint: #241d15;
+  --sage-100: #3b4030;
+  --sage-200: #4f5a3f;
+  --sage-300: #69754f;
+  --sage-400: #8a9a63;
+  --sage-700: #c9d4a6;
+  --gate-1-wash: #1f3d4a;
+  --gate-1-band: #62a5c6;
+  --gate-1-deep: #8fd0ea;
+  --gate-2-wash: #283340;
+  --gate-2-band: #9caab5;
+  --gate-2-deep: #b6c8d8;
+  --gate-3-wash: #3a2e3e;
+  --gate-3-band: #ccb4cb;
+  --gate-3-deep: #d2bcd6;
+  --gate-4-wash: #45243a;
+  --gate-4-band: #e786cd;
+  --gate-4-deep: #f2a4d6;
+  --gate-5-wash: #3f3020;
+  --gate-5-band: #b37230;
+  --gate-5-deep: #e2ac6f;
+  --gate-6-wash: #363820;
+  --gate-6-band: #afb66c;
+  --gate-6-deep: #cdd78a;
+  --danger: #f0a08f;
+  --danger-wash: #3e211b;
+  --focus: #8fd0ea;
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.40), 0 10px 24px rgba(0,0,0,0.45);
+  --shadow-lift: 0 18px 40px rgba(0,0,0,0.55);
+}
+:root {
+  --space-1: 4px; /* Icon-to-label gap, stamp ring padding. */
+  --space-2: 8px; /* Chip padding, gap between questions' bullets and text. */
+  --space-3: 12px; /* Button vertical padding, gap inside a footer band. */
+  --space-4: 16px; /* Card inner padding, gap between cards in a row. */
+  --space-5: 24px; /* Card-back paragraph to questions gap, panel padding on phones. */
+  --space-6: 32px; /* Section padding, banner inner padding. */
+  --space-7: 48px; /* Between sections. */
+  --space-8: 64px; /* Hero top/bottom, cover margins. */
+  --card-w: 240px; /* Rendered card width. The printed card is 63 × 88 mm (5:7); keep that ratio: 240 × 336. */
+  --card-h: 336px; /* Rendered card height for `card-w`. */
+  --band-h: 36px; /* Height of the footer band on a card face. */
+  --stamp: 56px; /* Diameter of `GateStamp`. */
+  --radius-sm: 6px; /* Inputs, small chips, stamp inner. */
+  --radius-md: 10px; /* Buttons, panels, product tiles. */
+  --radius-card: 14px; /* The card's rounded corners (≈4 mm on the printed 63 mm card). `PracticeCard`, `CardBack`. */
+  --radius-box: 3px; /* The kraft box: near-square packaging panels and photo frames. */
+  --radius-round: 999px; /* `GateStamp`, `GateChip`, pill buttons. */
+  --font-script: "Solitreo", "Amatic SC", "Gveret Levin Alef Alef Alef", cursive;
+  --font-sans: "Assistant", "Heebo", "Noto Sans Hebrew", system-ui, sans-serif;
+  --text-display: 400 64px/64px var(--font-script); /* The brand name and hero lines. `ink` or the gold gradient (`ink`→`gold`). One per page. */
+  --text-card-title: 400 40px/44px var(--font-script); /* The practice on a card face (`PracticeCard`). Always `ink` on a gate wash. Two lines max. */
+  --text-script-sub: 400 26px/32px var(--font-script); /* Taglines under `display`, the box subtitle, pull quotes in Ronit's voice. */
+  --text-question: 400 22px/30px var(--font-script); /* The three reflection questions on a card back (`QuestionList`). `ink-soft`. */
+  --text-heading: 600 28px/36px var(--font-sans); /* Section headings on the web and in the guide. `ink`. */
+  --text-subheading: 600 20px/28px var(--font-sans); /* Sub-sections and card-back kickers. `ink`. */
+  --text-lead: 300 19px/30px var(--font-sans); /* Opening paragraph of a page or the welcome text. `ink-soft`. */
+  --text-body: 400 17px/28px var(--font-sans); /* Running text everywhere. `ink` on `paper`; ≤ 65 characters a line. */
+  --text-card-body: 400 15px/24px var(--font-sans); /* The explanation paragraph on a card back. `ink` on `paper-raised`. */
+  --text-label: 600 13px/18px var(--font-sans); /* Gate names in footer bands and chips, button text, form labels. `ink` or a gate `-deep`. */
+  --text-caption: 400 12px/16px var(--font-sans); /* Credits, the author line, photo captions, the card number. `ink-muted`. */
+  --text-numeral: 700 14px/14px var(--font-sans); /* The card number inside `GateStamp`. Tabular figures. `ink-muted` or `gold-deep`. */
+}
+.display {
+  font-family: var(--font-script);
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.card-title {
+  font-family: var(--font-script);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.script-sub {
+  font-family: var(--font-script);
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.question {
+  font-family: var(--font-script);
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.heading {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.subheading {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.lead {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  line-height: 30px;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.card-body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.numeral {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+}

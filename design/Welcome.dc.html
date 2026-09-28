@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ברוכים הבאים</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.welcome{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f4eee2 100%);background-size:320px 320px,100% 100%;padding-block:120px 132px}
+.welcome-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:88px;align-items:center}
+.welcome-note{position:relative;padding:62px 64px 56px;background:#fffdf8;border-radius:22px;box-shadow:0 40px 80px -48px rgba(55,40,6,.5),0 2px 6px rgba(55,40,6,.06);transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out)}
+.welcome-note:hover{transform:translateY(-4px);box-shadow:0 48px 90px -48px rgba(55,40,6,.55),0 2px 6px rgba(55,40,6,.06)}
+.welcome-note::before{content:"";position:absolute;inset:12px;border-radius:14px;border:1px solid rgba(183,133,21,.28);pointer-events:none}
+.welcome-note-bfly{position:absolute;top:-34px;left:46px;width:70px;transform:rotate(12deg);filter:drop-shadow(0 8px 10px rgba(55,40,6,.12))}
+.welcome-title{font-size:clamp(32px,3.2cqi,44px);line-height:1.18;max-width:18ch}
+.welcome-hi{margin-top:22px;font-family:var(--f-serif);font-size:27px;line-height:1.3;color:var(--gold-deep,#7a5a0e)}
+.welcome-body{margin-top:16px;display:grid;gap:10px;max-width:40ch}
+.welcome-sign{margin-top:34px;display:flex;flex-direction:column;gap:2px}
+.welcome-sign-line{font-size:18px;color:var(--ink-soft,#634d31)}
+.welcome-sign-name{font-family:var(--f-serif);font-size:34px;line-height:1.2;background:linear-gradient(100deg,#372806 0%,#7a5a0e 45%,#b78515 100%);-webkit-background-clip:text;background-clip:text;color:transparent;align-self:flex-start;padding-bottom:4px}
+.welcome-media{position:relative;width:min(470px,100%);margin-inline:auto 0}
+.welcome-wash{width:130%;top:-14%;right:-20%;opacity:.95}
+.welcome-photo{position:relative;z-index:1;margin:0;border-radius:30px;overflow:hidden;aspect-ratio:4/5;background:#e9e1cf;transform:rotate(1.6deg);box-shadow:0 44px 86px -44px rgba(55,40,6,.55),0 12px 24px -12px rgba(55,40,6,.22);
+  clip-path:inset(0 0 0 0 round 30px);transition:clip-path 1.6s var(--ease-out) .15s,transform 1.2s var(--ease-out)}
+.welcome-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.8s var(--ease-out)}
+.welcome-media:hover .welcome-photo{transform:rotate(.4deg) translateY(-4px)}
+.welcome-media:hover .welcome-photo img{transform:scale(1.06)}
+.lb[data-motion="on"] [data-in="0"] .welcome-photo{clip-path:inset(12% 12% 12% 12% round 30px)}
+.welcome-bfly{position:absolute;z-index:2;width:92px;top:-40px;left:-26px;transform:rotate(-14deg);filter:drop-shadow(0 10px 12px rgba(55,40,6,.14))}
+.lb[data-motion="on"] [data-in="0"] .welcome-bfly{opacity:0}
+.lb[data-motion="on"] [data-in="1"] .welcome-bfly{animation:welcome-fly 2.6s var(--ease-out) .35s both}
+@keyframes welcome-fly{
+  0%{opacity:0;transform:translate(260px,140px) rotate(22deg) scale(.7)}
+  35%{opacity:1;transform:translate(120px,-60px) rotate(-26deg) scale(.95)}
+  70%{transform:translate(20px,10px) rotate(4deg) scale(1)}
+  100%{opacity:1;transform:translate(0,0) rotate(-14deg) scale(1)}
+}
+@media (max-width: 760px){
+  .welcome{padding-block:76px 84px}
+  .welcome-grid{grid-template-columns:minmax(0,1fr) !important;gap:56px !important}
+  .welcome-note{padding:44px 26px 36px}
+  .welcome-note-bfly{width:54px;top:-26px;left:24px}
+  .welcome-hi{font-size:23px}
+  .welcome-sign-name{font-size:29px}
+  .welcome-media{width:min(330px,88%);margin-inline:auto}
+  .welcome-bfly{width:70px;top:-30px;left:-12px}
+}
+</style>
+</helmet>
+<section class="lb lb-sec welcome" id="welcome" dir="rtl" data-motion="{{ motion }}" aria-labelledby="welcome-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap welcome-grid" data-blk="w" data-in="{{ inW }}">
+<div class="lb-rv lb-rv--scale">
+<article class="welcome-note">
+<h2 id="welcome-title" class="welcome-title lb-rv lb-d1">ברוכים הבאים לשביל אל חיים טובים יותר</h2>
+<p class="welcome-hi lb-rv lb-d2">שמחה שאתם פה!</p>
+<div class="welcome-body">
+<p class="lb-lead lb-rv lb-d3">זוהי הזמנה לצאת למסע של גילוי והתפתחות עם האוצרות הנמצאים בידכם.</p>
+<p class="lb-lead lb-rv lb-d4">ריכזתי רבים מהם ב־66 קלפים מלאי תוכן, משמעות והשראה.</p>
+</div>
+<p class="welcome-sign lb-rv lb-d5"><span class="welcome-sign-line">מאחלת מסע מרתק ומצמיח,</span><span class="welcome-sign-name">רונית ליין</span></p>
+</article>
+</div>
+<div class="welcome-media">
+<div class="lb-wash welcome-wash" aria-hidden="true"><img src="/_blob/8bbf041f171e041357d3716362950003" alt=""></div>
+<div class="lb-rv lb-rv--fade lb-d2"><figure class="welcome-photo"><img src="/_blob/c25138b2f0d5b6644580000167726d72" alt="מבט מעבר לכתף: קופסת הערכה בידיים, בסלון מואר עם קערת פירות" width="960" height="1200"></figure></div>
+<img class="welcome-bfly" src="/_blob/d9aae751e8266c9debe7227b662c4e9d" alt="" width="267" height="320">
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":840}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {} };
+    this.setRoot = (el) => { this.root = el; };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    return {
+      motion: this.state.motion,
+      inW: this.state.inb.w || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '840px',
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>

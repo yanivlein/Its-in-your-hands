@@ -1,0 +1,372 @@
+/* זה בידיים שלך – התנהגות האתר.
+   נוצר מהעיצוב ב־Claude Design: כל בלוק כאן מקביל ללוגיקה של הסקשן באותו שם (design/<Name>.dc.html).
+   הנתונים (קלפים, שערים, כותרות) מוזרקים בבנייה מתוך קבצי העיצוב – לא לערוך את assets/js/site.js ידנית,
+   אלא את tools/src/site.js ואז להריץ python3 tools/build.py. */
+(function () {
+  'use strict';
+  window.__lbReady = true;
+
+  var DATA = /*@DATA@*/{};
+  var doc = document;
+  var root = doc.documentElement;
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var reduce = !!(mq && mq.matches);
+  var hasIO = 'IntersectionObserver' in window;
+  // the head script switched motion on (unless reduced motion, no IntersectionObserver or a very slow load)
+  var motion = root.getAttribute('data-motion') === 'on' && !reduce && hasIO;
+  if (!motion) root.removeAttribute('data-motion');
+
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function ref(sec, name) { return sec.querySelector('[data-ref="' + name + '"]'); }
+  function bound(sec, name) { return sec.querySelector('[data-bind="' + name + '"]'); }
+  function setText(el, text) { if (el && el.textContent !== text) el.textContent = text; }
+  function swap(el, pair, on) {
+    if (!el) return;
+    pair.forEach(function (c) { if (c !== on) el.classList.remove(c); });
+    if (on) el.classList.add(on);
+  }
+  function shuffle(a) {
+    var b = a.slice();
+    for (var i = b.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = b[i]; b[i] = b[j]; b[j] = t; }
+    return b;
+  }
+
+  var C = {};
+
+  /* ---------- Nav: תפריט עליון, פס התקדמות, סימון הסקשן הנוכחי, תפריט בטלפון ---------- */
+  C.Nav = function (sec) {
+    var links = ref(sec, 'links');
+    var pill = ref(sec, 'pill');
+    var prog = ref(sec, 'prog');
+    var menuBtn = ref(sec, 'menuBtn');
+    var panel = ref(sec, 'panel');
+    var navLinks = links ? links.querySelectorAll('a[href^="#"]') : [];
+    var st = { scrolled: false, open: false, active: '', bar: false };
+    var hovering = false;
+    var raf = 0;
+
+    function activeLink() { return links ? links.querySelector('a.is-active') : null; }
+    function movePill(el) {
+      if (!pill || !links) return;
+      if (!el || !el.offsetWidth) { pill.style.opacity = '0'; return; }
+      var lr = links.getBoundingClientRect(), r = el.getBoundingClientRect();
+      pill.style.width = r.width.toFixed(1) + 'px';
+      pill.style.transform = 'translateX(' + (r.left - lr.left).toFixed(1) + 'px)';
+      pill.style.opacity = '1';
+    }
+    function render() {
+      sec.classList.toggle('is-scrolled', st.scrolled);
+      sec.classList.toggle('is-open', st.open);
+      sec.classList.toggle('show-bar', st.bar);
+      each(navLinks, function (a) {
+        var on = !!st.active && a.getAttribute('href') === '#' + st.active;
+        a.classList.toggle('is-active', on);
+        a.setAttribute('aria-current', on ? 'location' : 'false');
+      });
+      if (menuBtn) {
+        menuBtn.setAttribute('aria-expanded', st.open ? 'true' : 'false');
+        menuBtn.setAttribute('aria-label', st.open ? 'סגירת התפריט' : 'פתיחת התפריט');
+      }
+    }
+    function update() {
+      var y = window.scrollY || window.pageYOffset || 0;
+      var vh = window.innerHeight;
+      var sh = root.scrollHeight;
+      var p = sh - vh > 0 ? Math.min(1, Math.max(0, y / (sh - vh))) : 0;
+      if (prog) prog.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+      var active = '';
+      each(doc.querySelectorAll('[data-nav]'), function (s) {
+        var r = s.getBoundingClientRect();
+        if (r.top <= vh * 0.38 && r.bottom > vh * 0.2) active = s.getAttribute('data-nav');
+      });
+      var scrolled = y > 24;
+      var bar = y > vh * 0.8;
+      if (scrolled !== st.scrolled || active !== st.active || bar !== st.bar) {
+        var moved = active !== st.active;
+        st.scrolled = scrolled; st.active = active; st.bar = bar;
+        render();
+        if (moved && !hovering) setTimeout(function () { if (!hovering) movePill(activeLink()); }, 60);
+      }
+    }
+    function onScroll() {
+      if (raf) return;
+      raf = requestAnimationFrame(function () { raf = 0; update(); });
+    }
+    function close(silent) {
+      if (!st.open) return;
+      st.open = false;
+      render();
+      if (!silent) setTimeout(function () { if (menuBtn) menuBtn.focus(); }, 60);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      onScroll();
+      if (st.open && window.innerWidth > 1200) close(true);
+      setTimeout(function () { if (!hovering) movePill(activeLink()); }, 80);
+    });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { if (!hovering) movePill(activeLink()); });
+    render();
+    update();
+    setTimeout(update, 1200);
+
+    return {
+      onLinkEnter: function (e, el) { hovering = true; movePill(el); },
+      onLinksLeave: function () { hovering = false; movePill(activeLink()); },
+      toggle: function () {
+        st.open = !st.open;
+        render();
+        if (st.open) setTimeout(function () { var a = panel && panel.querySelector('a'); if (a) a.focus(); }, 120);
+      },
+      close: function () { close(false); },
+      onSheetKey: function (e) { if (e.key === 'Escape') { e.stopPropagation(); close(false); } }
+    };
+  };
+
+  /* ---------- Hero: תזוזה עדינה של התמונה עם העכבר ---------- */
+  C.Hero = function (sec) {
+    var stage = ref(sec, 'stage');
+    return {
+      onMove: function (e) {
+        if (!stage || reduce) return;
+        var r = stage.getBoundingClientRect();
+        var mx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+        var my = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
+        stage.style.setProperty('--mx', mx.toFixed(3));
+        stage.style.setProperty('--my', my.toFixed(3));
+      },
+      onLeave: function () {
+        if (!stage) return;
+        stage.style.setProperty('--mx', '0');
+        stage.style.setProperty('--my', '0');
+      }
+    };
+  };
+
+  /* ---------- Kit: ששת השערים מחוברים למניפת הקלפים ---------- */
+  C.Kit = function (sec) {
+    var g = 1;
+    var intro = motion;
+    var stage = sec.querySelector('.kf-stage');
+    var glow = sec.querySelector('.kf-glow');
+    function render() {
+      each(sec.querySelectorAll('[data-g]'), function (el) {
+        var on = +el.getAttribute('data-g') === g;
+        el.classList.toggle('is-on', on);
+        el.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      if (glow && DATA.kitGlow) glow.style.backgroundColor = DATA.kitGlow[g];
+      if (stage) stage.classList.toggle('is-intro', intro);
+    }
+    render();
+    return {
+      onCard: function (e, el) { g = +el.getAttribute('data-g'); intro = false; render(); },
+      reveal: function (blk) { if (blk === 'f') setTimeout(function () { intro = false; render(); }, 1700); }
+    };
+  };
+
+  /* ---------- Taste: שליפה והיפוך של קלף ---------- */
+  C.Taste = function (sec) {
+    var CARDS = DATA.tasteCards || [];
+    var GATES = DATA.tasteGates || {};
+    if (!CARDS.length) return {};
+    var all = CARDS.map(function (c, i) { return i; });
+    var order = [0].concat(shuffle(all.slice(1)));
+    var pos = 0, flipped = false, deal = '', deck = '', waiting = false, loaded = false;
+    var tilt = ref(sec, 'tilt');
+    var deckEl = sec.querySelector('.tc-deck');
+    var slot = sec.querySelector('.tc-slot');
+    var card = sec.querySelector('.tc-card');
+    var front = sec.querySelector('.tc-front');
+    var back = sec.querySelector('.tc-back');
+    var frontImg = front && front.querySelector('img');
+    var backImg = back && back.querySelector('img');
+    var dots = sec.querySelectorAll('.tc-gdot');
+
+    function setSrc(img, src) { if (img && img.getAttribute('src') !== src) img.setAttribute('src', src); }
+    function render(live) {
+      var c = CARDS[order[pos]], g = GATES[c.g] || {};
+      setSrc(frontImg, c.face);
+      setSrc(backImg, c.back);
+      setText(bound(sec, 'card.x'), c.x);
+      setText(bound(sec, 'card.q1'), c.q[0]);
+      setText(bound(sec, 'card.q2'), c.q[1]);
+      setText(bound(sec, 'card.q3'), c.q[2]);
+      if (card) {
+        card.setAttribute('aria-label', 'קלף ' + c.n + ', ' + c.t + ', שער ' + g.name);
+        card.classList.toggle('is-flipped', flipped);
+      }
+      if (front) front.setAttribute('aria-hidden', flipped ? 'true' : 'false');
+      if (back) back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+      setText(bound(sec, 'flipLabel'), flipped ? 'חזרה לחזית' : 'הפכו את הקלף');
+      swap(slot, ['deal-a', 'deal-b'], deal);
+      swap(deckEl, ['sh-a', 'sh-b'], deck);
+      each(dots, function (d, i) { d.classList.toggle('is-on', i + 1 === +c.g); });
+      if (live !== undefined) setText(bound(sec, 'live'), live);
+    }
+    function preload() {
+      if (loaded) return;
+      loaded = true;
+      CARDS.forEach(function (c) { var a = new Image(); a.src = c.face; var b = new Image(); b.src = c.back; });
+    }
+    // the other cards load once the section is close, so the first draw is instant
+    if (hasIO) {
+      var near = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) { preload(); near.disconnect(); }
+      }, { rootMargin: '600px 0px' });
+      near.observe(sec);
+    } else {
+      setTimeout(preload, 3500);
+    }
+
+    return {
+      draw: function () {
+        if (waiting) return;
+        preload();
+        var go = function () {
+          waiting = false;
+          var p = pos + 1;
+          if (p >= order.length) {
+            var last = order[order.length - 1];
+            do { order = shuffle(all); } while (order[0] === last);
+            p = 0;
+          }
+          pos = p;
+          flipped = false;
+          deal = deal === 'deal-a' ? 'deal-b' : 'deal-a';
+          deck = deck === 'sh-a' ? 'sh-b' : 'sh-a';
+          var c = CARDS[order[pos]];
+          render('נשלף קלף ' + c.n + ': ' + c.t + ', מהשער ' + (GATES[c.g] || {}).name + '.');
+        };
+        if (flipped && !reduce) { flipped = false; waiting = true; render(); setTimeout(go, 420); }
+        else go();
+      },
+      flip: function () {
+        var c = CARDS[order[pos]];
+        flipped = !flipped;
+        render(flipped ? 'הצד השני של הקלף ' + c.t + ': הרחבה ושלוש שאלות.' : 'הצד של הפרקטיקה: ' + c.t);
+      },
+      onTilt: function (e) {
+        if (!tilt || reduce) return;
+        var r = tilt.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        var k = flipped ? 0.35 : 1;
+        tilt.style.setProperty('--ry', ((px - 0.5) * 14 * k).toFixed(2) + 'deg');
+        tilt.style.setProperty('--rx', ((0.5 - py) * 12 * k).toFixed(2) + 'deg');
+        tilt.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+        tilt.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+      },
+      onTiltEnd: function () {
+        if (!tilt) return;
+        tilt.style.setProperty('--rx', '0deg');
+        tilt.style.setProperty('--ry', '0deg');
+      }
+    };
+  };
+
+  /* ---------- About: תזוזה קלה של התמונות בגלילה ---------- */
+  C.About = function (sec) {
+    var media = ref(sec, 'media');
+    if (!motion || !media) return {};
+    var raf = 0;
+    function onScroll() {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = 0;
+        var r = media.getBoundingClientRect();
+        var vh = window.innerHeight || 800;
+        var p = Math.max(-1, Math.min(1, ((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2)));
+        media.style.setProperty('--sp', p.toFixed(3));
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return {};
+  };
+
+  /* ---------- How: הרעיון שבאמצע המסך מחליף את התמונה והמונה ---------- */
+  C.How = function (sec) {
+    var list = ref(sec, 'list');
+    var counter = sec.querySelector('.how-counter');
+    var cur = 1, k = '';
+    function render() {
+      each(sec.querySelectorAll('.how-item[data-i]'), function (li) { li.classList.toggle('is-active', +li.getAttribute('data-i') === cur); });
+      var ph = DATA.howPhoto ? DATA.howPhoto[cur] : '';
+      each(sec.querySelectorAll('.how-ph[data-ph]'), function (img) { img.classList.toggle('is-on', img.getAttribute('data-ph') === ph); });
+      setText(bound(sec, 'cur'), String(cur));
+      if (DATA.howTitles) setText(bound(sec, 'curTitle'), DATA.howTitles[cur - 1]);
+      swap(counter, ['k-a', 'k-b'], k);
+    }
+    if (motion && list) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var i = +e.target.getAttribute('data-i');
+          if (i && i !== cur) { cur = i; k = k === 'k-a' ? 'k-b' : 'k-a'; render(); }
+        });
+      }, { rootMargin: '-42% 0px -48% 0px', threshold: 0 });
+      requestAnimationFrame(function () { each(list.querySelectorAll('[data-i]'), function (el) { spy.observe(el); }); });
+    }
+    return {};
+  };
+
+  /* ---------- Faq: אקורדיון, שאלה אחת פתוחה בכל פעם ---------- */
+  C.Faq = function (sec) {
+    var open = 1;
+    function render() {
+      each(sec.querySelectorAll('[data-q]'), function (btn) {
+        var on = +btn.getAttribute('data-q') === open;
+        btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+        var item = btn.closest('.fq-item');
+        if (item) item.classList.toggle('is-open', on);
+      });
+    }
+    return {
+      onQ: function (e, el) { var q = +el.getAttribute('data-q'); open = open === q ? 0 : q; render(); }
+    };
+  };
+
+  /* ---------- חשיפה בגלילה (כמו בעיצוב: כל בלוק data-blk נחשף כשהוא נכנס למסך) ---------- */
+  function reveal(sec, ctrl) {
+    if (!motion) return;
+    var blocks = sec.querySelectorAll('[data-blk]');
+    if (!blocks.length) return;
+    var opt = (sec.getAttribute('data-reveal') || '0px 0px -12% 0px|0.12').split('|');
+    function show(b) {
+      if (b.getAttribute('data-in') === '1') return;
+      b.setAttribute('data-in', '1');
+      if (ctrl && ctrl.reveal) ctrl.reveal(b.getAttribute('data-blk'));
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: opt[0], threshold: +opt[1] });
+    requestAnimationFrame(function () { each(blocks, function (b) { io.observe(b); }); });
+    setTimeout(function () {
+      each(blocks, function (b) {
+        var r = b.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) show(b);
+      });
+    }, 2500);
+  }
+
+  /* ---------- חיבור האירועים (onClick וכו' מהעיצוב נשמרו כ־data-on-*) ---------- */
+  var EVENTS = ['click', 'mouseenter', 'mouseleave', 'mousemove', 'focus', 'blur', 'keydown'];
+  function wire(sec, ctrl) {
+    EVENTS.forEach(function (ev) {
+      var attr = 'data-on-' + ev;
+      var els = Array.prototype.slice.call(sec.querySelectorAll('[' + attr + ']'));
+      if (sec.hasAttribute(attr)) els.push(sec);
+      els.forEach(function (el) {
+        var fn = ctrl[el.getAttribute(attr)];
+        if (typeof fn === 'function') el.addEventListener(ev, function (e) { fn(e, el); });
+      });
+    });
+  }
+
+  each(doc.querySelectorAll('[data-sec]'), function (sec) {
+    var make = C[sec.getAttribute('data-sec')];
+    var ctrl = {};
+    try { ctrl = make ? make(sec) || {} : {}; } catch (err) { if (window.console) console.error(err); }
+    wire(sec, ctrl);
+    reveal(sec, ctrl);
+  });
+})();

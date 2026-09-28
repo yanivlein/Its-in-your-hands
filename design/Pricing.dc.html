@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>כמה זה עולה ואיך משלמים?</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.pc{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(70% 60% at 80% 20%,rgba(255,253,248,.9) 0%,rgba(241,235,222,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 132px}
+.pc-head{max-width:760px}
+.pc-head .lb-h2{margin-top:12px}
+.pc-grid{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:36px;align-items:start;margin-top:52px}
+/* the kit */
+.pc-kit{position:relative;padding:40px 40px 38px;border-radius:30px;background:#fffdf8;box-shadow:0 44px 90px -56px rgba(55,40,6,.65),0 2px 6px rgba(55,40,6,.05);overflow:hidden;isolation:isolate}
+.pc-kit::before{content:"";position:absolute;inset:12px;border-radius:22px;border:1px solid rgba(183,133,21,.3);pointer-events:none}
+.pc-kit-wash{width:420px;top:-120px;left:-120px;opacity:.55}
+.pc-fan{position:relative;height:190px;margin-bottom:10px}
+.pc-fan img{position:absolute;top:10px;left:50%;width:118px;height:auto;margin-left:-59px;border-radius:9px;box-shadow:0 18px 30px -18px rgba(55,40,6,.65),0 3px 8px -4px rgba(55,40,6,.25);transform-origin:50% 110%;transition:transform 1.1s var(--ease-out)}
+.pc-fan img:nth-child(1){transform:translateX(-78px) rotate(-12deg)}
+.pc-fan img:nth-child(2){transform:translateX(78px) rotate(12deg)}
+.pc-fan img:nth-child(3){transform:translateY(-6px);z-index:2}
+.pc-kit:hover .pc-fan img:nth-child(1){transform:translateX(-96px) rotate(-16deg)}
+.pc-kit:hover .pc-fan img:nth-child(2){transform:translateX(96px) rotate(16deg)}
+.pc-kit:hover .pc-fan img:nth-child(3){transform:translateY(-14px) scale(1.04)}
+.lb[data-motion="on"] [data-in="0"] .pc-fan img{transform:translateY(30px) rotate(0) scale(.9);transition:none}
+.pc-kicker{font-size:14px;font-weight:700;letter-spacing:.18em;color:var(--gold-deep,#7a5a0e);text-align:center}
+.pc-kit h3{margin-top:8px;font-size:30px;line-height:1.2;text-align:center}
+.pc-price{display:flex;align-items:baseline;justify-content:center;gap:16px;margin-top:18px}
+.pc-now{font-family:var(--f-serif);font-size:64px;line-height:1;font-weight:500;color:var(--ink,#372806)}
+.pc-cur{font-size:.55em;font-weight:400}
+.pc-was{font-size:17px;color:var(--ink-muted,#6f6048)}
+.pc-was s{text-decoration-thickness:1.5px;text-decoration-color:rgba(122,90,14,.7)}
+.pc-incl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin:26px 0 0;padding-top:22px;border-top:1px solid rgba(55,40,6,.12)}
+.pc-incl li{position:relative;padding-inline-start:22px;font-size:17px;line-height:1.5;color:var(--ink,#372806)}
+.pc-incl li::before{content:"";position:absolute;right:3px;top:.28em;width:6px;height:11px;border-right:2px solid #5c6636;border-bottom:2px solid #5c6636;transform:rotate(45deg)}
+.pc-kit .lb-btn{width:100%;margin-top:28px}
+/* other options */
+.pc-list{padding:34px 36px 30px;border-radius:30px;background:rgba(255,253,248,.62);border:1px solid rgba(55,40,6,.09)}
+.pc-list-h{font-size:26px;line-height:1.2}
+.pc-rows{margin-top:14px}
+.pc-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:18px;padding:16px 0;border-bottom:1px solid rgba(55,40,6,.11);transition:background-color .3s}
+.pc-row:last-child{border-bottom:0}
+.pc-name{font-size:19px;font-weight:600;line-height:1.35;color:var(--ink,#372806)}
+.pc-name small{display:block;font-size:15.5px;font-weight:400;color:var(--ink-muted,#6f6048)}
+.pc-amt{font-family:var(--f-serif);font-size:27px;line-height:1;color:var(--ink,#372806);white-space:nowrap}
+.pc-amt span{font-size:.62em}
+.pc-order{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(92,102,54,.4);color:#4b5429;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background-color .25s,color .25s,border-color .25s,transform .3s var(--ease-out)}
+.pc-order svg{width:17px;height:17px}
+.pc-order:hover{background:#5c6636;border-color:#5c6636;color:#fffdf8;transform:translateY(-2px)}
+.pc-info{display:grid;gap:14px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(55,40,6,.12)}
+.pc-info li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;align-items:start;font-size:17px;line-height:1.6;color:var(--ink-soft,#634d31)}
+.pc-info b{display:block;font-weight:700;color:var(--ink,#372806)}
+.pc-ic{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(166,171,116,.26);color:#372806}
+.pc-ic svg{width:20px;height:20px}
+@media (max-width: 1020px){
+  .pc-grid{grid-template-columns:minmax(0,1fr) !important;max-width:640px;margin-inline:auto}
+}
+@media (max-width: 760px){
+  .pc{padding-block:84px 92px}
+  .pc-head{text-align:center}
+  .pc-head .lb-eyebrow{justify-content:center}
+  .pc-grid{margin-top:34px;gap:20px}
+  .pc-kit{padding:30px 22px 26px}
+  .pc-fan{height:160px}
+  .pc-fan img{width:98px;margin-left:-49px}
+  .pc-fan img:nth-child(1){transform:translateX(-62px) rotate(-12deg)}
+  .pc-fan img:nth-child(2){transform:translateX(62px) rotate(12deg)}
+  .pc-now{font-size:54px}
+  .pc-incl{grid-template-columns:minmax(0,1fr) !important}
+  .pc-list{padding:26px 20px 22px}
+  .pc-row{grid-template-columns:minmax(0,1fr) auto;row-gap:10px}
+  .pc-order{grid-column:1 / -1;justify-content:center}
+}
+</style>
+</helmet>
+<section class="lb lb-sec pc" id="pricing" data-nav="pricing" dir="rtl" data-motion="{{ motion }}" aria-labelledby="pc-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap">
+<header class="pc-head" data-blk="h" data-in="{{ inH }}">
+<p class="lb-eyebrow lb-rv">הזמנה</p>
+<h2 id="pc-title" class="lb-h2 lb-rv lb-d1">כמה זה עולה ואיך משלמים?</h2>
+</header>
+<div class="pc-grid">
+<article class="pc-kit" data-blk="k" data-in="{{ inK }}" aria-labelledby="pc-kit-title">
+<div class="lb-wash pc-kit-wash" aria-hidden="true"><img src="/_blob/141d0dad3dc3bad315fe8a700fa8c70d" alt=""></div>
+<div class="pc-fan" aria-hidden="true">
+<img src="/_blob/4ce6bcb0d68a579c2e5e850c8a06bf7c" alt="" width="680" height="952">
+<img src="/_blob/4decc336a8f59173bd8a3f2c9e514835" alt="" width="680" height="952">
+<img src="/_blob/894a86b3fd3fee7c3c9512b58fac91d7" alt="" width="680" height="952">
+</div>
+<p class="pc-kicker lb-rv">הערכה המלאה</p>
+<h3 id="pc-kit-title" class="lb-rv lb-d1">לחיות טוב יותר – זה בידיים שלך</h3>
+<p class="pc-price lb-rv lb-d2"><span class="pc-now">250 <span class="pc-cur">₪</span></span><span class="pc-was">במקום <s>266 ₪</s></span></p>
+<ul class="pc-incl lb-rv lb-d3" aria-label="מה בערכה">
+<li>66 קלפים בשישה שערים</li>
+<li>קלפי הנחיות לשימוש</li>
+<li>סטנד מעץ להעמדת קלף</li>
+<li>קופסא קשיחה ושקית בד כותנה</li>
+</ul>
+<a class="lb-btn lb-btn--wa lb-rv lb-d4" href="{{ wa.kit }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנת הערכה בוואטסאפ</a>
+</article>
+<div class="pc-list" data-blk="l" data-in="{{ inL }}">
+<h3 class="pc-list-h lb-rv">אפשרויות נוספות</h3>
+<ul class="pc-rows">
+<li class="pc-row lb-rv lb-d1"><p class="pc-name">חבילת קלפים של שער אחד<small>11 קלפים מתוך הערכה</small></p><p class="pc-amt">66 <span>₪</span></p><a class="pc-order" href="{{ wa.gate }}" target="_blank" rel="noopener" aria-label="להזמנת חבילת קלפים של שער אחד בוואטסאפ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנה</a></li>
+<li class="pc-row lb-rv lb-d2"><p class="pc-name">מחברת לתיעוד המסע האישי</p><p class="pc-amt">35 <span>₪</span></p><a class="pc-order" href="{{ wa.book }}" target="_blank" rel="noopener" aria-label="להזמנת מחברת בוואטסאפ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנה</a></li>
+<li class="pc-row lb-rv lb-d3"><p class="pc-name">תיק משא אישי</p><p class="pc-amt">45 <span>₪</span></p><a class="pc-order" href="{{ wa.bag }}" target="_blank" rel="noopener" aria-label="להזמנת תיק משא אישי בוואטסאפ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנה</a></li>
+<li class="pc-row lb-rv lb-d4"><p class="pc-name">מחברת + תיק</p><p class="pc-amt">75 <span>₪</span></p><a class="pc-order" href="{{ wa.bookbag }}" target="_blank" rel="noopener" aria-label="להזמנת מחברת ותיק בוואטסאפ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנה</a></li>
+<li class="pc-row lb-rv lb-d5"><p class="pc-name">ערכה מלאה + מחברת</p><p class="pc-amt">275 <span>₪</span></p><a class="pc-order" href="{{ wa.kitbook }}" target="_blank" rel="noopener" aria-label="להזמנת ערכה מלאה ומחברת בוואטסאפ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להזמנה</a></li>
+</ul>
+<ul class="pc-info lb-rv lb-d6">
+<li><span class="pc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.4"></circle></svg></span><p><b>איסוף עצמי</b>ניתן לאיסוף מירושלים ללא תשלום.</p></li>
+<li><span class="pc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"></path><path d="M3.5 7.5L12 12l8.5-4.5"></path><path d="M12 12v9"></path></svg></span><p><b>משלוח</b>דמי משלוח בדואר ישראל כ־25 ₪, בתיאום.</p></li>
+<li><span class="pc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"></rect><path d="M10.5 18.5h3"></path></svg></span><p><b>תשלום</b>ניתן לשלם בביט או בפייבוקס. פרטי ההזמנה, המשלוח והתשלום יתואמו בשיחה עם רונית.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1175}}'>
+const MSG = {
+  kit: 'היי רונית, אשמח להזמין את הערכה המלאה במחיר 250 ₪. איך מתקדמים?',
+  gate: 'היי רונית, אשמח להזמין שער אחד מהערכה במחיר 66 ₪. אפשר להתייעץ על בחירת השער?',
+  book: 'היי רונית, אשמח להזמין מחברת במחיר 35 ₪. אפשר לקבל פרטים?',
+  bag: 'היי רונית, אשמח להזמין את התיק במחיר 45 ₪. אפשר לקבל פרטים?',
+  bookbag: 'היי רונית, אשמח להזמין מחברת ותיק במחיר 75 ₪. איך מתקדמים?',
+  kitbook: 'היי רונית, אשמח להזמין ערכה מלאה ומחברת במחיר 275 ₪. איך מתקדמים?'
+};
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {} };
+    this.setRoot = (el) => { this.root = el; };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const b = this.state.inb;
+    const wa = {};
+    Object.keys(MSG).forEach((k) => { wa[k] = 'https://wa.me/972507428319?text=' + encodeURIComponent(MSG[k]); });
+    return {
+      motion: this.state.motion,
+      inH: b.h || '0', inK: b.k || '0', inL: b.l || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '1175px',
+      wa: wa,
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>

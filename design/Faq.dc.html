@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>שאלות נפוצות</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.fq{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:124px 132px}
+.fq-grid{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);column-gap:80px;align-items:start}
+.fq-side{position:sticky;top:calc(var(--nav-h) + 40px)}
+.fq-side .lb-h2{margin-top:12px}
+.fq-ask{margin-top:30px;padding:26px 26px 28px;border-radius:22px;background:linear-gradient(120deg,rgba(166,171,116,.2),rgba(216,190,115,.18));border:1px solid rgba(92,102,54,.18)}
+.fq-ask p{font-family:var(--f-serif);font-size:22px;line-height:1.4;color:var(--ink,#372806)}
+.fq-ask .lb-btn{margin-top:16px}
+.fq-list{border-top:1px solid rgba(55,40,6,.16)}
+.fq-item{border-bottom:1px solid rgba(55,40,6,.16)}
+.fq-h{margin:0;font:inherit}
+.fq-btn{width:100%;display:grid;grid-template-columns:44px minmax(0,1fr) 36px;align-items:center;gap:14px;padding:26px 4px;text-align:right;transition:color .3s}
+.fq-n{font-family:var(--f-serif);font-size:22px;color:var(--gold,#b78515);font-variant-numeric:tabular-nums}
+.fq-q{font-family:var(--f-serif);font-size:25px;line-height:1.35;color:var(--ink,#372806);transition:transform .5s var(--ease-out)}
+.fq-btn:hover .fq-q{transform:translateX(-4px)}
+.fq-plus{position:relative;width:36px;height:36px;border-radius:50%;border:1px solid rgba(55,40,6,.22);transition:background-color .35s,border-color .35s,transform .6s var(--ease-out)}
+.fq-plus::before,.fq-plus::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:1.6px;margin:-.8px 0 0 -6.5px;background:#372806;border-radius:2px;transition:transform .5s var(--ease-out)}
+.fq-plus::after{transform:rotate(90deg)}
+.fq-item.is-open .fq-plus{background:#d8be73;border-color:transparent;transform:rotate(180deg)}
+.fq-item.is-open .fq-plus::after{transform:rotate(0deg)}
+.fq-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .6s var(--ease-out),visibility 0s linear .6s}
+.fq-item.is-open .fq-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .6s var(--ease-out),visibility 0s}
+.fq-panel-in{overflow:hidden;min-height:0}
+.fq-a{padding:0 58px 30px 48px;display:grid;gap:12px}
+.fq-a p{font-size:19px;line-height:1.9;color:var(--ink-soft,#634d31);opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-soft) .1s,transform .6s var(--ease-out) .1s}
+.fq-item.is-open .fq-a p{opacity:1;transform:none}
+@media (max-width: 900px){
+  .fq{padding-block:84px 92px}
+  .fq-grid{grid-template-columns:minmax(0,1fr) !important;row-gap:30px}
+  .fq-side{position:relative;top:auto;text-align:center}
+  .fq-side .lb-eyebrow{justify-content:center}
+  .fq-ask{display:none}
+  .fq-btn{grid-template-columns:30px minmax(0,1fr) 32px;gap:10px;padding:20px 2px}
+  .fq-q{font-size:20.5px}
+  .fq-n{font-size:19px}
+  .fq-a{padding:0 2px 24px 40px}
+  .fq-a p{font-size:18px}
+  .fq-ask-m{display:block;margin-top:26px;text-align:center}
+  .fq-ask-m .lb-btn{width:100%}
+}
+@media (min-width: 901px){ .fq-ask-m{display:none} }
+@media (prefers-reduced-motion: reduce){ .fq-a p{opacity:1!important;transform:none!important} }
+</style>
+</helmet>
+<section class="lb lb-sec fq" id="faq" data-nav="faq" dir="rtl" data-motion="{{ motion }}" aria-labelledby="fq-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap fq-grid">
+<div class="fq-side" data-blk="h" data-in="{{ inH }}">
+<p class="lb-eyebrow lb-rv">שאלות ותשובות</p>
+<h2 id="fq-title" class="lb-h2 lb-rv lb-d1">שאלות נפוצות</h2>
+<div class="fq-ask lb-rv lb-d2">
+<p>יש לכם שאלה נוספת? אשמח לענות.</p>
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>לשאלה בוואטסאפ</a>
+</div>
+</div>
+<div data-blk="l" data-in="{{ inL }}">
+<div class="fq-list lb-rv">
+<div class="fq-item {{ q1.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q1.exp }}" aria-controls="fq-a1" data-q="1" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">01</span><span class="fq-q">אני לא עוסקת בטיפול או אימון, האם הקלפים רלוונטיים לי?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a1"><div class="fq-panel-in"><div class="fq-a"><p>הקלפים מתאימים מאוד לתהליך התפתחות אישי וישרתו אותך בלי קשר לתחום המקצועי שלך מאחר והם עוסקים במודעות עצמית ובכלים לעשות בחירות מיטיבות בחייך. תוכלי להשתמש בהם גם במפגשים חברתיים או משפחתיים.</p></div></div></div>
+</div>
+<div class="fq-item {{ q2.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q2.exp }}" aria-controls="fq-a2" data-q="2" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">02</span><span class="fq-q">אני מתחברת לקלפים ורוצה להתנסות איתם עם בני משפחתי אבל חוששת מתגובות שליליות, איך אפשר לגייס שיתוף פעולה כשיש התנגדות בסיסית?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a2"><div class="fq-panel-in"><div class="fq-a"><p>הקלפים מתאימים ואפשריים לשימוש עם כל אחד. לעיתים עדיף להתחיל בשליפה אקראית של קלף על פני בחירת קלף מודעת כדי להקליל את הסיטואציה וליצור הבשלה מצד אנשים סקפטיים או שאינם מורגלים לפעילות מעין זו.</p></div></div></div>
+</div>
+<div class="fq-item {{ q3.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q3.exp }}" aria-controls="fq-a3" data-q="3" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">03</span><span class="fq-q">מה קורה אם רכשתי ערכה שהגיעה אלי והתחרטתי?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a3"><div class="fq-panel-in"><div class="fq-a"><p>כל עוד שום דבר לא נפגע באריזה ולא נפתחה שקית הקלפים, ניתן להחזירה ולקבל החזר מלא.</p></div></div></div>
+</div>
+<div class="fq-item {{ q4.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q4.exp }}" aria-controls="fq-a4" data-q="4" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">04</span><span class="fq-q">יש המון ערכות קלפים בשוק, מה מיוחד בערכה הזו?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a4"><div class="fq-panel-in"><div class="fq-a"><p>בשונה מקלפים השלכתיים המבוססים בעיקר על ויזואליות (איורים, תמונות, סמלים, מילים או משפט בודד) שדורשים מהמשתמש לתת פרשנות מתוך עולמו הפנימי, ערכה זו מציעה פרקטיקות וכלים לאיכות חיים באמצעות טקסטים מדויקים ומזוקקים (מבלי לוותר על איורים מרהיבים). גם הטקסטים הללו מזמינים לחשיבה ויכולים לעורר תגובות מגוונות אך הבסיס שלהם כבר מפורש. בנוסף כל קלף כולל גם 3 שאלות פתוחות לחקירת הרעיון ולהנעה לפעולה.</p><p>זו ערכה שמדברת בגובה העיניים ומעניקה כלים קונקרטיים לעבודה עצמית, בלי לנחש ״למה הכוונה״.</p></div></div></div>
+</div>
+</div>
+<div class="fq-ask fq-ask-m">
+<p>יש לכם שאלה נוספת? אשמח לענות.</p>
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>לשאלה בוואטסאפ</a>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":824}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {}, open: 1 };
+    this.setRoot = (el) => { this.root = el; };
+    this.onQ = (e) => {
+      const q = +e.currentTarget.getAttribute('data-q');
+      this.setState((s) => ({ open: s.open === q ? 0 : q }));
+    };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const s = this.state;
+    const b = s.inb;
+    const q = (k) => ({ cls: s.open === k ? 'is-open' : '', exp: s.open === k ? 'true' : 'false' });
+    const msg = 'היי רונית, הגעתי דרך עמוד ערכת הקלפים ואשמח לקבל פרטים.';
+    return {
+      motion: s.motion,
+      inH: b.h || '0', inL: b.l || '0',
+      q1: q(1), q2: q(2), q3: q(3), q4: q(4),
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '824px',
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      onQ: this.onQ,
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>

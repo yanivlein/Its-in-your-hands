@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>רעיונות לשימוש בקלפים</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.how{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(60% 50% at 90% 6%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%;padding-block:128px 136px}
+.how-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);grid-template-areas:"head side" "list side";column-gap:88px;align-items:start}
+.how-head{grid-area:head}
+.how-head .lb-h2{margin-top:12px}
+.how-head .lb-lead{margin-top:18px;max-width:36ch}
+.how-list{grid-area:list;margin-top:44px;border-top:1px solid rgba(55,40,6,.14)}
+.how-item{position:relative;display:grid;grid-template-columns:76px minmax(0,1fr);column-gap:10px;padding:30px 0 32px;border-bottom:1px solid rgba(55,40,6,.14)}
+.how-item::before{content:"";position:absolute;right:0;top:-1px;height:2px;width:0;background:var(--ac);transition:width .9s var(--ease-out)}
+.how-item.is-active::before{width:120px}
+.how-n{font-family:var(--f-serif);font-size:50px;line-height:.95;font-weight:400;background:linear-gradient(110deg,#372806 0%,#7a5a0e 50%,#b78515 100%);-webkit-background-clip:text;background-clip:text;color:transparent;align-self:start;padding-bottom:4px;justify-self:start;transition:opacity .6s,transform .8s var(--ease-out)}
+.lb[data-motion="on"] .how-item:not(.is-active) .how-n{opacity:.4}
+.how-item.is-active .how-n{transform:translateX(-4px)}
+.how-item h3{font-size:26px;line-height:1.25;padding-top:4px}
+.how-item p{margin-top:10px;font-size:18.5px;line-height:1.85;color:var(--ink-soft,#634d31);max-width:60ch}
+/* sticky side */
+.how-side{grid-area:side;position:sticky;top:calc(var(--nav-h) + 36px)}
+.how-photo{position:relative;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:5/4;background:#e9e1cf;box-shadow:0 44px 80px -48px rgba(55,40,6,.6),0 10px 22px -14px rgba(55,40,6,.25);
+  clip-path:inset(0 0 0 0 round 28px);transition:clip-path 1.6s var(--ease-out)}
+.how-ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.1);transition:opacity 1s var(--ease-soft),transform 1.8s var(--ease-out)}
+.how-ph.is-on{opacity:1;transform:scale(1.02)}
+.how-photo:hover .how-ph.is-on{transform:scale(1.06)}
+.lb[data-motion="on"] [data-in="0"] .how-photo{clip-path:inset(0 0 0 100% round 28px);transition:none}
+.how-counter{display:flex;align-items:baseline;gap:12px;margin-top:26px;padding-bottom:22px;border-bottom:1px solid rgba(55,40,6,.14);min-height:86px}
+.how-cn{font-family:var(--f-serif);font-size:62px;line-height:1;color:var(--gold,#b78515);font-variant-numeric:tabular-nums}
+.how-ct{font-size:16px;font-weight:600;color:var(--ink-muted,#6f6048)}
+.how-cl{margin-inline-start:auto;font-family:var(--f-serif);font-size:22px;line-height:1.3;color:var(--ink,#372806);text-align:left}
+.how-counter.k-a .how-cn,.how-counter.k-a .how-cl{animation:how-in-a .6s var(--ease-out)}
+.how-counter.k-b .how-cn,.how-counter.k-b .how-cl{animation:how-in-b .6s var(--ease-out)}
+@keyframes how-in-a{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes how-in-b{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.how-cta{margin-top:26px;padding:26px 28px;border-radius:22px;background:linear-gradient(120deg,rgba(166,171,116,.2),rgba(216,190,115,.18));border:1px solid rgba(92,102,54,.18)}
+.how-cta p{font-family:var(--f-serif);font-size:22px;line-height:1.4;color:var(--ink,#372806)}
+.how-cta .lb-btn{margin-top:16px}
+.how-cta-m{display:none}
+@media (max-width: 960px){
+  .how{padding-block:84px 92px}
+  .how-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "side" "list" !important;row-gap:30px}
+  .how-head{text-align:center}
+  .how-head .lb-eyebrow{justify-content:center}
+  .how-head .lb-lead{margin-inline:auto}
+  .how-side{position:relative;top:auto}
+  .how-photo{border-radius:22px;clip-path:inset(0 0 0 0 round 22px)}
+  .how-counter,.how-cta-d{display:none}
+  .how-list{margin-top:8px}
+  .how-item{grid-template-columns:52px minmax(0,1fr);padding:24px 0 26px}
+  .how-n{font-size:40px}
+  .how-item h3{font-size:22px;padding-top:2px}
+  .how-item p{font-size:18px}
+  .how-cta-m{display:block;grid-area:auto;margin-top:26px;text-align:center}
+  .how-cta-m .lb-btn{width:100%}
+}
+</style>
+</helmet>
+<section class="lb lb-sec how" id="how" data-nav="how" dir="rtl" data-motion="{{ motion }}" aria-labelledby="how-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap">
+<div class="how-grid">
+<header class="how-head" data-blk="h" data-in="{{ inH }}">
+<p class="lb-eyebrow lb-rv">איך משתמשים</p>
+<h2 id="how-title" class="lb-h2 lb-rv lb-d1">רעיונות לשימוש בקלפים</h2>
+<p class="lb-lead lb-rv lb-d2">תשעה רעיונות לדוגמה – לעבודה עצמית, לשיחה ולעבודה בקבוצה.</p>
+</header>
+<ol class="how-list" ref="{{ setList }}">
+<li class="how-item {{ a.i1 }}" data-i="1" data-blk="i1" data-in="{{ r.i1 }}" style="--ac: #acc3cf;"><span class="how-n lb-rv" aria-hidden="true">1</span><div class="lb-rv lb-d1"><h3>שליפה אקראית</h3><p>ניתן לשלוף קלף אקראית, להתבונן בכותרת ולחשוב מה העיקרון הזה מעורר או מבקש להזכיר? למה דווקא הוא הוגרל בעיתוי הזה? לאחר מכן לקרוא את ההרחבה שבצד השני ולהעמיק בחקירה פנימית בעזרת השאלות.</p></div></li>
+<li class="how-item {{ a.i2 }}" data-i="2" data-blk="i2" data-in="{{ r.i2 }}" style="--ac: #c5c4b9;"><span class="how-n lb-rv" aria-hidden="true">2</span><div class="lb-rv lb-d1"><h3>בחירה מודעת</h3><p>ניתן לבחור קלף במודע, קלף שמבטא חוזקה או דווקא מקום שדורש התייחסות ושיפור. ניתן להעמיק את המודעות לגבי אותו נושא, לבחון אותו בעזרת הפירוט שעל הקלף, להרחיב את כיווני החשיבה והפעולה לגביו ולהתחיל לתרגל את היישום בחיי היומיום.</p></div></li>
+<li class="how-item {{ a.i3 }}" data-i="3" data-blk="i3" data-in="{{ r.i3 }}" style="--ac: #c087bb;"><span class="how-n lb-rv" aria-hidden="true">3</span><div class="lb-rv lb-d1"><h3>קלף ליום או לשבוע</h3><p>ניתן לעבוד כרונולוגית על פי סדר הקלפים (הם ממוספרים), להתמקד כל יום או כל שבוע על חיזוק הפרקטיקה שמוצגת בכל קלף.</p></div></li>
+<li class="how-item {{ a.i4 }}" data-i="4" data-blk="i4" data-in="{{ r.i4 }}" style="--ac: #f193bb;"><span class="how-n lb-rv" aria-hidden="true">4</span><div class="lb-rv lb-d1"><h3>שער אחד בכל פעם</h3><p>אפשר להתמקד רק בקלפיו של שער אחד. אם רוצים לחזק תחום אחד ספציפי בזמן נתון, למשל במערכות יחסים או בבריאות הגוף והנפש, לסדר את קלפי אותו שער לנגד העיניים, ולמיין במה אני חזק/ה ומה כדאי לי לשפר, לקרוא ולדייק לעצמי איך לעבוד על השיפור.</p></div></li>
+<li class="how-item {{ a.i5 }}" data-i="5" data-blk="i5" data-in="{{ r.i5 }}" style="--ac: #d6aa3c;"><span class="how-n lb-rv" aria-hidden="true">5</span><div class="lb-rv lb-d1"><h3>הגדרת מטרות</h3><p>אפשר להשתמש בקלפים להגדרת מטרות אישיות, מקצועיות, קבוצתיות ועוד.</p></div></li>
+<li class="how-item {{ a.i6 }}" data-i="6" data-blk="i6" data-in="{{ r.i6 }}" style="--ac: #bbc374;"><span class="how-n lb-rv" aria-hidden="true">6</span><div class="lb-rv lb-d1"><h3>סיכום תהליך או תקופה</h3><p>הקלפים יכולים לסייע גם בסיכום של תהליך או תקופה – לבחון מה השתנה ומה התפתח. במקרה כזה, אפשר לבקש לבחור קלף שמייצג את נקודת המוצא, קלף שמתאר את נקודת המפנה וקלף שמשקף את התוצאה כרגע.</p></div></li>
+<li class="how-item {{ a.i7 }}" data-i="7" data-blk="i7" data-in="{{ r.i7 }}" style="--ac: #acc3cf;"><span class="how-n lb-rv" aria-hidden="true">7</span><div class="lb-rv lb-d1"><h3>פתיחת שיחה</h3><p>הקלפים משמשים לפיתוח שיחה מעמיקה, אמיתית ואפילו מפתיעה, בין בני זוג, עם הילדים, בין אחים ואחיות, בין קולגות, בתוך צוותי עבודה, בסדנאות, בין אנשים שכבר מכירים ובין אנשים שנפגשים לראשונה. ההנחיה יכולה להיות לבחור קלף שמאוד מייצג אותי או נוגע במשהו שמעסיק אותי לאחרונה.</p></div></li>
+<li class="how-item {{ a.i8 }}" data-i="8" data-blk="i8" data-in="{{ r.i8 }}" style="--ac: #c087bb;"><span class="how-n lb-rv" aria-hidden="true">8</span><div class="lb-rv lb-d1"><h3>בעבודה טיפולית-אימונית</h3><p>בעבודה טיפולית-אימונית, ניתן להשתמש בצד של כותרות הקלפים בלבד ולשמור את הצד השני – ההרחבה והשאלות – לעיני המטפל-המאמן.</p></div></li>
+<li class="how-item {{ a.i9 }}" data-i="9" data-blk="i9" data-in="{{ r.i9 }}" style="--ac: #d6aa3c;"><span class="how-n lb-rv" aria-hidden="true">9</span><div class="lb-rv lb-d1"><h3>השראה יומיומית</h3><p>הקלפים יכולים להוות השראה יומיומית ולתת רעיונות במה להתמקד, איך לפעול ולהיטיב עם עצמנו ועם סביבתנו.</p></div></li>
+</ol>
+<aside class="how-side" data-blk="s" data-in="{{ inS }}" aria-label="התייעצות על השימוש בקלפים">
+<figure class="how-photo" aria-hidden="true">
+<img class="how-ph {{ ph.wood }}" src="/_blob/7a5e4d503df81a7f86d8a24fecc7d149" alt="" width="1400" height="806" loading="lazy" style="object-position: 50% 50%;">
+<img class="how-ph {{ ph.ronit1 }}" src="/_blob/d96929e79bb8319d742fae0210873609" alt="" width="487" height="630" loading="lazy" style="object-position: 50% 42%;">
+<img class="how-ph {{ ph.ronit2 }}" src="/_blob/ce266af2713b637e375065c715233b4a" alt="" width="487" height="630" loading="lazy" style="object-position: 55% 45%;">
+<img class="how-ph {{ ph.table }}" src="/_blob/47be40d8b7187aecb3a3dc5079f2132f" alt="" width="1153" height="1060" loading="lazy" style="object-position: 50% 62%;">
+<img class="how-ph {{ ph.welcome }}" src="/_blob/c25138b2f0d5b6644580000167726d72" alt="" width="960" height="1200" loading="lazy" style="object-position: 50% 48%;">
+<img class="how-ph {{ ph.people2 }}" src="/_blob/11a92f579393e110425417e4c6a85cfd" alt="" width="1216" height="936" loading="lazy" style="object-position: 50% 50%;">
+<img class="how-ph {{ ph.people1 }}" src="/_blob/c79f567a5c5a81a327116c1c4b3ddf67" alt="" width="903" height="1036" loading="lazy" style="object-position: 50% 62%;">
+<img class="how-ph {{ ph.hero }}" src="/_blob/2a0579ccb8821f29b960919b839bf2e0" alt="" width="1100" height="1283" loading="lazy" style="object-position: 50% 62%;">
+</figure>
+<div class="how-counter {{ cntCls }}" aria-hidden="true"><span class="how-cn">{{ cur }}</span><span class="how-ct">מתוך 9</span><span class="how-cl">{{ curTitle }}</span></div>
+<div class="how-cta how-cta-d">
+<p>רוצים להתייעץ איך לשלב את הקלפים בבית, בעבודה או בקבוצה?</p>
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להתייעצות בוואטסאפ</a>
+</div>
+</aside>
+</div>
+<div class="how-cta how-cta-m">
+<p>רוצים להתייעץ איך לשלב את הקלפים בבית, בעבודה או בקבוצה?</p>
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>להתייעצות בוואטסאפ</a>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":2347}}'>
+/* which photo shows next to each idea while it is the one being read */
+const PHOTO = { 1: 'wood', 2: 'ronit1', 3: 'ronit2', 4: 'table', 5: 'welcome', 6: 'wood', 7: 'people2', 8: 'people1', 9: 'hero' };
+const TITLES = ['שליפה אקראית', 'בחירה מודעת', 'קלף ליום או לשבוע', 'שער אחד בכל פעם', 'הגדרת מטרות', 'סיכום תהליך או תקופה', 'פתיחת שיחה', 'בעבודה טיפולית-אימונית', 'השראה יומיומית'];
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {}, cur: 1, k: '' };
+    this.setRoot = (el) => { this.root = el; };
+    this.setList = (el) => { this.list = el; };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    /* the idea in the middle band of the screen becomes the active one */
+    this.spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const i = +e.target.getAttribute('data-i');
+        if (i && i !== this.state.cur) this.setState((s) => ({ cur: i, k: s.k === 'k-a' ? 'k-b' : 'k-a' }));
+      });
+    }, { rootMargin: '-42% 0px -48% 0px', threshold: 0 });
+    requestAnimationFrame(() => {
+      if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el));
+      if (this.list) this.list.querySelectorAll('[data-i]').forEach((el) => this.spy.observe(el));
+    });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); if (this.spy) this.spy.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const s = this.state;
+    const b = s.inb;
+    const a = {};
+    const r = {};
+    for (let i = 1; i <= 9; i++) { a['i' + i] = s.cur === i ? 'is-active' : ''; r['i' + i] = b['i' + i] || '0'; }
+    const msg = 'היי רונית, אשמח להתייעץ על השימוש בערכת הקלפים, באופן אישי או בעבודה עם אחרים.';
+    return {
+      motion: s.motion,
+      inH: b.h || '0', inS: b.s || '0',
+      a: a, r: r,
+      cur: String(s.cur), curTitle: TITLES[s.cur - 1], cntCls: s.k,
+      ph: ['wood', 'ronit1', 'ronit2', 'table', 'welcome', 'people2', 'people1', 'hero'].reduce((o, k) => { o[k] = PHOTO[s.cur] === k ? 'is-on' : ''; return o; }, {}),
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '2347px',
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      setRoot: this.setRoot, setList: this.setList
+    };
+  }
+}
+</script>
+</body>
+</html>

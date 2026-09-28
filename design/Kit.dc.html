@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>מבנה הערכה – ששת השערים</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.kit{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 22%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:124px 128px}
+.kit-head{grid-area:head;align-self:end}
+.kit-head .lb-h2{margin-top:12px}
+.kg-list{grid-area:list;align-self:start;margin-top:30px}
+.kit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);grid-template-areas:"head fan" "list fan";column-gap:72px;align-items:center}
+/* the six gates: fixed colour boxes, linked to the fan */
+.kg-intro{font-family:var(--f-serif);font-size:24px;line-height:1.4;color:var(--ink,#372806);margin-bottom:18px}
+.kg-boxes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.kg-box{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;min-height:112px;padding:16px 18px 16px 16px;border-radius:18px;text-align:right;
+  background:var(--gt);border:1px solid rgba(55,40,6,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);
+  transition:background-color .45s var(--ease-soft),transform .6s var(--ease-out),box-shadow .6s var(--ease-out)}
+.kg-box::after{content:"";position:absolute;inset-inline:18px;bottom:0;height:4px;border-radius:4px 4px 0 0;background:var(--gc);transition:inset .5s var(--ease-out)}
+.kg-box:hover{transform:translateY(-3px);box-shadow:0 18px 32px -24px rgba(55,40,6,.55),inset 0 0 0 1px rgba(255,255,255,.45)}
+.kg-box.is-on{background:var(--gc);transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(55,40,6,.6),0 0 0 2px #fffdf8,0 0 0 4px var(--gc)}
+.kg-box.is-on::after{inset-inline:0;opacity:0}
+.kg-box-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.kg-box-k{font-size:12.5px;font-weight:700;letter-spacing:.16em;color:rgba(55,40,6,.95)}
+.kg-box-name{font-family:var(--f-serif);font-size:23px;line-height:1.2;color:#372806}
+.kg-box-meta{font-size:15px;font-weight:600;color:rgba(55,40,6,.95)}
+.kg-box-card{width:46px;height:auto;border-radius:6px;box-shadow:0 8px 16px -8px rgba(55,40,6,.55);transform:rotate(4deg);transition:transform .6s var(--ease-out)}
+.kg-box:hover .kg-box-card,.kg-box.is-on .kg-box-card{transform:rotate(-2deg) scale(1.08)}
+/* fan of real cards, one from each gate */
+.kf{position:relative;grid-area:fan;align-self:center}
+.kf-stage{position:relative;height:452px;--cw:186px;--ch:260px;--fx:62px;--fy:9px;--fr:6deg;--fxa:16px;--lift:-60px;--sc:1.1}
+.kf-glow{position:absolute;left:50%;top:48%;width:440px;height:360px;margin:-180px 0 0 -220px;border-radius:50%;opacity:.55;filter:blur(64px);transition:background-color 1s var(--ease-soft)}
+.kf-shadow{position:absolute;left:50%;bottom:14px;width:82%;height:34px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(55,40,6,.2),rgba(55,40,6,0));pointer-events:none}
+.kf-card{position:absolute;z-index:var(--z,1);left:calc(50% - var(--cw) / 2);bottom:30px;width:var(--cw);height:var(--ch);display:block;padding:0;border-radius:13px;transform-origin:50% 100%;
+  transform:translate(calc(var(--o) * var(--fx)),calc(var(--ao) * var(--fy))) rotate(calc(var(--o) * var(--fr)));
+  transition:transform .8s var(--ease-out),opacity .7s var(--ease-soft),filter .5s;box-shadow:0 22px 40px -26px rgba(55,40,6,.7),0 3px 8px -4px rgba(55,40,6,.25)}
+.kf-card img{width:100%;height:100%;object-fit:cover;border-radius:13px;pointer-events:none}
+.kf-card::after{content:"";position:absolute;inset:0;border-radius:13px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);pointer-events:none}
+.kf-card:not(.is-on){filter:saturate(.9)}
+.kf-card:not(.is-on):hover{transform:translate(calc(var(--o) * var(--fx)),calc(var(--ao) * var(--fy) - 16px)) rotate(calc(var(--o) * var(--fr)));filter:none}
+.kf-card.is-on{z-index:20;transform:translate(calc(var(--o) * var(--fxa)),var(--lift)) rotate(0deg) scale(var(--sc));box-shadow:0 44px 70px -34px rgba(55,40,6,.72),0 8px 18px -8px rgba(55,40,6,.3)}
+.kf-stage.is-intro .kf-card{transition-delay:var(--d)}
+.lb[data-motion="on"] [data-in="0"] .kf-card{opacity:0;transform:translateY(70px) rotate(0deg) scale(.9);transition:none}
+.kf-note{margin:18px auto 0;max-width:40ch;text-align:center;font-family:var(--f-serif);font-size:19px;line-height:1.55;color:var(--ink-soft,#634d31)}
+@media (max-width: 1100px){
+  .kit-grid{column-gap:44px}
+  .kf-stage{--cw:164px;--ch:230px;--fx:52px}
+}
+@media (max-width: 860px){
+  .kit{padding-block:84px 92px}
+  .kit-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "fan" "list" !important}
+  .kit-head{text-align:center}
+  .kit-head .lb-eyebrow{justify-content:center}
+  .kg-list{margin-top:6px}
+  .kf{margin-top:20px}
+  .kg-boxes{gap:10px}
+  .kg-box{min-height:96px;padding:14px 14px 14px 12px;gap:8px}
+  .kg-box-name{font-size:19px}
+  .kg-box-meta{font-size:13.5px}
+  .kg-box-k{font-size:11.5px}
+  .kg-box-card{display:none}
+  .kg-box{grid-template-columns:minmax(0,1fr);min-height:92px}
+  .kf-stage{height:318px;--cw:128px;--ch:179px;--fx:36px;--fy:6px;--fr:5deg;--fxa:8px;--lift:-40px;--sc:1.1}
+  .kf-glow{width:300px;height:260px;margin:-130px 0 0 -150px}
+  .kf-note{font-size:17px;margin-top:10px}
+}
+@media (prefers-reduced-motion: reduce){
+  .kf-card{transition:none!important}
+}
+</style>
+</helmet>
+<section class="lb lb-sec kit" id="kit" data-nav="kit" dir="rtl" data-motion="{{ motion }}" aria-labelledby="kit-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<div class="lb-wrap">
+
+<div class="kit-grid">
+<header class="kit-head" data-blk="h" data-in="{{ inH }}">
+<p class="lb-eyebrow lb-rv">מה בערכה</p>
+<h2 id="kit-title" class="lb-h2 lb-rv lb-d1">מבנה הערכה</h2>
+</header>
+<div class="kg-list" data-blk="l" data-in="{{ inL }}">
+<p class="kg-intro lb-rv">הקלפים מחולקים לשישה שערים:</p>
+<div class="kg-boxes lb-rv lb-d1">
+<button type="button" class="kg-box {{ g1.card }}" style="--gc: #acc3cf; --gt: #dae3e6;" data-g="1" onClick="{{ onCard }}" aria-pressed="{{ g1.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 1</span><span class="kg-box-name">התבוננות ושחרור</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">1–11</span></span></span><img class="kg-box-card" src="/_blob/894a86b3fd3fee7c3c9512b58fac91d7" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g2.card }}" style="--gc: #c5c4b9; --gt: #e5e3dc;" data-g="2" onClick="{{ onCard }}" aria-pressed="{{ g2.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 2</span><span class="kg-box-name">דיוק עצמי</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">12–22</span></span></span><img class="kg-box-card" src="/_blob/6d8ec7590de15234547cf99d7ab659b2" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g3.card }}" style="--gc: #c087bb; --gt: #e3c8dd;" data-g="3" onClick="{{ onCard }}" aria-pressed="{{ g3.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 3</span><span class="kg-box-name">איזון בעשייה</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">23–33</span></span></span><img class="kg-box-card" src="/_blob/d0a75280ab3f6239eb0fcfc88d0e7ad1" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g4.card }}" style="--gc: #f193bb; --gt: #f9cddd;" data-g="4" onClick="{{ onCard }}" aria-pressed="{{ g4.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 4</span><span class="kg-box-name">בריאות הגוף והנפש</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">34–44</span></span></span><img class="kg-box-card" src="/_blob/4decc336a8f59173bd8a3f2c9e514835" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g5.card }}" style="--gc: #d6aa3c; --gt: #ecd8a3;" data-g="5" onClick="{{ onCard }}" aria-pressed="{{ g5.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 5</span><span class="kg-box-name">מערכות יחסים</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">45–55</span></span></span><img class="kg-box-card" src="/_blob/4ce6bcb0d68a579c2e5e850c8a06bf7c" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g6.card }}" style="--gc: #bbc374; --gt: #e0e3bd;" data-g="6" onClick="{{ onCard }}" aria-pressed="{{ g6.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 6</span><span class="kg-box-name">צמיחה והתרחבות</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">56–66</span></span></span><img class="kg-box-card" src="/_blob/ef0a7b2f50da1553968f0108f35e7c7a" alt="" width="680" height="952"></button>
+</div>
+</div>
+
+<div class="kf" data-blk="f" data-in="{{ inF }}">
+<div class="kf-stage {{ fanCls }}" role="group" aria-label="קלף לדוגמה מכל שער">
+<span class="kf-glow" aria-hidden="true" style="background-color: {{ glow }};"></span>
+<span class="kf-shadow" aria-hidden="true"></span>
+<button type="button" class="kf-card {{ g1.card }}" style="--o: 2.5; --ao: 2.5; --d: 0s; --z: 6;" data-g="1" onClick="{{ onCard }}" aria-pressed="{{ g1.pressed }}" aria-label="שער 1, התבוננות ושחרור. קלף לדוגמה: לפשט דברים"><img src="/_blob/894a86b3fd3fee7c3c9512b58fac91d7" alt="" width="680" height="952"></button>
+<button type="button" class="kf-card {{ g2.card }}" style="--o: 1.5; --ao: 1.5; --d: .1s; --z: 5;" data-g="2" onClick="{{ onCard }}" aria-pressed="{{ g2.pressed }}" aria-label="שער 2, דיוק עצמי. קלף לדוגמה: להשוות רק לעצמי"><img src="/_blob/6d8ec7590de15234547cf99d7ab659b2" alt="" width="680" height="952"></button>
+<button type="button" class="kf-card {{ g3.card }}" style="--o: 0.5; --ao: 0.5; --d: .2s; --z: 4;" data-g="3" onClick="{{ onCard }}" aria-pressed="{{ g3.pressed }}" aria-label="שער 3, איזון בעשייה. קלף לדוגמה: להמתין ולהשהות תגובה"><img src="/_blob/d0a75280ab3f6239eb0fcfc88d0e7ad1" alt="" width="680" height="952"></button>
+<button type="button" class="kf-card {{ g4.card }}" style="--o: -0.5; --ao: 0.5; --d: .3s; --z: 3;" data-g="4" onClick="{{ onCard }}" aria-pressed="{{ g4.pressed }}" aria-label="שער 4, בריאות הגוף והנפש. קלף לדוגמה: להזין בכבוד את הנפש"><img src="/_blob/4decc336a8f59173bd8a3f2c9e514835" alt="" width="680" height="952"></button>
+<button type="button" class="kf-card {{ g5.card }}" style="--o: -1.5; --ao: 1.5; --d: .4s; --z: 2;" data-g="5" onClick="{{ onCard }}" aria-pressed="{{ g5.pressed }}" aria-label="שער 5, מערכות יחסים. קלף לדוגמה: להיענות לאחרים ללא ריצוי"><img src="/_blob/4ce6bcb0d68a579c2e5e850c8a06bf7c" alt="" width="680" height="952"></button>
+<button type="button" class="kf-card {{ g6.card }}" style="--o: -2.5; --ao: 2.5; --d: .5s; --z: 1;" data-g="6" onClick="{{ onCard }}" aria-pressed="{{ g6.pressed }}" aria-label="שער 6, צמיחה והתרחבות. קלף לדוגמה: לכבד את הקצב הטבעי"><img src="/_blob/ef0a7b2f50da1553968f0108f35e7c7a" alt="" width="680" height="952"></button>
+</div>
+<p class="kf-note lb-rv lb-d3">כל שער כולל 11 קלפים המעוצבים בצבע ובאיור שונה וייחודי לאותו שער.</p>
+</div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":814}}'>
+const GLOW = { 1: '#acc3cf', 2: '#c9c7ba', 3: '#caa0c6', 4: '#f3a9c8', 5: '#e2bd62', 6: '#c6cd86' };
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {}, g: 1, intro: true };
+    this.setRoot = (el) => { this.root = el; };
+    this.onCard = (e) => {
+      const g = +e.currentTarget.getAttribute('data-g');
+      this.setState({ g: g, intro: false });
+    };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) { this.setState({ intro: false }); return; }
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (add.f) this.introT = setTimeout(() => this.setState({ intro: false }), 1700);
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (add.f) this.introT = setTimeout(() => this.setState({ intro: false }), 1700);
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); clearTimeout(this.introT); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const s = this.state;
+    const b = s.inb;
+    const gate = (k) => ({ card: s.g === k ? 'is-on' : '', pressed: s.g === k ? 'true' : 'false' });
+    return {
+      motion: s.motion,
+      inH: b.h || '0', inL: b.l || '0', inF: b.f || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '814px',
+      g1: gate(1), g2: gate(2), g3: gate(3), g4: gate(4), g5: gate(5), g6: gate(6),
+      glow: GLOW[s.g],
+      fanCls: s.intro ? 'is-intro' : '',
+      onCard: this.onCard,
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>

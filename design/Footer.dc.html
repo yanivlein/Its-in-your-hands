@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>סיום ופוטר</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/livingbetter/tokens.css">
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
+<style>
+body{margin:0}
+.ft{background:#f9f4ea}
+/* closing */
+.ft-close{position:relative;overflow:clip;padding-block:120px 132px;text-align:center;background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(55% 60% at 50% 45%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%}
+.ft-rings{position:absolute;z-index:0;width:760px;height:760px;left:50%;top:50%;margin:-380px 0 0 -380px;pointer-events:none}
+.ft-rings circle{fill:none;stroke:#b78515;stroke-width:1;opacity:.2;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 2.4s var(--ease-soft)}
+.ft-rings circle:nth-child(2){transition-delay:.25s;opacity:.14}.ft-rings circle:nth-child(3){transition-delay:.5s;opacity:.09}
+.lb[data-motion="on"] [data-in="0"] .ft-rings circle{stroke-dashoffset:1;transition:none}
+.ft-close-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+.ft-close-in h2{width:100%}
+.ft-logo{width:min(300px,70%);height:auto;margin-inline:auto}
+.ft-sub{margin-top:8px;font-family:var(--f-hand);font-size:34px;line-height:1.3;color:var(--ink,#372806)}
+.ft-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+/* footer bar */
+.ft-bar{position:relative;background:#2c2817;color:#e9dfca;padding-block:64px 34px;isolation:isolate}
+.ft-bar::before{content:"";position:absolute;inset:0;z-index:-1;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;opacity:.18;mix-blend-mode:soft-light}
+.ft-cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:start}
+.ft-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.ft-brand img{width:36px;height:auto;filter:invert(.9) sepia(.4) saturate(1.3) brightness(1.05);transform:scaleX(-1) rotate(-8deg)}
+.ft-brand-name{display:block;font-family:var(--f-hand);font-size:31px;line-height:1.05;background:linear-gradient(100deg,#f3ebdb 0%,#dcc27a 60%,#c9a44b 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:3px}
+.ft-brand-sub{display:block;font-size:12.5px;letter-spacing:.24em;color:#bfb296;margin-top:3px}
+.ft-note{margin-top:18px;font-size:16.5px;line-height:1.7;color:#cfc3a9;max-width:30ch}
+.ft-h{font-size:13px;font-weight:700;letter-spacing:.18em;color:#dcc27a;margin-bottom:14px}
+.ft-links{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:4px 34px}
+.ft-links a,.ft-contact a,.ft-legal a{color:#e9dfca;text-decoration:none;transition:color .25s}
+.ft-links a{display:inline-flex;align-items:center;min-height:36px;font-size:16px}
+.ft-links a:hover,.ft-contact a:hover,.ft-legal a:hover{color:#dcc27a}
+.ft-contact li{margin-bottom:10px}
+.ft-contact a{display:inline-flex;align-items:center;gap:10px;min-height:40px;font-size:16.5px}
+.ft-contact svg{width:20px;height:20px;flex:none;color:#dcc27a}
+.ft-contact .ltr{direction:ltr;unicode-bidi:isolate}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;margin-top:48px;padding-top:22px;border-top:1px solid rgba(220,194,122,.2);font-size:14px;color:#bfb296}
+.ft-legal{display:flex;flex-wrap:wrap;gap:6px 20px}
+.ft-top{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(220,194,122,.35);color:#e9dfca;text-decoration:none;font-size:14.5px;font-weight:600;transition:background-color .25s,color .25s}
+.ft-top:hover{background:#dcc27a;color:#2c2817}
+.ft-top svg{width:16px;height:16px}
+.ft :focus-visible{outline-color:#dcc27a}
+@media (max-width: 900px){
+  .ft-close{padding-block:84px 92px}
+  .ft-sub{font-size:27px}
+  .ft-ctas{flex-direction:column;align-items:stretch;width:100%}
+  .ft-cols{grid-template-columns:minmax(0,1fr) !important;gap:34px}
+  .ft-bar{padding-block:52px calc(110px + env(safe-area-inset-bottom,0px))}
+  .ft-bottom{flex-direction:column;align-items:flex-start}
+}
+</style>
+</helmet>
+<footer class="lb ft" id="contact" dir="rtl" data-motion="{{ motion }}" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
+<section class="ft-close" aria-label="הזמנה ויצירת קשר" data-blk="c" data-in="{{ inC }}">
+<svg class="ft-rings" viewBox="0 0 600 600" aria-hidden="true"><circle cx="300" cy="300" r="170" pathLength="1"></circle><circle cx="300" cy="300" r="230" pathLength="1"></circle><circle cx="300" cy="300" r="290" pathLength="1"></circle></svg>
+<div class="lb-wrap ft-close-in">
+<h2 id="ft-title" class="lb-rv lb-rv--fade"><img class="ft-logo" src="/_blob/f691f5024e2a74c952c331a484871dfe" alt="לחיות טוב יותר – זה בידיים שלך" width="800" height="932"></h2>
+<p class="ft-sub lb-rv lb-d2">קלפי השראה למסע אישי, זוגי, משפחתי או קבוצתי</p>
+<div class="ft-ctas lb-rv lb-d3">
+<a class="lb-btn lb-btn--wa" href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>לשיחה עם רונית בוואטסאפ</a>
+<a class="lb-btn lb-btn--ghost" href="mailto:ronitmak@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>לכתוב במייל</a>
+</div>
+</div>
+</section>
+<div class="ft-bar">
+<div class="lb-wrap">
+<div class="ft-cols">
+<div>
+<a class="ft-brand" href="#top" aria-label="זה בידיים שלך – לראש העמוד"><img src="/_blob/d9aae751e8266c9debe7227b662c4e9d" alt="" width="267" height="320"><span><span class="ft-brand-name">זה בידיים שלך</span><span class="ft-brand-sub">לחיות טוב יותר</span></span></a>
+<p class="ft-note">ערכת קלפים של רונית ליין: 66 פרקטיקות פשוטות ויומיומיות לחיים טובים יותר.</p>
+</div>
+<nav aria-label="ניווט בתחתית העמוד">
+<p class="ft-h">באתר</p>
+<div class="ft-links"><a href="#approach">הרעיון</a><a href="#kit">מבנה הערכה</a><a href="#taste">שלפו קלף</a><a href="#who">למי מתאים</a><a href="#about">מי אני?</a><a href="#voices">המלצות</a><a href="#how">איך משתמשים</a><a href="#workshops">סדנאות</a><a href="#pricing">מחירים</a><a href="#faq">שאלות</a></div>
+</nav>
+<div>
+<p class="ft-h">יצירת קשר</p>
+<ul class="ft-contact">
+<li><a href="{{ waHref }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"></path><path d="M9.3 8.6c0 3.1 3 6.1 6.1 6.1l1-1.6-2-1-.8.8c-1-.4-2.1-1.5-2.5-2.5l.8-.8-1-2-1.6 1z"></path></svg>וואטסאפ <span class="ltr">050-7428319</span></a></li>
+<li><a href="mailto:ronitmak@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg><span class="ltr">ronitmak@gmail.com</span></a></li>
+</ul>
+</div>
+</div>
+<div class="ft-bottom">
+<p>© 2026 רונית ליין · כל הזכויות שמורות</p>
+<p class="ft-legal"><a href="#">הצהרת נגישות</a><a href="#">מדיניות פרטיות</a></p>
+<a class="ft-top" href="#top">חזרה למעלה<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="M6 11l6-6 6 6"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1183}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { motion: 'off', inb: {} };
+    this.setRoot = (el) => { this.root = el; };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    this.setState({ motion: 'on' });
+    this.io = new IntersectionObserver((entries) => {
+      const add = {};
+      entries.forEach((e) => { if (e.isIntersecting) { add[e.target.getAttribute('data-blk')] = '1'; this.io.unobserve(e.target); } });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    requestAnimationFrame(() => { if (this.root) this.root.querySelectorAll('[data-blk]').forEach((el) => this.io.observe(el)); });
+    this.fallback = setTimeout(() => {
+      if (!this.root) return;
+      const add = {};
+      this.root.querySelectorAll('[data-blk]').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) add[el.getAttribute('data-blk')] = '1'; });
+      if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
+    }, 2500);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  renderVals() {
+    const fluid = !!this.props.fluid;
+    const b = this.state.inb;
+    const msg = 'היי רונית, הגעתי דרך עמוד ערכת הקלפים ואשמח לקבל פרטים.';
+    return {
+      motion: this.state.motion,
+      inC: b.c || '0',
+      rootW: fluid ? '100%' : '1440px',
+      rootH: fluid ? 'auto' : '1183px',
+      waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
+      setRoot: this.setRoot
+    };
+  }
+}
+</script>
+</body>
+</html>
