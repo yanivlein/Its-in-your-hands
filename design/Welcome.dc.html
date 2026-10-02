@@ -13,9 +13,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.welcome{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f4eee2 100%);background-size:320px 320px,100% 100%;padding-block:120px 132px}
+.welcome{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f4eee2 100%);background-size:320px 320px,100% 100%;padding-block:64px 132px;overflow:clip visible}
 .welcome-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:88px;align-items:center}
-.welcome-note{position:relative;padding:62px 64px 56px;background:#fffdf8;border-radius:22px;box-shadow:0 40px 80px -48px rgba(55,40,6,.5),0 2px 6px rgba(55,40,6,.06);transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out)}
+/* wide screens: card and photo sit closer to the middle, like the opening */
+@media (min-width: 1120px){ .welcome-grid{grid-template-columns:minmax(0,540px) minmax(0,420px);justify-content:center;column-gap:96px} }
+.welcome-note{position:relative;padding:52px 54px 46px;background:#fffdf8;border-radius:22px;box-shadow:0 40px 80px -48px rgba(55,40,6,.5),0 2px 6px rgba(55,40,6,.06);transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out)}
 .welcome-note:hover{transform:translateY(-4px);box-shadow:0 48px 90px -48px rgba(55,40,6,.55),0 2px 6px rgba(55,40,6,.06)}
 .welcome-note::before{content:"";position:absolute;inset:12px;border-radius:14px;border:1px solid rgba(183,133,21,.28);pointer-events:none}
 .welcome-note-bfly{position:absolute;top:-34px;left:46px;width:70px;transform:rotate(12deg);filter:drop-shadow(0 8px 10px rgba(55,40,6,.12))}
@@ -25,7 +27,7 @@ body{margin:0}
 .welcome-sign{margin-top:34px;display:flex;flex-direction:column;gap:2px}
 .welcome-sign-line{font-size:18px;color:var(--ink-soft,#634d31)}
 .welcome-sign-name{font-family:var(--f-serif);font-size:34px;line-height:1.2;background:linear-gradient(100deg,#372806 0%,#7a5a0e 45%,#b78515 100%);-webkit-background-clip:text;background-clip:text;color:transparent;align-self:flex-start;padding-bottom:4px}
-.welcome-media{position:relative;width:min(470px,100%);margin-inline:auto 0}
+.welcome-media{position:relative;width:min(420px,100%);margin-inline:0 auto}
 .welcome-wash{width:130%;top:-14%;right:-20%;opacity:.95}
 .welcome-photo{position:relative;z-index:1;margin:0;border-radius:30px;overflow:hidden;aspect-ratio:4/5;background:#e9e1cf;transform:rotate(1.6deg);box-shadow:0 44px 86px -44px rgba(55,40,6,.55),0 12px 24px -12px rgba(55,40,6,.22);
   clip-path:inset(0 0 0 0 round 30px);transition:clip-path 1.6s var(--ease-out) .15s,transform 1.2s var(--ease-out)}
@@ -75,7 +77,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":840}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":740}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -106,7 +108,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inW: this.state.inb.w || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '840px',
+      rootH: fluid ? 'auto' : '740px',
       setRoot: this.setRoot
     };
   }

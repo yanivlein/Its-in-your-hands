@@ -15,11 +15,13 @@
 body{margin:0}
 .hero{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(120% 90% at 85% 0%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 60%);background-size:320px 320px,100% 100%;padding-block:calc(var(--nav-h) + 22px) 96px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-areas:"head visual" "buy visual";column-gap:72px;row-gap:0;align-items:center}
+/* wide screens: text and photo sit closer to the middle, away from the screen edges */
+@media (min-width: 1120px){ .hero-grid{grid-template-columns:minmax(0,540px) minmax(0,416px);justify-content:center;column-gap:96px} }
 .hero-head{grid-area:head;align-self:end}
 .hero-buy{grid-area:buy;align-self:start}
 .hero-visual{grid-area:visual;position:relative}
 .hero-h1{margin:18px 0 0;line-height:0}
-.hero-lockup{width:min(296px,66%);height:auto;margin-block:-6px -20px;
+.hero-lockup{width:min(250px,66%);height:auto;margin-block:-5px -17px;
   -webkit-mask-image:linear-gradient(to left,#000 0%,#000 42%,transparent 58%,transparent 100%);mask-image:linear-gradient(to left,#000 0%,#000 42%,transparent 58%,transparent 100%);
   -webkit-mask-size:260% 100%;mask-size:260% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   -webkit-mask-position:100% 0;mask-position:100% 0;
@@ -31,7 +33,7 @@ body{margin:0}
 .hero-ctas .lb-btn--ghost svg{transition:transform .35s var(--ease-out)}
 .hero-ctas .lb-btn--ghost:hover svg{transform:translateY(3px)}
 /* visual */
-.hero-stage{position:relative;width:min(440px,100%);margin-inline:auto 36px;--mx:0;--my:0}
+.hero-stage{position:relative;width:min(400px,100%);margin-inline:0 auto;--mx:0;--my:0}
 .hero-par-a,.hero-par-b,.hero-par-c{transition:transform 1s var(--ease-out)}
 .hero-par-a{transform:translate3d(calc(var(--mx) * -26px),calc(var(--my) * -18px),0)}
 .hero-par-b{transform:translate3d(calc(var(--mx) * 12px),calc(var(--my) * 10px),0)}
@@ -89,7 +91,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":865}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":815}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -135,7 +137,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inHero: this.state.inb.hero || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '865px',
+      rootH: fluid ? 'auto' : '815px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot, setStage: this.setStage, onMove: this.onMove, onLeave: this.onLeave
     };

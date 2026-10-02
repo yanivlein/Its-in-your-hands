@@ -309,6 +309,84 @@
     return {};
   };
 
+  /* ---------- Voices: ההמלצות בשורה אחת שגוללים הצידה, ו"להמשך קריאה" בהמלצה ארוכה ---------- */
+  C.Voices = function (sec) {
+    var track = ref(sec, 'track');
+    if (!track) return {};
+    var car = sec.querySelector('.vx-car');
+    var cards = track.querySelectorAll('.vx-card');
+    var dots = sec.querySelectorAll('.vx-dot');
+    var prevB = sec.querySelector('[data-on-click="prev"]');
+    var nextB = sec.querySelector('[data-on-click="next"]');
+    var open = 0, long = {}, raf = 0, rt = 0, st = 0;
+    function render() {
+      each(cards, function (c, i) {
+        var k = i + 1;
+        c.classList.toggle('is-long', !!long[k]);
+        c.classList.toggle('is-open', open === k);
+        var b = c.querySelector('.vx-more');
+        if (b) {
+          b.setAttribute('aria-expanded', open === k ? 'true' : 'false');
+          setText(b, open === k ? 'סגירה' : 'להמשך קריאה');
+        }
+      });
+    }
+    function edge(btn, off) {
+      if (!btn) return;
+      btn.classList.toggle('is-off', off);
+      btn.setAttribute('aria-disabled', off ? 'true' : 'false');
+    }
+    function sync() {
+      var max = track.scrollWidth - track.clientWidth;
+      var x = Math.abs(track.scrollLeft);
+      var tr = track.getBoundingClientRect();
+      each(cards, function (c, i) {
+        var r = c.getBoundingClientRect();
+        if (dots[i]) dots[i].classList.toggle('is-on', r.left >= tr.left - 6 && r.right <= tr.right + 6);
+      });
+      edge(prevB, x <= 6);
+      edge(nextB, x >= max - 6);
+    }
+    function measure() {
+      each(cards, function (c, i) {
+        var k = i + 1;
+        if (open === k) { long[k] = true; return; }
+        var q = c.querySelector('.vx-q');
+        long[k] = !!q && q.scrollHeight > q.clientHeight + 4;
+      });
+      render();
+    }
+    function step(dir) {
+      var c = cards[0];
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 24;
+      var w = c ? c.getBoundingClientRect().width + gap : track.clientWidth;
+      track.scrollBy({ left: dir * w, behavior: reduce ? 'auto' : 'smooth' });
+      clearTimeout(st);
+      st = setTimeout(sync, 500);
+    }
+    if (car) car.classList.add('is-ready');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { measure(); sync(); }); });
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { measure(); sync(); }, 150);
+    });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { measure(); sync(); });
+    return {
+      prev: function () { step(1); },
+      next: function () { step(-1); },
+      onScroll: function () {
+        if (raf) return;
+        raf = requestAnimationFrame(function () { raf = 0; sync(); });
+      },
+      toggle: function (e, el) {
+        var k = +el.getAttribute('data-i');
+        open = open === k ? 0 : k;
+        render();
+        setTimeout(sync, 60);
+      }
+    };
+  };
+
   /* ---------- Faq: אקורדיון, שאלה אחת פתוחה בכל פעם ---------- */
   C.Faq = function (sec) {
     var open = 1;
@@ -349,7 +427,7 @@
   }
 
   /* ---------- חיבור האירועים (onClick וכו' מהעיצוב נשמרו כ־data-on-*) ---------- */
-  var EVENTS = ['click', 'mouseenter', 'mouseleave', 'mousemove', 'focus', 'blur', 'keydown'];
+  var EVENTS = ['click', 'mouseenter', 'mouseleave', 'mousemove', 'focus', 'blur', 'keydown', 'scroll'];
   function wire(sec, ctrl) {
     EVENTS.forEach(function (ev) {
       var attr = 'data-on-' + ev;

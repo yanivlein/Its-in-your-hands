@@ -43,11 +43,6 @@ body{margin:0}
 .who-ic svg{width:25px;height:25px}
 .who-card h3{font-size:27px;line-height:1.2}
 .who-card p{margin-top:12px;font-size:18.5px;line-height:1.85;color:var(--ink-soft,#634d31)}
-/* good to know */
-.who-notes{display:grid;grid-template-columns:170px repeat(3,minmax(0,1fr));gap:30px;margin-top:40px;padding:30px 36px;border-radius:24px;background:rgba(216,190,115,.16);border:1px solid rgba(183,133,21,.18)}
-.who-notes-t{font-family:var(--f-serif);font-size:25px;line-height:1.2;color:var(--gold-deep,#7a5a0e);padding-top:2px}
-.who-note{position:relative;padding-inline-start:22px;font-size:17.5px;line-height:1.75;color:var(--ink,#372806)}
-.who-note::before{content:"";position:absolute;right:0;top:.62em;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e3c77c,#b78515)}
 @media (max-width: 860px){
   .who{padding-block:84px 92px}
   .who-top{grid-template-columns:minmax(0,1fr) !important;row-gap:44px}
@@ -62,8 +57,6 @@ body{margin:0}
   .who-card::before{right:24px}
   .who-card h3{font-size:24px}
   .who-card p{font-size:18px}
-  .who-notes{grid-template-columns:minmax(0,1fr) !important;gap:14px;padding:24px 22px}
-  .who-notes-t{font-size:23px}
 }
 </style>
 </helmet>
@@ -103,16 +96,10 @@ body{margin:0}
 <p>גם במפגש משפחתי, בין חברים או עם צוותי עבודה, הקלפים מתאימים ומועילים.</p>
 </article>
 </div>
-<aside class="who-notes" aria-label="טוב לדעת" data-blk="n" data-in="{{ inN }}">
-<p class="who-notes-t lb-rv">טוב לדעת</p>
-<p class="who-note lb-rv lb-d1">ערכת הקלפים מתאימה ומכוונת לגברים ונשים כאחד.</p>
-<p class="who-note lb-rv lb-d2">רוב הקלפים מתאימים לעבודה גם עם ילדים, אפילו צעירים, בחלקם ייתכן שדרוש תיווך מבוגרים.</p>
-<p class="who-note lb-rv lb-d3">ההרחבה על כל פרקטיקה כתובה בגוף ראשון רבים (״אנחנו״), והשאלות מנוסחות בגוף שני בלשון נקבה, אך מתאימות כמובן לכל המינים.</p>
-</aside>
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1760}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1535}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -142,9 +129,9 @@ class Component extends DCLogic {
     const b = this.state.inb;
     return {
       motion: this.state.motion,
-      inH: b.h || '0', inP: b.p || '0', inG: b.g || '0', inN: b.n || '0',
+      inH: b.h || '0', inP: b.p || '0', inG: b.g || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1760px',
+      rootH: fluid ? 'auto' : '1535px',
       setRoot: this.setRoot
     };
   }

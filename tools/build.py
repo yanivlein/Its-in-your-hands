@@ -35,7 +35,8 @@ ASSETS = json.loads((ROOT / "tools" / "assets.json").read_text("utf-8"))["images
 
 ABOVE_FOLD = {"Nav", "Hero"}          # images here load eagerly
 EVENTS = {"Click": "click", "MouseEnter": "mouseenter", "MouseLeave": "mouseleave",
-          "MouseMove": "mousemove", "Focus": "focus", "Blur": "blur", "KeyDown": "keydown"}
+          "MouseMove": "mousemove", "Focus": "focus", "Blur": "blur", "KeyDown": "keydown",
+          "Scroll": "scroll"}
 
 
 class BuildError(Exception):
@@ -230,6 +231,10 @@ def context(sec):
     elif name == "Pricing":
         msgs = js_const(script, "MSG")
         ctx["wa"] = {k: wa_link(script, v) for k, v in msgs.items()}
+    elif name == "Voices":
+        ctx.update({f"c{k}": {"cls": "", "exp": "false", "label": "להמשך קריאה"} for k in range(1, 6)})
+        ctx.update({f"d{k}": "is-on" if k <= 3 else "" for k in range(1, 6)})
+        ctx.update(carCls="", prevCls="is-off", prevDis="true", nextCls="", nextDis="false")
     elif name == "Faq":
         ctx.update({f"q{k}": {"cls": "is-open" if k == 1 else "", "exp": "true" if k == 1 else "false"} for k in range(1, 5)})
     return ctx

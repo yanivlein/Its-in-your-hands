@@ -26,29 +26,49 @@ body{margin:0}
 .vx-head .lb-h2{margin-top:12px;color:var(--vx-ink)}
 .vx-mark{flex:none;width:110px;height:auto;color:var(--vx-gold);opacity:.9;transform-origin:50% 60%;transition:transform 1.4s var(--ease-out) .2s,opacity 1s .2s}
 .lb[data-motion="on"] [data-in="0"] .vx-mark{transform:scale(.4) rotate(-20deg);opacity:0;transition:none}
-.vx-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;margin-top:56px}
-.vx-col{display:flex;flex-direction:column;gap:24px}
-.vx-col-2{margin-top:64px}
-.vx-card{margin:0;padding:32px 32px 28px;border-radius:24px;background:linear-gradient(160deg,rgba(255,253,248,.075),rgba(255,253,248,.035));border:1px solid rgba(220,194,122,.2);
+/* testimonials: one row that scrolls sideways (3 on a computer, 2 on a tablet, 1 on a phone) */
+.vx-car{position:relative;margin-top:48px}
+.vx-track{display:flex;gap:24px;align-items:stretch;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:4px;scroll-behavior:smooth;scrollbar-width:none;padding:10px 4px 30px;margin:-10px -4px -30px}
+.vx-track::-webkit-scrollbar{display:none}
+.vx-track:focus-visible{outline:2px solid #dcc27a;outline-offset:4px;border-radius:26px}
+.vx-card{flex:0 0 calc((100% - 48px) / 3);scroll-snap-align:start;display:flex;flex-direction:column;margin:0;padding:32px 32px 28px;border-radius:24px;background:linear-gradient(160deg,rgba(255,253,248,.075),rgba(255,253,248,.035));border:1px solid rgba(220,194,122,.2);
   box-shadow:0 30px 60px -44px rgba(0,0,0,.8);transition:transform .7s var(--ease-out),border-color .5s,background-color .5s}
 .vx-card:hover{transform:translateY(-6px);border-color:rgba(220,194,122,.45)}
 .vx-q{position:relative;font-size:18.5px;line-height:1.85;color:var(--vx-ink)}
 .vx-q p + p{margin-top:2px}
-.vx-q-icon{display:block;width:30px;height:auto;color:var(--vx-gold);margin-bottom:14px;opacity:.9}
-.vx-who{margin-top:22px;padding-top:16px;border-top:1px solid rgba(220,194,122,.2);display:flex;flex-direction:column;gap:3px}
+.vx-car.is-ready .vx-q{max-height:calc(1.85em * 8);overflow:hidden}
+.vx-card.is-long .vx-q{-webkit-mask-image:linear-gradient(180deg,#000 66%,transparent 100%);mask-image:linear-gradient(180deg,#000 66%,transparent 100%)}
+.vx-car.is-ready .vx-card.is-open .vx-q{max-height:none;-webkit-mask-image:none;mask-image:none}
+.vx-more{display:none;align-self:flex-start;align-items:center;min-height:44px;margin-top:4px;font-size:15.5px;font-weight:600;color:var(--vx-gold);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.vx-more:hover{color:#f3ebdb}
+.vx-card.is-long .vx-more{display:inline-flex}
+.vx-who{margin-top:auto;min-height:68px;padding-top:16px;border-top:1px solid rgba(220,194,122,.2);display:flex;flex-direction:column;gap:3px}
+.vx-body{flex:1 1 auto;margin-bottom:22px;display:flex;flex-direction:column}
 .vx-name{font-family:var(--f-serif);font-size:21px;line-height:1.25;color:var(--vx-gold)}
 .vx-role{font-size:14.5px;line-height:1.5;color:var(--vx-muted)}
+.vx-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px}
+.vx-arrow{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(220,194,122,.42);background:rgba(255,253,248,.04);color:var(--vx-gold);transition:background-color .3s,border-color .3s,opacity .3s,transform .3s var(--ease-out)}
+.vx-arrow:hover{background:rgba(220,194,122,.16);border-color:rgba(220,194,122,.75)}
+.vx-arrow:active{transform:scale(.94)}
+.vx-arrow svg{width:20px;height:20px}
+.vx-arrow.is-off{opacity:.32;cursor:default}
+.vx-arrow.is-off:hover{background:rgba(255,253,248,.04);border-color:rgba(220,194,122,.42)}
+.vx-dots{display:flex;gap:10px;align-items:center}
+.vx-dot{width:8px;height:8px;border-radius:50%;background:rgba(220,194,122,.3);transition:background-color .4s,transform .4s var(--ease-out)}
+.vx-dot.is-on{background:#dcc27a;transform:scale(1.25)}
 .vx-cta{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:40px}
 .vx-cta p{font-family:var(--f-serif);font-size:23px;color:var(--vx-soft)}
 .voices :focus-visible{outline-color:#dcc27a}
-@media (max-width: 1100px){ .vx-list{grid-template-columns:minmax(0,1fr);max-width:720px;margin-inline:auto} .vx-col{display:contents} .vx-col-2{margin-top:0} .vx-o1{order:1} .vx-o2{order:2} .vx-o3{order:3} .vx-o4{order:4} .vx-o5{order:5} }
+@media (max-width: 1100px){ .vx-card{flex-basis:calc((100% - 24px) / 2)} }
 @media (max-width: 760px){
   .voices{padding-block:84px 92px}
   .vx-head{align-items:flex-start;flex-direction:column;gap:16px}
   .vx-mark{width:70px;order:-1}
-  .vx-list{margin-top:34px;gap:16px}
-  .vx-card{padding:26px 22px 22px}
+  .vx-car{margin-top:34px}
+  .vx-track{gap:14px;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px}
+  .vx-card{flex-basis:86%;padding:26px 22px 22px}
   .vx-q{font-size:18px}
+  .vx-nav{margin-top:22px}
   .vx-rings{width:560px;height:560px;left:-240px;top:-180px}
   .vx-cta{flex-direction:column;gap:14px;margin-top:26px}
   .vx-cta p{font-size:20px;text-align:center}
@@ -66,32 +86,48 @@ body{margin:0}
 </div>
 <svg class="vx-mark" viewBox="0 0 120 90" fill="currentColor" aria-hidden="true"><path d="M50 8C27 16 12 34 12 58c0 16 9 26 22 26 11 0 19-8 19-19 0-10-7-17-16-18 2-12 10-22 23-28z"></path><path d="M108 8C85 16 70 34 70 58c0 16 9 26 22 26 11 0 19-8 19-19 0-10-7-17-16-18 2-12 10-22 23-28z"></path></svg>
 </header>
-<div class="vx-list" data-blk="l" data-in="{{ inL }}">
-<div class="vx-col vx-col-1">
-<figure class="vx-card vx-o1 lb-rv">
+<div class="vx-car {{ carCls }}" data-blk="l" data-in="{{ inL }}">
+<div class="vx-track" role="region" aria-label="חמש המלצות, אפשר לגלול הצידה" tabindex="0" ref="{{ setTrack }}" onScroll="{{ onScroll }}">
+<figure class="vx-card lb-rv {{ c1.cls }}">
+<div class="vx-body">
 <blockquote class="vx-q"><p>רציתי לשתף אותך שאתמול עבדנו עם הקלפים, אחיות שלי ואני וזה היה כל כך מדהים, כל כך עוצמתי. דיברנו על דברים שלא אמרנו אותם בקול או למישהו אף פעם. כל אחת ניסתה להבין דרך הקלפים ממה הדברים נובעים, ממש עמוק בפנים. התחייבנו לשנות, לראות אחרת ולעשות תהליך. הקלפים כל כך מדוייקים, כל כך מקצועיים, מעשירים, מכוונים שזה היה ממש טיפול אישי וקבוצתי.</p><p>תודה על הכל</p></blockquote>
+<button type="button" class="vx-more" data-i="1" onClick="{{ toggle }}" aria-expanded="{{ c1.exp }}">{{ c1.label }}</button>
+</div>
 <figcaption class="vx-who"><span class="vx-name">שרון נבון</span></figcaption>
 </figure>
-<figure class="vx-card vx-o2 lb-rv lb-d3">
+<figure class="vx-card lb-rv lb-d1 {{ c2.cls }}">
+<div class="vx-body">
 <blockquote class="vx-q"><p>אני עובדת עם הקלפים שלך המון, הם מדהימים ומדברים את השפה הטיפולית שלי בדיוק. כל קלף מבטא יפה את המסרים שאני מדברת תמיד עם מטופלי. כאילו קראת את מחשבותי, כאילו אני יצרתי את הקלפים הללו.</p></blockquote>
+<button type="button" class="vx-more" data-i="2" onClick="{{ toggle }}" aria-expanded="{{ c2.exp }}">{{ c2.label }}</button>
+</div>
 <figcaption class="vx-who"><span class="vx-name">רוני בן המוריה</span><span class="vx-role">מטפלת במגוון שיטות, רוקחת טבעית ועוד, עמק חפר</span></figcaption>
 </figure>
-</div>
-<div class="vx-col vx-col-2">
-<figure class="vx-card vx-o3 lb-rv lb-d1">
+<figure class="vx-card lb-rv lb-d2 {{ c3.cls }}">
+<div class="vx-body">
 <blockquote class="vx-q"><p>אני חייבת לומר לך שהקלפים שלך הם פשוט ווואוו,</p><p>היתה לי התלבטות אם לקנות אותם ואני כל כך מרוצה שקניתי, עברתי על כל הקלפים - הניסוח, הכותרות הכל, רואים שיש כאן עבודה עמוקה מאוד עם המון המון מחשבה.</p><p>זה מדהים ברמות. כבר השתמשתי עם מתאמנות וזה עושה עבודה כל כך טובה ומקדמת. אני מתפעלת ברמות. בשבוע הבא יש לי סדנא ואני לגמרי בונה אותה על הקלפים כי זה ווואוו. אני ממש מתלהבת ומתרגשת. קניתי לא מזמן קלפים אחרים אבל בניסוח שלך יש כל כך הרבה יותר ופתוח לפרשנויות וזה מדהים</p><p>יישר כוח גדול!</p></blockquote>
+<button type="button" class="vx-more" data-i="3" onClick="{{ toggle }}" aria-expanded="{{ c3.exp }}">{{ c3.label }}</button>
+</div>
 <figcaption class="vx-who"><span class="vx-name">מיכל בומבך</span><span class="vx-role">מאמנת אישית</span></figcaption>
 </figure>
-</div>
-<div class="vx-col vx-col-3">
-<figure class="vx-card vx-o5 lb-rv lb-d2">
-<blockquote class="vx-q"><p>הקלפים נהדרים!</p><p>עברתי עליהם בעיון והמסקנה היתה שעלי לפנות עוד זמן וללמוד אותם יותר לעומק.</p><p>הם באמת יצירת מופת.</p><p>מעבר להיקף של התוכן, גם הניסוח, הידידותיות למשתמש, העיצוב המותאם בדיוק....</p><p>נכס אמיתי!</p></blockquote>
-<figcaption class="vx-who"><span class="vx-name">הדס דרוטמן</span><span class="vx-role">מטפלת זוגית ומאמנת אישית, ירושלים</span></figcaption>
-</figure>
-<figure class="vx-card vx-o4 lb-rv lb-d4">
+<figure class="vx-card lb-rv lb-d3 {{ c4.cls }}">
+<div class="vx-body">
 <blockquote class="vx-q"><p>היי רונית, אנחנו במפגש משפחתי ופתחתי את הערכה שלך.</p><p>מדהים, מרגש!</p><p>מעודד שיח כייפי</p><p>תודה!!!</p></blockquote>
+<button type="button" class="vx-more" data-i="4" onClick="{{ toggle }}" aria-expanded="{{ c4.exp }}">{{ c4.label }}</button>
+</div>
 <figcaption class="vx-who"><span class="vx-name">אורלי שלמה ארויו</span></figcaption>
 </figure>
+<figure class="vx-card lb-rv lb-d4 {{ c5.cls }}">
+<div class="vx-body">
+<blockquote class="vx-q"><p>הקלפים נהדרים!</p><p>עברתי עליהם בעיון והמסקנה היתה שעלי לפנות עוד זמן וללמוד אותם יותר לעומק.</p><p>הם באמת יצירת מופת.</p><p>מעבר להיקף של התוכן, גם הניסוח, הידידותיות למשתמש, העיצוב המותאם בדיוק....</p><p>נכס אמיתי!</p></blockquote>
+<button type="button" class="vx-more" data-i="5" onClick="{{ toggle }}" aria-expanded="{{ c5.exp }}">{{ c5.label }}</button>
+</div>
+<figcaption class="vx-who"><span class="vx-name">הדס דרוטמן</span><span class="vx-role">מטפלת זוגית ומאמנת אישית, ירושלים</span></figcaption>
+</figure>
+</div>
+<div class="vx-nav">
+<button type="button" class="vx-arrow {{ prevCls }}" onClick="{{ prev }}" aria-label="להמלצה הקודמת" aria-disabled="{{ prevDis }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+<div class="vx-dots" aria-hidden="true"><span class="vx-dot {{ d1 }}"></span><span class="vx-dot {{ d2 }}"></span><span class="vx-dot {{ d3 }}"></span><span class="vx-dot {{ d4 }}"></span><span class="vx-dot {{ d5 }}"></span></div>
+<button type="button" class="vx-arrow {{ nextCls }}" onClick="{{ next }}" aria-label="להמלצה הבאה" aria-disabled="{{ nextDis }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></button>
 </div>
 </div>
 <div class="vx-cta" data-blk="c" data-in="{{ inCta }}">
@@ -101,16 +137,75 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1338}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1064}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { motion: 'off', inb: {} };
+    this.state = { motion: 'off', inb: {}, ready: false, long: {}, open: 0, start: true, end: false, vis: [1, 2, 3] };
     this.setRoot = (el) => { this.root = el; };
+    this.setTrack = (el) => { this.track = el; };
+    /* one card per click; in a right-to-left row "next" scrolls toward the left */
+    this.step = (dir) => {
+      const t = this.track;
+      if (!t) return;
+      const c = t.querySelector('.vx-card');
+      const gap = parseFloat(getComputedStyle(t).columnGap) || 24;
+      const w = c ? c.getBoundingClientRect().width + gap : t.clientWidth;
+      t.scrollBy({ left: dir * w, behavior: this.reduce ? 'auto' : 'smooth' });
+      clearTimeout(this.st);
+      this.st = setTimeout(() => this.sync(), 500);
+    };
+    this.prev = () => this.step(1);
+    this.next = () => this.step(-1);
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => { this.raf = 0; this.sync(); });
+    };
+    this.toggle = (e) => {
+      const i = +e.currentTarget.getAttribute('data-i');
+      this.setState((s) => ({ open: s.open === i ? 0 : i }));
+      setTimeout(() => this.sync(), 60);
+    };
+    this.onResize = () => {
+      clearTimeout(this.rt);
+      this.rt = setTimeout(() => { this.measure(); this.sync(); }, 150);
+    };
+  }
+  sync() {
+    const t = this.track;
+    if (!t) return;
+    const max = t.scrollWidth - t.clientWidth;
+    const x = Math.abs(t.scrollLeft);
+    const tr = t.getBoundingClientRect();
+    const vis = [];
+    t.querySelectorAll('.vx-card').forEach((c, i) => {
+      const r = c.getBoundingClientRect();
+      if (r.left >= tr.left - 6 && r.right <= tr.right + 6) vis.push(i + 1);
+    });
+    const start = x <= 6;
+    const end = x >= max - 6;
+    const s = this.state;
+    if (start !== s.start || end !== s.end || vis.join() !== s.vis.join()) this.setState({ start: start, end: end, vis: vis });
+  }
+  /* a card gets "read more" only when its text is longer than the card */
+  measure() {
+    const t = this.track;
+    if (!t) return;
+    const long = {};
+    t.querySelectorAll('.vx-card').forEach((c, i) => {
+      const k = i + 1;
+      const q = c.querySelector('.vx-q');
+      long[k] = this.state.open === k ? true : (q ? q.scrollHeight > q.clientHeight + 4 : false);
+    });
+    this.setState({ long: long });
   }
   componentDidMount() {
-    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) return;
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.setState({ ready: true });
+    requestAnimationFrame(() => requestAnimationFrame(() => { this.measure(); this.sync(); }));
+    window.addEventListener('resize', this.onResize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { this.measure(); this.sync(); });
+    if (this.reduce || !('IntersectionObserver' in window)) return;
     this.setState({ motion: 'on' });
     this.io = new IntersectionObserver((entries) => {
       const add = {};
@@ -125,18 +220,36 @@ class Component extends DCLogic {
       if (Object.keys(add).length) this.setState((s) => ({ inb: Object.assign({}, s.inb, add) }));
     }, 2500);
   }
-  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.fallback); }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    clearTimeout(this.fallback); clearTimeout(this.rt); clearTimeout(this.st);
+    window.removeEventListener('resize', this.onResize);
+    if (this.raf) cancelAnimationFrame(this.raf);
+  }
   renderVals() {
     const fluid = !!this.props.fluid;
-    const b = this.state.inb;
+    const s = this.state;
+    const b = s.inb;
+    const card = (k) => ({
+      cls: [s.long[k] ? 'is-long' : '', s.open === k ? 'is-open' : ''].join(' '),
+      exp: s.open === k ? 'true' : 'false',
+      label: s.open === k ? 'סגירה' : 'להמשך קריאה'
+    });
+    const dot = (k) => (s.vis.indexOf(k) >= 0 ? 'is-on' : '');
     const msg = 'היי רונית, אשמח להזמין את ערכת הקלפים ״לחיות טוב יותר - זה בידיים שלך״. אפשר לקבל פרטים על הזמנה ומשלוח?';
     return {
-      motion: this.state.motion,
+      motion: s.motion,
       inR: b.r || '0', inH: b.h || '0', inL: b.l || '0', inCta: b.c || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1338px',
+      rootH: fluid ? 'auto' : '1064px',
+      carCls: s.ready ? 'is-ready' : '',
+      c1: card(1), c2: card(2), c3: card(3), c4: card(4), c5: card(5),
+      d1: dot(1), d2: dot(2), d3: dot(3), d4: dot(4), d5: dot(5),
+      prevCls: s.start ? 'is-off' : '', prevDis: s.start ? 'true' : 'false',
+      nextCls: s.end ? 'is-off' : '', nextDis: s.end ? 'true' : 'false',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
-      setRoot: this.setRoot
+      prev: this.prev, next: this.next, onScroll: this.onScroll, toggle: this.toggle,
+      setRoot: this.setRoot, setTrack: this.setTrack
     };
   }
 }
