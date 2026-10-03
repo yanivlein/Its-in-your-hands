@@ -88,8 +88,9 @@ When the user says the folder was updated from the Claude chat:
 
 ## How the site works (for orientation)
 
-- `docs/index.html` holds all sections in order: Nav, Hero, Welcome, Approach, Kit, Inside, Taste, Who, About,
-  Voices, How, Workshops, Products, Pricing, Faq, Footer. Each section root carries `data-sec="<Name>"`.
+- `docs/index.html` holds all sections in order: Nav, Hero, Welcome, WhatsIn, Approach, Kit, Inside, Taste, Who, About,
+  Voices, How, Workshops, Products, Pricing, Faq, Footer (17 – the same order as the imports in `design/Main.dc.html`).
+  Each section root carries `data-sec="<Name>"`.
 - Scroll reveal: `<html data-motion="on">` (set by a tiny script in `<head>`) hides blocks with `data-in="0"`
   until `site.js` flips them to `1` as they enter the screen. With "reduce motion", without JavaScript,
   or if `site.js` fails to load within 4 seconds, everything is simply shown.

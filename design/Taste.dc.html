@@ -50,7 +50,7 @@ body{margin:0}
 @keyframes tc-deal-a{0%{transform:translate(-21px,17px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
 @keyframes tc-deal-b{0%{transform:translate(-21px,17px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
 .tc-tilt{position:absolute;inset:0;--rx:0deg;--ry:0deg;--gx:50%;--gy:30%;transform:perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .6s var(--ease-out)}
-.tc-card{position:absolute;inset:0}
+.tc-card{position:absolute;inset:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .tc-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s var(--ease-out)}
 .tc-card.is-flipped .tc-inner{transform:rotateY(180deg)}
 .tc-face{position:absolute;inset:0;border-radius:14px;overflow:hidden;background:#fffdf8;-webkit-backface-visibility:hidden;backface-visibility:hidden;
@@ -124,7 +124,7 @@ body{margin:0}
 <div class="tc-deck {{ deckCls }}" aria-hidden="true"><span></span><span></span><span></span></div>
 <div class="tc-slot {{ dealCls }}">
 <div class="tc-tilt" ref="{{ setTilt }}" onMouseMove="{{ onTilt }}" onMouseLeave="{{ onTiltEnd }}">
-<div class="tc-card {{ flipCls }}" role="group" aria-label="{{ cardLabel }}">
+<div class="tc-card {{ flipCls }}" role="group" aria-label="{{ cardLabel }}" onClick="{{ flip }}">
 <div class="tc-inner">
 <div class="tc-face tc-front" aria-hidden="{{ frontHidden }}">
 <img class="tc-img" src="{{ card.face }}" alt="" width="800" height="1120">
