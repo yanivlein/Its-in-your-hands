@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.ws{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 26%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:128px 136px}
+.ws{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 26%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:128px 104px}
 .ws-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);column-gap:84px;align-items:center}
 .ws-copy .lb-h2{margin-top:12px;max-width:24ch}
 .ws-copy .lb-lead{margin-top:20px;max-width:44ch}
@@ -41,7 +41,7 @@ body{margin:0}
 .ws-media:hover .ws-frame{transform:rotate(-3.5deg) translate(6px,6px)}
 .lb[data-motion="on"] [data-in="0"] .ws-photo{clip-path:inset(0 0 100% 0 round 30px);transition:none}
 @media (max-width: 900px){
-  .ws{padding-block:84px 92px}
+  .ws{padding-block:84px 76px}
   .ws-grid{grid-template-columns:minmax(0,1fr) !important;row-gap:46px}
   .ws-media{order:-1;width:min(340px,86%);margin-inline:auto;padding:18px 0 0 18px}
   .ws-frame{inset:0 18px 18px 0}
@@ -87,7 +87,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":966}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":934}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -120,7 +120,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inC: b.c || '0', inP: b.p || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '966px',
+      rootH: fluid ? 'auto' : '934px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot
     };

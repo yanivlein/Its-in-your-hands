@@ -13,14 +13,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.hero{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(120% 90% at 85% 0%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 60%);background-size:320px 320px,100% 100%;padding-block:calc(var(--nav-h) + 22px) 96px}
+.hero{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(120% 90% at 85% 0%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 60%);background-size:320px 320px,100% 100%;padding-block:calc(var(--nav-h) + 22px) 72px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-areas:"head visual" "buy visual";column-gap:72px;row-gap:0;align-items:center}
 /* wide screens: text and photo sit closer to the middle, away from the screen edges */
 @media (min-width: 1120px){ .hero-grid{grid-template-columns:minmax(0,540px) minmax(0,416px);justify-content:center;column-gap:96px} }
 .hero-head{grid-area:head;align-self:end}
 .hero-buy{grid-area:buy;align-self:start}
 .hero-visual{grid-area:visual;position:relative}
-.hero-h1{margin:18px 0 0;line-height:0}
+.hero-h1{margin:0;line-height:0}
 .hero-lockup{width:min(250px,66%);height:auto;margin-block:-5px -17px;
   -webkit-mask-image:linear-gradient(to left,#000 0%,#000 42%,transparent 58%,transparent 100%);mask-image:linear-gradient(to left,#000 0%,#000 42%,transparent 58%,transparent 100%);
   -webkit-mask-size:260% 100%;mask-size:260% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
@@ -50,11 +50,9 @@ body{margin:0}
 .lb[data-motion="on"] [data-in="0"] .hero-photo{clip-path:inset(10% 10% 10% 10% round 32px)}
 .hero-photo{clip-path:inset(0 0 0 0 round 32px);transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out),clip-path 1.6s var(--ease-out) .2s}
 @media (max-width: 760px){
-  .hero{padding-block:calc(64px + 18px) 64px;text-align:center}
+  .hero{padding-block:calc(64px + 18px) 52px;text-align:center}
   .hero-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "visual" "buy" !important;row-gap:26px !important}
   .hero-head,.hero-buy{justify-self:center;align-self:auto}
-  .hero-head .lb-eyebrow{justify-content:center}
-  .hero-h1{margin-top:12px}
   .hero-lockup{width:214px;margin:-4px auto -12px}
   .hero-sub{font-size:27px}
   .hero-lead{font-size:18px;margin-inline:auto}
@@ -67,7 +65,6 @@ body{margin:0}
 <section class="lb lb-sec hero" id="top" dir="rtl" data-motion="{{ motion }}" aria-labelledby="hero-title" ref="{{ setRoot }}" style="width: {{ rootW }}; height: {{ rootH }};">
 <div class="lb-wrap hero-grid" data-blk="hero" data-in="{{ inHero }}">
 <div class="hero-head">
-<p class="lb-eyebrow lb-rv">הזמנה למסע של גילוי והתפתחות</p>
 <h1 id="hero-title" class="hero-h1 lb-rv lb-rv--fade"><img class="hero-lockup" src="/_blob/f691f5024e2a74c952c331a484871dfe" alt="לחיות טוב יותר – זה בידיים שלך" width="800" height="932"></h1>
 <p class="hero-sub lb-rv lb-d3">קלפי השראה למסע אישי, זוגי, משפחתי או קבוצתי</p>
 <p class="hero-lead lb-rv lb-d4">66 פרקטיקות פשוטות ויומיומיות לחיים טובים יותר. בצדו האחד של כל קלף פרקטיקה, ובצדו השני הרחבה ושאלות להעמקה ולהנעה לפעולה.</p>
@@ -91,7 +88,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":815}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":740}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -137,7 +134,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inHero: this.state.inb.hero || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '815px',
+      rootH: fluid ? 'auto' : '740px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot, setStage: this.setStage, onMove: this.onMove, onLeave: this.onLeave
     };

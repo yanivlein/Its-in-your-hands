@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.who{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(70% 60% at 12% 18%,rgba(255,253,248,.9) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 132px}
+.who{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(70% 60% at 12% 18%,rgba(255,253,248,.9) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 100px}
 .who-wash{width:120%;top:-18%;left:-16%;opacity:.75}
 .who-top{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);column-gap:80px;align-items:center}
 .who-copy .lb-h2{margin-top:12px}
@@ -44,7 +44,7 @@ body{margin:0}
 .who-card h3{font-size:27px;line-height:1.2}
 .who-card p{margin-top:12px;font-size:18.5px;line-height:1.85;color:var(--ink-soft,#634d31)}
 @media (max-width: 860px){
-  .who{padding-block:84px 92px}
+  .who{padding-block:84px 76px}
   .who-top{grid-template-columns:minmax(0,1fr) !important;row-gap:44px}
   .who-copy{text-align:center}
   .who-copy .lb-eyebrow{justify-content:center}
@@ -99,7 +99,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1535}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1503}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -131,7 +131,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inH: b.h || '0', inP: b.p || '0', inG: b.g || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1535px',
+      rootH: fluid ? 'auto' : '1503px',
       setRoot: this.setRoot
     };
   }

@@ -218,7 +218,9 @@ def context(sec):
         c = cards[0]
         ctx.update(card={"n": c["n"], "t": c["t"], "x": c["x"], "q1": c["q"][0], "q2": c["q"][1], "q3": c["q"][2],
                          "face": c["face"], "back": c["back"]},
-                   dots=[{"color": gates[str(k)]["band"], "cls": "is-on" if k == c["g"] else ""} for k in range(1, 7)],
+                   dots=[{"g": k, "color": gates[str(k)]["band"], "deep": gates[str(k)]["deep"],
+                          "cls": "is-on" if k == c["g"] else "", "pressed": "true" if k == c["g"] else "false",
+                          "label": f"שער {k} · {gates[str(k)]['name']}"} for k in range(1, 7)],
                    cardLabel=f"קלף {c['n']}, {c['t']}, שער {gates[str(c['g'])]['name']}",
                    flipCls="", frontHidden="false", backHidden="true", flipLabel="הפכו את הקלף",
                    dealCls="", deckCls="", live="")
@@ -236,7 +238,8 @@ def context(sec):
         ctx.update({f"d{k}": "is-on" if k <= 3 else "" for k in range(1, 6)})
         ctx.update(carCls="", prevCls="is-off", prevDis="true", nextCls="", nextDis="false")
     elif name == "Faq":
-        ctx.update({f"q{k}": {"cls": "is-open" if k == 1 else "", "exp": "true" if k == 1 else "false"} for k in range(1, 5)})
+        count = len(re.findall(r'data-q="\d+"', sec["markup"]))
+        ctx.update({f"q{k}": {"cls": "is-open" if k == 1 else "", "exp": "true" if k == 1 else "false"} for k in range(1, count + 1)})
     return ctx
 
 
@@ -263,7 +266,8 @@ def convert_markup(sec, ctx):
         if not ev:
             raise BuildError(f"{where}: unsupported event on{x.group(1)}")
         return f' data-on-{ev}="{x.group(2)}"'
-    m = re.sub(r' on([A-Z]\w*)="\{\{ (\w+) \}\}"', event, m)
+    # a handler may be per item inside a repeat (onClick="{{ d.pick }}"): the page script gets its name
+    m = re.sub(r' on([A-Z]\w*)="\{\{ (?:\w+\.)?(\w+) \}\}"', event, m)
     m = re.sub(r'data-in="\{\{ [\w.]+ \}\}"', 'data-in="0"', m)
 
     # photos that swap with the idea being read (How): remember each one's key

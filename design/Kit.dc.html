@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.kit{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 22%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:124px 128px}
+.kit{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 22%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:96px 96px}
 .kit-head{grid-area:head;align-self:end}
 .kit-head .lb-h2{margin-top:12px}
 .kg-list{grid-area:list;align-self:start;margin-top:30px}
@@ -55,7 +55,7 @@ body{margin:0}
   .kf-stage{--cw:164px;--ch:230px;--fx:52px}
 }
 @media (max-width: 860px){
-  .kit{padding-block:84px 92px}
+  .kit{padding-block:84px 76px}
   .kit-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "fan" "list" !important}
   .kit-head{text-align:center}
   .kit-head .lb-eyebrow{justify-content:center}
@@ -114,7 +114,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":814}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":754}}'>
 const GLOW = { 1: '#acc3cf', 2: '#c9c7ba', 3: '#caa0c6', 4: '#f3a9c8', 5: '#e2bd62', 6: '#c6cd86' };
 class Component extends DCLogic {
   constructor(props) {
@@ -155,7 +155,7 @@ class Component extends DCLogic {
       motion: s.motion,
       inH: b.h || '0', inL: b.l || '0', inF: b.f || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '814px',
+      rootH: fluid ? 'auto' : '754px',
       g1: gate(1), g2: gate(2), g3: gate(3), g4: gate(4), g5: gate(5), g6: gate(6),
       glow: GLOW[s.g],
       fanCls: s.intro ? 'is-intro' : '',

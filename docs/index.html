@@ -25,13 +25,13 @@
 <link rel="preload" href="assets/fonts/assistant-hebrew-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/frank-ruhl-libre-hebrew-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/gveret-levin-hebrew-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=56f15deaa3">
+<link rel="stylesheet" href="assets/css/site.css?v=11ab3543ef">
 <script>
 /* motion on before the first paint, so nothing blinks; if the site script never arrives, show everything */
 (function (d) { try { if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) && 'IntersectionObserver' in window) { d.setAttribute('data-motion', 'on'); setTimeout(function () { if (!window.__lbReady) d.removeAttribute('data-motion'); }, 4000); } } catch (e) {} })(document.documentElement);
 </script>
-<script src="assets/js/site.js?v=33af8e7070" defer></script>
-<noscript><style>.tc-actions,.nav-menu-btn{display:none!important}</style></noscript>
+<script src="assets/js/site.js?v=a51c09fdf0" defer></script>
+<noscript><style>.tc-actions,.tc-gates,.nav-menu-btn{display:none!important}</style></noscript>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -121,7 +121,6 @@
 <section class="lb lb-sec hero" id="top" dir="rtl" aria-labelledby="hero-title" data-sec="Hero" data-reveal="0px 0px -8% 0px|0.05">
 <div class="lb-wrap hero-grid" data-blk="hero" data-in="0">
 <div class="hero-head">
-<p class="lb-eyebrow lb-rv">הזמנה למסע של גילוי והתפתחות</p>
 <h1 id="hero-title" class="hero-h1 lb-rv lb-rv--fade"><img fetchpriority="high" class="hero-lockup" src="assets/img/logo-hero.webp" alt="לחיות טוב יותר – זה בידיים שלך" width="800" height="932"></h1>
 <p class="hero-sub lb-rv lb-d3">קלפי השראה למסע אישי, זוגי, משפחתי או קבוצתי</p>
 <p class="hero-lead lb-rv lb-d4">66 פרקטיקות פשוטות ויומיומיות לחיים טובים יותר. בצדו האחד של כל קלף פרקטיקה, ובצדו השני הרחבה ושאלות להעמקה ולהנעה לפעולה.</p>
@@ -269,6 +268,14 @@
 <p class="lb-lead lb-rv lb-d2">לפעמים קלף אחד פותח כיוון חדש. שלפו קלף, התבוננו בפרקטיקה – ואז הפכו אותו כדי לקרוא את ההרחבה ואת השאלות.</p>
 </div>
 <div class="taste-stagecol" data-blk="s" data-in="0">
+<div class="tc-panel">
+<p class="tc-caption lb-rv lb-d2">טעימה מתוך הערכה</p>
+<div class="tc-actions lb-rv lb-d3">
+<button type="button" class="lb-btn lb-btn--gold" data-on-click="draw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="11" height="16" rx="2" transform="rotate(-8 9.5 12)"></rect><rect x="9" y="4" width="11" height="16" rx="2" transform="rotate(7 14.5 12)"></rect></svg>שלפו קלף אחר</button>
+<button type="button" class="lb-btn lb-btn--ghost" data-on-click="flip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8.5"></path><path d="M20 4v4.5h-4.5"></path><path d="M20 12a8 8 0 0 1-13.6 5.7L4 15.5"></path><path d="M4 20v-4.5h4.5"></path></svg><span data-bind="flipLabel">הפכו את הקלף</span></button>
+</div>
+</div>
+<div class="tc-main">
 <div class="lb-rv lb-rv--scale lb-d1">
 <div class="tc-stage">
 <div class="tc-deck" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -290,11 +297,7 @@
 </div>
 </div>
 </div>
-<div class="tc-gates lb-rv lb-d2" aria-hidden="true"><span class="tc-gdot is-on" style="background: #acc3cf;"></span><span class="tc-gdot" style="background: #c5c4b9;"></span><span class="tc-gdot" style="background: #c087bb;"></span><span class="tc-gdot" style="background: #f193bb;"></span><span class="tc-gdot" style="background: #d6aa3c;"></span><span class="tc-gdot" style="background: #bbc374;"></span></div>
-<p class="tc-caption lb-rv lb-d2">טעימה מתוך הערכה</p>
-<div class="tc-actions lb-rv lb-d3">
-<button type="button" class="lb-btn lb-btn--gold" data-on-click="draw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="11" height="16" rx="2" transform="rotate(-8 9.5 12)"></rect><rect x="9" y="4" width="11" height="16" rx="2" transform="rotate(7 14.5 12)"></rect></svg>שלפו קלף אחר</button>
-<button type="button" class="lb-btn lb-btn--ghost" data-on-click="flip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8.5"></path><path d="M20 4v4.5h-4.5"></path><path d="M20 12a8 8 0 0 1-13.6 5.7L4 15.5"></path><path d="M4 20v-4.5h4.5"></path></svg><span data-bind="flipLabel">הפכו את הקלף</span></button>
+<div class="tc-gates lb-rv lb-d2" role="group" aria-label="קלף לדוגמה מכל שער"><button type="button" class="tc-gdot is-on" style="--dc: #acc3cf; --dd: #3f6678;" data-g="1" data-on-click="pick" aria-pressed="true" aria-label="שער 1 · התבוננות ושחרור" title="שער 1 · התבוננות ושחרור"><span></span></button><button type="button" class="tc-gdot" style="--dc: #c5c4b9; --dd: #5b5a4c;" data-g="2" data-on-click="pick" aria-pressed="false" aria-label="שער 2 · דיוק עצמי" title="שער 2 · דיוק עצמי"><span></span></button><button type="button" class="tc-gdot" style="--dc: #c087bb; --dd: #7a3f76;" data-g="3" data-on-click="pick" aria-pressed="false" aria-label="שער 3 · איזון בעשייה" title="שער 3 · איזון בעשייה"><span></span></button><button type="button" class="tc-gdot" style="--dc: #f193bb; --dd: #a3336f;" data-g="4" data-on-click="pick" aria-pressed="false" aria-label="שער 4 · בריאות הגוף והנפש" title="שער 4 · בריאות הגוף והנפש"><span></span></button><button type="button" class="tc-gdot" style="--dc: #d6aa3c; --dd: #7d5a10;" data-g="5" data-on-click="pick" aria-pressed="false" aria-label="שער 5 · מערכות יחסים" title="שער 5 · מערכות יחסים"><span></span></button><button type="button" class="tc-gdot" style="--dc: #bbc374; --dd: #5f6a2e;" data-g="6" data-on-click="pick" aria-pressed="false" aria-label="שער 6 · צמיחה והתרחבות" title="שער 6 · צמיחה והתרחבות"><span></span></button></div>
 </div>
 <p class="sr" aria-live="polite" data-bind="live"></p>
 </div>
@@ -605,6 +608,22 @@
 <div class="fq-item">
 <h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="false" aria-controls="fq-a4" data-q="4" data-on-click="onQ"><span class="fq-n" aria-hidden="true">04</span><span class="fq-q">יש המון ערכות קלפים בשוק, מה מיוחד בערכה הזו?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
 <div class="fq-panel" id="fq-a4"><div class="fq-panel-in"><div class="fq-a"><p>בשונה מקלפים השלכתיים המבוססים בעיקר על ויזואליות (איורים, תמונות, סמלים, מילים או משפט בודד) שדורשים מהמשתמש לתת פרשנות מתוך עולמו הפנימי, ערכה זו מציעה פרקטיקות וכלים לאיכות חיים באמצעות טקסטים מדויקים ומזוקקים (מבלי לוותר על איורים מרהיבים). גם הטקסטים הללו מזמינים לחשיבה ויכולים לעורר תגובות מגוונות אך הבסיס שלהם כבר מפורש. בנוסף כל קלף כולל גם 3 שאלות פתוחות לחקירת הרעיון ולהנעה לפעולה.</p><p>זו ערכה שמדברת בגובה העיניים ומעניקה כלים קונקרטיים לעבודה עצמית, בלי לנחש ״למה הכוונה״.</p></div></div></div>
+</div>
+<div class="fq-item">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="false" aria-controls="fq-a5" data-q="5" data-on-click="onQ"><span class="fq-n" aria-hidden="true">05</span><span class="fq-q">האם הערכה מתאימה גם לגברים?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a5"><div class="fq-panel-in"><div class="fq-a"><p>בהחלט. ערכת הקלפים מתאימה ומכוונת לגברים ונשים כאחד.</p><p>ההרחבה על כל פרקטיקה כתובה בגוף ראשון רבים (״אנחנו״), והשאלות מנוסחות בגוף שני בלשון נקבה, אך מתאימות כמובן לכל המינים.</p></div></div></div>
+</div>
+<div class="fq-item">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="false" aria-controls="fq-a6" data-q="6" data-on-click="onQ"><span class="fq-n" aria-hidden="true">06</span><span class="fq-q">אפשר לעבוד עם הקלפים גם עם ילדים?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a6"><div class="fq-panel-in"><div class="fq-a"><p>כן. רוב הקלפים מתאימים לעבודה גם עם ילדים, אפילו צעירים, בחלקם ייתכן שדרוש תיווך מבוגרים.</p></div></div></div>
+</div>
+<div class="fq-item">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="false" aria-controls="fq-a7" data-q="7" data-on-click="onQ"><span class="fq-n" aria-hidden="true">07</span><span class="fq-q">אני צריכה ידע מוקדם או הכשרה כדי להשתמש בקלפים?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a7"><div class="fq-panel-in"><div class="fq-a"><p>לא. כל קלף עומד בפני עצמו: בצד אחד הפרקטיקה, ובצד השני הרחבה ושלוש שאלות, כך שאפשר להתחיל לעבוד איתו מיד.</p><p>בערכה יש גם קלפי הנחיות לשימוש, ובאתר תמצאי תשעה רעיונות לדוגמה, לעבודה עצמית, לשיחה ולעבודה בקבוצה.</p></div></div></div>
+</div>
+<div class="fq-item">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="false" aria-controls="fq-a8" data-q="8" data-on-click="onQ"><span class="fq-n" aria-hidden="true">08</span><span class="fq-q">אפשר להתחיל משער אחד בלבד?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a8"><div class="fq-panel-in"><div class="fq-a"><p>כן. אפשר להזמין חבילה של שער אחד, 11 קלפים מתוך הערכה, ב־66 ₪, ולהתמקד בתחום שהכי חשוב לך עכשיו, למשל מערכות יחסים או בריאות הגוף והנפש. בהזמנה בוואטסאפ אפשר גם להתייעץ עם רונית על בחירת השער.</p></div></div></div>
 </div>
 </div>
 <div class="fq-ask fq-ask-m">

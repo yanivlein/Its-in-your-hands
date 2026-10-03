@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.fq{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:124px 132px}
+.fq{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:124px 100px}
 .fq-grid{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);column-gap:80px;align-items:start}
 .fq-side{position:sticky;top:calc(var(--nav-h) + 40px)}
 .fq-side .lb-h2{margin-top:12px}
@@ -39,7 +39,7 @@ body{margin:0}
 .fq-a p{font-size:19px;line-height:1.9;color:var(--ink-soft,#634d31);opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-soft) .1s,transform .6s var(--ease-out) .1s}
 .fq-item.is-open .fq-a p{opacity:1;transform:none}
 @media (max-width: 900px){
-  .fq{padding-block:84px 92px}
+  .fq{padding-block:84px 76px}
   .fq-grid{grid-template-columns:minmax(0,1fr) !important;row-gap:30px}
   .fq-side{position:relative;top:auto;text-align:center}
   .fq-side .lb-eyebrow{justify-content:center}
@@ -84,6 +84,22 @@ body{margin:0}
 <h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q4.exp }}" aria-controls="fq-a4" data-q="4" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">04</span><span class="fq-q">יש המון ערכות קלפים בשוק, מה מיוחד בערכה הזו?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
 <div class="fq-panel" id="fq-a4"><div class="fq-panel-in"><div class="fq-a"><p>בשונה מקלפים השלכתיים המבוססים בעיקר על ויזואליות (איורים, תמונות, סמלים, מילים או משפט בודד) שדורשים מהמשתמש לתת פרשנות מתוך עולמו הפנימי, ערכה זו מציעה פרקטיקות וכלים לאיכות חיים באמצעות טקסטים מדויקים ומזוקקים (מבלי לוותר על איורים מרהיבים). גם הטקסטים הללו מזמינים לחשיבה ויכולים לעורר תגובות מגוונות אך הבסיס שלהם כבר מפורש. בנוסף כל קלף כולל גם 3 שאלות פתוחות לחקירת הרעיון ולהנעה לפעולה.</p><p>זו ערכה שמדברת בגובה העיניים ומעניקה כלים קונקרטיים לעבודה עצמית, בלי לנחש ״למה הכוונה״.</p></div></div></div>
 </div>
+<div class="fq-item {{ q5.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q5.exp }}" aria-controls="fq-a5" data-q="5" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">05</span><span class="fq-q">האם הערכה מתאימה גם לגברים?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a5"><div class="fq-panel-in"><div class="fq-a"><p>בהחלט. ערכת הקלפים מתאימה ומכוונת לגברים ונשים כאחד.</p><p>ההרחבה על כל פרקטיקה כתובה בגוף ראשון רבים (״אנחנו״), והשאלות מנוסחות בגוף שני בלשון נקבה, אך מתאימות כמובן לכל המינים.</p></div></div></div>
+</div>
+<div class="fq-item {{ q6.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q6.exp }}" aria-controls="fq-a6" data-q="6" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">06</span><span class="fq-q">אפשר לעבוד עם הקלפים גם עם ילדים?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a6"><div class="fq-panel-in"><div class="fq-a"><p>כן. רוב הקלפים מתאימים לעבודה גם עם ילדים, אפילו צעירים, בחלקם ייתכן שדרוש תיווך מבוגרים.</p></div></div></div>
+</div>
+<div class="fq-item {{ q7.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q7.exp }}" aria-controls="fq-a7" data-q="7" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">07</span><span class="fq-q">אני צריכה ידע מוקדם או הכשרה כדי להשתמש בקלפים?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a7"><div class="fq-panel-in"><div class="fq-a"><p>לא. כל קלף עומד בפני עצמו: בצד אחד הפרקטיקה, ובצד השני הרחבה ושלוש שאלות, כך שאפשר להתחיל לעבוד איתו מיד.</p><p>בערכה יש גם קלפי הנחיות לשימוש, ובאתר תמצאי תשעה רעיונות לדוגמה, לעבודה עצמית, לשיחה ולעבודה בקבוצה.</p></div></div></div>
+</div>
+<div class="fq-item {{ q8.cls }}">
+<h3 class="fq-h"><button type="button" class="fq-btn" aria-expanded="{{ q8.exp }}" aria-controls="fq-a8" data-q="8" onClick="{{ onQ }}"><span class="fq-n" aria-hidden="true">08</span><span class="fq-q">אפשר להתחיל משער אחד בלבד?</span><span class="fq-plus" aria-hidden="true"></span></button></h3>
+<div class="fq-panel" id="fq-a8"><div class="fq-panel-in"><div class="fq-a"><p>כן. אפשר להזמין חבילה של שער אחד, 11 קלפים מתוך הערכה, ב־66 ₪, ולהתמקד בתחום שהכי חשוב לך עכשיו, למשל מערכות יחסים או בריאות הגוף והנפש. בהזמנה בוואטסאפ אפשר גם להתייעץ עם רונית על בחירת השער.</p></div></div></div>
+</div>
 </div>
 <div class="fq-ask fq-ask-m">
 <p>יש לכם שאלה נוספת? אשמח לענות.</p>
@@ -93,7 +109,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":824}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1158}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -131,9 +147,9 @@ class Component extends DCLogic {
     return {
       motion: s.motion,
       inH: b.h || '0', inL: b.l || '0',
-      q1: q(1), q2: q(2), q3: q(3), q4: q(4),
+      q1: q(1), q2: q(2), q3: q(3), q4: q(4), q5: q(5), q6: q(6), q7: q(7), q8: q(8),
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '824px',
+      rootH: fluid ? 'auto' : '1158px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       onQ: this.onQ,
       setRoot: this.setRoot

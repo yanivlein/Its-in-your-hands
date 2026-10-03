@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.about{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f3ede1 30%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:128px 136px}
+.about{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f3ede1 30%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:128px 104px}
 .ab-w1{width:560px;top:120px;left:-60px;opacity:.7}
 .ab-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);column-gap:88px;align-items:center}
 .ab-copy .lb-h2{margin-top:12px}
@@ -49,7 +49,7 @@ body{margin:0}
 .ab-story-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;margin-top:24px}
 .ab-story-cols p{font-size:19px;line-height:1.9;color:var(--ink-soft,#634d31)}
 @media (max-width: 860px){
-  .about{padding-block:84px 92px}
+  .about{padding-block:84px 76px}
   .ab-grid{grid-template-columns:minmax(0,1fr) !important;row-gap:48px}
   .ab-media{order:-1;width:min(330px,88%);margin-inline:auto;padding:0 0 54px 44px}
   .ab-bfly{width:50px}
@@ -95,7 +95,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1433}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1401}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -156,7 +156,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inC: b.c || '0', inM: b.m || '0', inS: b.s || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1433px',
+      rootH: fluid ? 'auto' : '1401px',
       setRoot: this.setRoot, setMedia: this.setMedia
     };
   }

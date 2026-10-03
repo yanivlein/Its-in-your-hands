@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.inside{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:120px 132px}
+.inside{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:120px 100px}
 .in-sides{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);column-gap:64px;align-items:center}
 .in-copy .lb-h2{margin-top:12px}
 .in-copy .lb-lead{margin-top:20px;max-width:38ch}
@@ -21,7 +21,7 @@ body{margin:0}
 .in-cap-dot{flex:none;width:10px;height:10px;border-radius:50%;background:#d6aa3c;box-shadow:0 0 0 3px rgba(214,170,60,.22)}
 /* the pair of real print files */
 .in-pair{position:relative;margin:0;perspective:1600px}
-.in-pair-grid{display:grid;grid-template-columns:repeat(2,minmax(0,268px));justify-content:center;column-gap:40px;row-gap:18px;align-items:start}
+.in-pair-grid{display:grid;grid-template-columns:repeat(2,minmax(0,240px));justify-content:center;column-gap:36px;row-gap:18px;align-items:start}
 .in-card{position:relative;border-radius:16px;transition:transform .9s var(--ease-out),box-shadow .9s var(--ease-out),opacity .8s var(--ease-soft)}
 .in-card img{width:100%;height:auto;border-radius:16px}
 .in-card::after{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6);pointer-events:none}
@@ -29,13 +29,13 @@ body{margin:0}
 .in-text{transform:rotate(2.5deg) translateY(26px);box-shadow:0 40px 70px -40px rgba(55,40,6,.6),0 8px 18px -10px rgba(55,40,6,.25);transition-delay:.25s}
 .in-pair:hover .in-face{transform:rotate(-1deg) translateY(-6px)}
 .in-pair:hover .in-text{transform:rotate(1deg) translateY(18px);transition-delay:0s}
-.lb[data-motion="on"] [data-in="0"] .in-face{transform:rotate(0deg) translateX(-154px) scale(.96);transition:none}
-.lb[data-motion="on"] [data-in="0"] .in-text{transform:translateX(154px) rotateY(-110deg);opacity:0;transition:none}
+.lb[data-motion="on"] [data-in="0"] .in-face{transform:rotate(0deg) translateX(-138px) scale(.96);transition:none}
+.lb[data-motion="on"] [data-in="0"] .in-text{transform:translateX(138px) rotateY(-110deg);opacity:0;transition:none}
 .in-label{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:700;letter-spacing:.04em;color:var(--ink-soft,#634d31)}
 .in-label b{font-family:var(--f-serif);font-weight:500;font-size:17px;letter-spacing:0;color:var(--gold-deep,#7a5a0e)}
 .in-label-2{margin-top:26px}
 /* stand and box */
-.in-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:120px;max-width:1040px;margin-inline:auto}
+.in-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:120px;max-width:920px;margin-inline:auto}
 .in-feat-fig{position:relative;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:560/500;background:#f1ebde;box-shadow:0 36px 70px -46px rgba(55,40,6,.55);
   clip-path:inset(0 0 0 0 round 28px);transition:clip-path 1.5s var(--ease-out),box-shadow .8s var(--ease-out),transform .8s var(--ease-out)}
 .lb[data-motion="on"] [data-in="0"] .in-feat-fig{clip-path:inset(14% 10% 14% 10% round 28px);transition:none}
@@ -51,7 +51,7 @@ body{margin:0}
 .in-feat h3::before{content:"";width:26px;height:1.5px;background:linear-gradient(90deg,#d8be73,#b78515);flex:none}
 .in-feat p{margin-top:12px;font-size:19px;line-height:1.8;color:var(--ink-soft,#634d31);max-width:46ch}
 @media (max-width: 860px){
-  .inside{padding-block:84px 92px}
+  .inside{padding-block:84px 76px}
   .in-sides{grid-template-columns:minmax(0,1fr) !important;row-gap:40px}
   .in-copy{text-align:center}
   .in-copy .lb-eyebrow{justify-content:center}
@@ -108,7 +108,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1444}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1319}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -140,7 +140,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inC: b.c || '0', inP: b.p || '0', inS: b.s || '0', inB: b.b || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1444px',
+      rootH: fluid ? 'auto' : '1319px',
       setRoot: this.setRoot
     };
   }

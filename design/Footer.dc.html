@@ -15,7 +15,7 @@
 body{margin:0}
 .ft{background:#f9f4ea}
 /* closing */
-.ft-close{position:relative;overflow:clip;padding-block:120px 132px;text-align:center;background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(55% 60% at 50% 45%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%}
+.ft-close{position:relative;overflow:clip;padding-block:120px 100px;text-align:center;background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(55% 60% at 50% 45%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%}
 .ft-rings{position:absolute;z-index:0;width:760px;height:760px;left:50%;top:50%;margin:-380px 0 0 -380px;pointer-events:none}
 .ft-rings circle{fill:none;stroke:#b78515;stroke-width:1;opacity:.2;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 2.4s var(--ease-soft)}
 .ft-rings circle:nth-child(2){transition-delay:.25s;opacity:.14}.ft-rings circle:nth-child(3){transition-delay:.5s;opacity:.09}
@@ -50,7 +50,7 @@ body{margin:0}
 .ft-top svg{width:16px;height:16px}
 .ft :focus-visible{outline-color:#dcc27a}
 @media (max-width: 900px){
-  .ft-close{padding-block:84px 92px}
+  .ft-close{padding-block:84px 76px}
   .ft-sub{font-size:27px}
   .ft-ctas{flex-direction:column;align-items:stretch;width:100%}
   .ft-cols{grid-template-columns:minmax(0,1fr) !important;gap:34px}
@@ -99,7 +99,7 @@ body{margin:0}
 </div>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1183}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1151}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -132,7 +132,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inC: b.c || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1183px',
+      rootH: fluid ? 'auto' : '1151px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot
     };

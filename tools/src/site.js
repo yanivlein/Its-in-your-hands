@@ -200,7 +200,11 @@
       setText(bound(sec, 'flipLabel'), flipped ? 'חזרה לחזית' : 'הפכו את הקלף');
       swap(slot, ['deal-a', 'deal-b'], deal);
       swap(deckEl, ['sh-a', 'sh-b'], deck);
-      each(dots, function (d, i) { d.classList.toggle('is-on', i + 1 === +c.g); });
+      each(dots, function (d, i) {
+        var on = i + 1 === +c.g;
+        d.classList.toggle('is-on', on);
+        d.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
       if (live !== undefined) setText(bound(sec, 'live'), live);
     }
     function preload() {
@@ -236,6 +240,29 @@
           deck = deck === 'sh-a' ? 'sh-b' : 'sh-a';
           var c = CARDS[order[pos]];
           render('נשלף קלף ' + c.n + ': ' + c.t + ', מהשער ' + (GATES[c.g] || {}).name + '.');
+        };
+        if (flipped && !reduce) { flipped = false; waiting = true; render(); setTimeout(go, 420); }
+        else go();
+      },
+      // a gate dot shows the sample card of that gate
+      pick: function (e, el) {
+        if (waiting) return;
+        var g = +el.getAttribute('data-g'), idx = -1;
+        CARDS.some(function (c, i) { if (+c.g === g) { idx = i; return true; } return false; });
+        if (idx < 0) return;
+        preload();
+        if (order[pos] === idx) {
+          if (flipped) { flipped = false; render('הצד של הפרקטיקה: ' + CARDS[idx].t); }
+          return;
+        }
+        var go = function () {
+          waiting = false;
+          pos = order.indexOf(idx);
+          flipped = false;
+          deal = deal === 'deal-a' ? 'deal-b' : 'deal-a';
+          deck = deck === 'sh-a' ? 'sh-b' : 'sh-a';
+          var c = CARDS[idx];
+          render('נבחר קלף ' + c.n + ': ' + c.t + ', מהשער ' + (GATES[c.g] || {}).name + '.');
         };
         if (flipped && !reduce) { flipped = false; waiting = true; render(); setTimeout(go, 420); }
         else go();

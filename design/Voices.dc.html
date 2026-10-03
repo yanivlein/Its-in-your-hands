@@ -15,7 +15,7 @@
 body{margin:0}
 .voices{--vx-ink:#f3ebdb;--vx-soft:#d8ccb4;--vx-muted:#b9ab8f;--vx-gold:#dcc27a;
   background-color:#2c2817;background-image:radial-gradient(80% 60% at 85% 0%,rgba(216,190,115,.16) 0%,rgba(44,40,23,0) 60%),radial-gradient(70% 60% at 0% 100%,rgba(166,171,116,.16) 0%,rgba(44,40,23,0) 60%),linear-gradient(180deg,#312c19 0%,#26220f 100%);
-  color:var(--vx-ink);padding-block:128px 136px;isolation:isolate}
+  color:var(--vx-ink);padding-block:104px 104px;isolation:isolate}
 .voices::before{content:"";position:absolute;inset:0;z-index:-1;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;opacity:.22;mix-blend-mode:soft-light;pointer-events:none}
 .vx-rings{position:absolute;z-index:0;width:900px;height:900px;left:-300px;top:-260px;pointer-events:none;opacity:.5}
 .vx-rings circle{fill:none;stroke:#dcc27a;stroke-width:1;opacity:.28;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 2.6s var(--ease-soft)}
@@ -61,7 +61,7 @@ body{margin:0}
 .voices :focus-visible{outline-color:#dcc27a}
 @media (max-width: 1100px){ .vx-card{flex-basis:calc((100% - 24px) / 2)} }
 @media (max-width: 760px){
-  .voices{padding-block:84px 92px}
+  .voices{padding-block:84px 76px}
   .vx-head{align-items:flex-start;flex-direction:column;gap:16px}
   .vx-mark{width:70px;order:-1}
   .vx-car{margin-top:34px}
@@ -137,7 +137,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1064}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1008}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -241,7 +241,7 @@ class Component extends DCLogic {
       motion: s.motion,
       inR: b.r || '0', inH: b.h || '0', inL: b.l || '0', inCta: b.c || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1064px',
+      rootH: fluid ? 'auto' : '1008px',
       carCls: s.ready ? 'is-ready' : '',
       c1: card(1), c2: card(2), c3: card(3), c4: card(4), c5: card(5),
       d1: dot(1), d2: dot(2), d3: dot(3), d4: dot(4), d5: dot(5),

@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.taste{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(60% 70% at 28% 50%,rgba(255,253,248,.85) 0%,rgba(241,235,222,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 132px}
+.taste{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(60% 70% at 28% 50%,rgba(255,253,248,.85) 0%,rgba(241,235,222,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 100px}
 .taste-w1{width:420px;top:-120px;right:-110px;opacity:.55}
 .taste-w2{width:380px;bottom:-140px;left:-90px;opacity:.5}
 .taste-w3{width:260px;top:36%;left:44%;opacity:.28}
@@ -21,45 +21,54 @@ body{margin:0}
 .taste-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"copy stage" "more stage";column-gap:80px;align-items:center}
 .taste-copy{grid-area:copy;align-self:end}
 .taste-more{grid-area:more;align-self:start}
-.taste-stagecol{grid-area:stage;display:flex;flex-direction:column;align-items:center;gap:22px}
+.taste-stagecol{grid-area:stage;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:40px}
+/* wide screens: the controls sit to the right of the card, in the free space next to the text */
+.tc-panel{flex:none;width:208px;display:flex;flex-direction:column;align-items:stretch;gap:16px}
+.tc-main{display:flex;flex-direction:column;align-items:center;gap:12px}
 .taste-copy .lb-lead{margin-top:18px;max-width:34ch}
 .taste-h2{margin-top:12px}
 .taste-note{margin-top:26px;max-width:40ch;padding:18px 22px;border-radius:16px;background:rgba(255,253,248,.62);border:1px solid rgba(55,40,6,.10);font-size:17.5px;line-height:1.7;color:var(--ink-soft,#634d31)}
 .taste-more .lb-btn{margin-top:26px}
 /* stage */
-.tc-stage{position:relative;width:360px;aspect-ratio:800/1120}
+.tc-stage{position:relative;width:252px;aspect-ratio:800/1120}
 .tc-deck{position:absolute;inset:0}
-.tc-deck span{position:absolute;inset:0;border-radius:16px;background:#fffdf8;border:1px solid rgba(55,40,6,.10);box-shadow:0 18px 30px -24px rgba(55,40,6,.55)}
-.tc-deck span:nth-child(1){transform:translate(-22px,16px) rotate(-7deg)}
-.tc-deck span:nth-child(2){transform:translate(-11px,8px) rotate(-3.5deg)}
-.tc-deck span:nth-child(3){transform:translate(-3px,3px) rotate(-1deg)}
+.tc-deck span{position:absolute;inset:0;border-radius:14px;background:#fffdf8;border:1px solid rgba(55,40,6,.10);box-shadow:0 18px 30px -24px rgba(55,40,6,.55)}
+.tc-deck span:nth-child(1){transform:translate(-15px,11px) rotate(-7deg)}
+.tc-deck span:nth-child(2){transform:translate(-8px,6px) rotate(-3.5deg)}
+.tc-deck span:nth-child(3){transform:translate(-2px,2px) rotate(-1deg)}
 .tc-deck.sh-a span{animation:tc-shuffle-a .6s var(--ease-out)}
 .tc-deck.sh-b span{animation:tc-shuffle-b .6s var(--ease-out)}
 .tc-deck.sh-a span:nth-child(2),.tc-deck.sh-b span:nth-child(2){animation-delay:.05s}
 .tc-deck.sh-a span:nth-child(1),.tc-deck.sh-b span:nth-child(1){animation-delay:.1s}
-@keyframes tc-shuffle-a{40%{translate:-10px -6px;rotate:-3deg}}
-@keyframes tc-shuffle-b{40%{translate:-10px -6px;rotate:-3deg}}
+@keyframes tc-shuffle-a{40%{translate:-7px -4px;rotate:-3deg}}
+@keyframes tc-shuffle-b{40%{translate:-7px -4px;rotate:-3deg}}
 .tc-slot{position:absolute;inset:0}
 .tc-slot.deal-a{animation:tc-deal-a .8s var(--ease-out)}
 .tc-slot.deal-b{animation:tc-deal-b .8s var(--ease-out)}
-@keyframes tc-deal-a{0%{transform:translate(-30px,24px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
-@keyframes tc-deal-b{0%{transform:translate(-30px,24px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
+@keyframes tc-deal-a{0%{transform:translate(-21px,17px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
+@keyframes tc-deal-b{0%{transform:translate(-21px,17px) rotate(-9deg) scale(.96);opacity:.2}60%{opacity:1}100%{transform:none}}
 .tc-tilt{position:absolute;inset:0;--rx:0deg;--ry:0deg;--gx:50%;--gy:30%;transform:perspective(1300px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .6s var(--ease-out)}
 .tc-card{position:absolute;inset:0}
 .tc-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s var(--ease-out)}
 .tc-card.is-flipped .tc-inner{transform:rotateY(180deg)}
-.tc-face{position:absolute;inset:0;border-radius:16px;overflow:hidden;background:#fffdf8;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+.tc-face{position:absolute;inset:0;border-radius:14px;overflow:hidden;background:#fffdf8;-webkit-backface-visibility:hidden;backface-visibility:hidden;
   box-shadow:0 34px 60px -30px rgba(55,40,6,.55),0 6px 14px -6px rgba(55,40,6,.2);border:1px solid rgba(255,255,255,.7);display:flex;flex-direction:column}
 .tc-back{transform:rotateY(180deg)}
 .tc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tc-glare{position:absolute;inset:0;border-radius:16px;pointer-events:none;background:radial-gradient(circle at var(--gx) var(--gy),rgba(255,255,255,.38),rgba(255,255,255,0) 52%);opacity:0;transition:opacity .4s;mix-blend-mode:soft-light}
+.tc-glare{position:absolute;inset:0;border-radius:14px;pointer-events:none;background:radial-gradient(circle at var(--gx) var(--gy),rgba(255,255,255,.38),rgba(255,255,255,0) 52%);opacity:0;transition:opacity .4s;mix-blend-mode:soft-light}
 .tc-tilt:hover .tc-glare{opacity:1}
 .tc-caption{font-size:14px;letter-spacing:.12em;font-weight:600;color:var(--ink-muted,#6f6048);display:flex;align-items:center;gap:10px}
 .tc-caption::before,.tc-caption::after{content:"";width:22px;height:1px;background:currentColor;opacity:.5}
-.tc-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.tc-gates{display:flex;gap:9px;align-items:center}
-.tc-gdot{width:9px;height:9px;border-radius:50%;opacity:.45;transform:scale(.85);transition:transform .5s var(--ease-out),opacity .4s}
-.tc-gdot.is-on{opacity:1;transform:scale(1.35);box-shadow:0 0 0 3px rgba(255,253,248,.9),0 0 0 4px rgba(55,40,6,.12)}
+.tc-panel .tc-caption{justify-content:center}
+.tc-actions{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+.tc-actions .lb-btn{justify-content:center}
+.tc-gates{display:flex;align-items:center;justify-content:center}
+.tc-gdot{width:44px;height:44px;display:grid;place-items:center;border-radius:50%}
+.tc-gdot span{width:12px;height:12px;border-radius:50%;background:var(--dc);border:1.5px solid var(--dd);opacity:.8;transform:scale(.9);transition:transform .5s var(--ease-out),opacity .4s,box-shadow .4s}
+.tc-gdot:hover span{opacity:1;transform:scale(1.15)}
+.tc-gdot.is-on span{opacity:1;transform:scale(1.4);box-shadow:0 0 0 3px rgba(255,253,248,.95),0 0 0 4px rgba(55,40,6,.16)}
+.lb .tc-gdot:focus-visible{outline:none}
+.lb .tc-gdot:focus-visible span{outline:2px solid var(--focus,#1d6d8c);outline-offset:5px}
 .tc-actions .lb-btn svg{transition:transform .5s var(--ease-out)}
 .tc-actions .lb-btn:hover svg{transform:rotate(-14deg)}
 @media (prefers-reduced-motion: reduce){
@@ -69,8 +78,13 @@ body{margin:0}
   .tc-card.is-flipped .tc-front{opacity:0}
   .tc-tilt{transform:none!important}
 }
+@media (max-width: 1180px){
+  .taste-stagecol{flex-direction:column;gap:16px}
+  .tc-panel{order:2;width:100%;max-width:420px;align-items:center}
+  .tc-actions{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:14px}
+}
 @media (max-width: 760px){
-  .taste{padding-block:80px 88px}
+  .taste{padding-block:80px 72px}
   .taste-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"copy" "stage" "more" !important;row-gap:38px !important}
   .taste-copy,.taste-more{text-align:center;justify-self:center}
   .taste-copy .lb-eyebrow{justify-content:center}
@@ -96,6 +110,14 @@ body{margin:0}
 <p class="lb-lead lb-rv lb-d2">לפעמים קלף אחד פותח כיוון חדש. שלפו קלף, התבוננו בפרקטיקה – ואז הפכו אותו כדי לקרוא את ההרחבה ואת השאלות.</p>
 </div>
 <div class="taste-stagecol" data-blk="s" data-in="{{ inS }}">
+<div class="tc-panel">
+<p class="tc-caption lb-rv lb-d2">טעימה מתוך הערכה</p>
+<div class="tc-actions lb-rv lb-d3">
+<button type="button" class="lb-btn lb-btn--gold" onClick="{{ draw }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="11" height="16" rx="2" transform="rotate(-8 9.5 12)"></rect><rect x="9" y="4" width="11" height="16" rx="2" transform="rotate(7 14.5 12)"></rect></svg>שלפו קלף אחר</button>
+<button type="button" class="lb-btn lb-btn--ghost" onClick="{{ flip }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8.5"></path><path d="M20 4v4.5h-4.5"></path><path d="M20 12a8 8 0 0 1-13.6 5.7L4 15.5"></path><path d="M4 20v-4.5h4.5"></path></svg>{{ flipLabel }}</button>
+</div>
+</div>
+<div class="tc-main">
 <div class="lb-rv lb-rv--scale lb-d1">
 <div class="tc-stage">
 <div class="tc-deck {{ deckCls }}" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -117,11 +139,7 @@ body{margin:0}
 </div>
 </div>
 </div>
-<div class="tc-gates lb-rv lb-d2" aria-hidden="true"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="6"><span class="tc-gdot {{ d.cls }}" style="background: {{ d.color }};"></span></sc-for></div>
-<p class="tc-caption lb-rv lb-d2">טעימה מתוך הערכה</p>
-<div class="tc-actions lb-rv lb-d3">
-<button type="button" class="lb-btn lb-btn--gold" onClick="{{ draw }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="11" height="16" rx="2" transform="rotate(-8 9.5 12)"></rect><rect x="9" y="4" width="11" height="16" rx="2" transform="rotate(7 14.5 12)"></rect></svg>שלפו קלף אחר</button>
-<button type="button" class="lb-btn lb-btn--ghost" onClick="{{ flip }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8.5"></path><path d="M20 4v4.5h-4.5"></path><path d="M20 12a8 8 0 0 1-13.6 5.7L4 15.5"></path><path d="M4 20v-4.5h4.5"></path></svg>{{ flipLabel }}</button>
+<div class="tc-gates lb-rv lb-d2" role="group" aria-label="קלף לדוגמה מכל שער"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="6"><button type="button" class="tc-gdot {{ d.cls }}" style="--dc: {{ d.color }}; --dd: {{ d.deep }};" data-g="{{ d.g }}" onClick="{{ d.pick }}" aria-pressed="{{ d.pressed }}" aria-label="{{ d.label }}" title="{{ d.label }}"><span></span></button></sc-for></div>
 </div>
 <p class="sr" aria-live="polite">{{ live }}</p>
 </div>
@@ -132,7 +150,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":914}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":721}}'>
 const GATES = {
   1: { name: 'התבוננות ושחרור', band: '#acc3cf', deep: '#3f6678' },
   2: { name: 'דיוק עצמי', band: '#c5c4b9', deep: '#5b5a4c' },
@@ -187,6 +205,25 @@ class Component extends DCLogic {
       if (this.state.flipped && !this.reduce) { this.setState({ flipped: false }); setTimeout(go, 420); }
       else go();
     };
+    /* a gate dot shows the sample card of that gate */
+    this.pickGate = (g) => {
+      const idx = CARDS.findIndex((x) => x.g === g);
+      if (idx < 0) return;
+      const s0 = this.state;
+      if (s0.order[s0.pos] === idx) {
+        if (s0.flipped) this.setState({ flipped: false, live: 'הצד של הפרקטיקה: ' + CARDS[idx].t });
+        return;
+      }
+      const go = () => {
+        const s = this.state;
+        const c = CARDS[idx];
+        this.setState({ pos: s.order.indexOf(idx), flipped: false,
+          deal: s.deal === 'deal-a' ? 'deal-b' : 'deal-a', deck: s.deck === 'sh-a' ? 'sh-b' : 'sh-a',
+          live: 'נבחר קלף ' + c.n + ': ' + c.t + ', מהשער ' + GATES[c.g].name + '.' });
+      };
+      if (s0.flipped && !this.reduce) { this.setState({ flipped: false }); setTimeout(go, 420); }
+      else go();
+    };
     this.flip = () => {
       const c = CARDS[this.state.order[this.state.pos]];
       const f = !this.state.flipped;
@@ -238,9 +275,10 @@ class Component extends DCLogic {
       motion: s.motion,
       inC: s.inb.c || '0', inS: s.inb.s || '0', inM: s.inb.m || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '914px',
+      rootH: fluid ? 'auto' : '721px',
       card: { n: c.n, t: c.t, x: c.x, q1: c.q[0], q2: c.q[1], q3: c.q[2], face: c.face, back: c.back },
-      dots: [1, 2, 3, 4, 5, 6].map((k) => ({ color: GATES[k].band, cls: k === c.g ? 'is-on' : '' })),
+      dots: [1, 2, 3, 4, 5, 6].map((k) => ({ g: k, color: GATES[k].band, deep: GATES[k].deep, cls: k === c.g ? 'is-on' : '',
+        pressed: k === c.g ? 'true' : 'false', label: 'שער ' + k + ' · ' + GATES[k].name, pick: () => this.pickGate(k) })),
       cardLabel: 'קלף ' + c.n + ', ' + c.t + ', שער ' + g.name,
       flipCls: s.flipped ? 'is-flipped' : '',
       frontHidden: s.flipped ? 'true' : 'false',

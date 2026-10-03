@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.pc{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(70% 60% at 80% 20%,rgba(255,253,248,.9) 0%,rgba(241,235,222,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 132px}
+.pc{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(70% 60% at 80% 20%,rgba(255,253,248,.9) 0%,rgba(241,235,222,0) 70%);background-size:320px 320px,100% 100%;padding-block:124px 100px}
 .pc-head{max-width:760px}
 .pc-head .lb-h2{margin-top:12px}
 .pc-grid{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:36px;align-items:start;margin-top:52px}
@@ -63,7 +63,7 @@ body{margin:0}
   .pc-grid{grid-template-columns:minmax(0,1fr) !important;max-width:640px;margin-inline:auto}
 }
 @media (max-width: 760px){
-  .pc{padding-block:84px 92px}
+  .pc{padding-block:84px 76px}
   .pc-head{text-align:center}
   .pc-head .lb-eyebrow{justify-content:center}
   .pc-grid{margin-top:34px;gap:20px}
@@ -124,7 +124,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1175}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1143}}'>
 const MSG = {
   kit: 'היי רונית, אשמח להזמין את הערכה המלאה במחיר 250 ₪. איך מתקדמים?',
   gate: 'היי רונית, אשמח להזמין שער אחד מהערכה במחיר 66 ₪. אפשר להתייעץ על בחירת השער?',
@@ -166,7 +166,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inH: b.h || '0', inK: b.k || '0', inL: b.l || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1175px',
+      rootH: fluid ? 'auto' : '1143px',
       wa: wa,
       setRoot: this.setRoot
     };

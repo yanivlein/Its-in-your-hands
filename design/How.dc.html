@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.how{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(60% 50% at 90% 6%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%;padding-block:128px 136px}
+.how{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),radial-gradient(60% 50% at 90% 6%,rgba(255,253,248,.95) 0%,rgba(249,244,234,0) 70%);background-size:320px 320px,100% 100%;padding-block:128px 104px}
 .how-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);grid-template-areas:"head side" "list side";column-gap:88px;align-items:start}
 .how-head{grid-area:head}
 .how-head .lb-h2{margin-top:12px}
@@ -48,7 +48,7 @@ body{margin:0}
 .how-cta .lb-btn{margin-top:16px}
 .how-cta-m{display:none}
 @media (max-width: 960px){
-  .how{padding-block:84px 92px}
+  .how{padding-block:84px 76px}
   .how-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "side" "list" !important;row-gap:30px}
   .how-head{text-align:center}
   .how-head .lb-eyebrow{justify-content:center}
@@ -110,7 +110,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":2347}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":2315}}'>
 /* which photo shows next to each idea while it is the one being read */
 const PHOTO = { 1: 'wood', 2: 'ronit1', 3: 'ronit2', 4: 'table', 5: 'welcome', 6: 'wood', 7: 'people2', 8: 'people1', 9: 'hero' };
 const TITLES = ['שליפה אקראית', 'בחירה מודעת', 'קלף ליום או לשבוע', 'שער אחד בכל פעם', 'הגדרת מטרות', 'סיכום תהליך או תקופה', 'פתיחת שיחה', 'בעבודה טיפולית-אימונית', 'השראה יומיומית'];
@@ -165,7 +165,7 @@ class Component extends DCLogic {
       cur: String(s.cur), curTitle: TITLES[s.cur - 1], cntCls: s.k,
       ph: ['wood', 'ronit1', 'ronit2', 'table', 'welcome', 'people2', 'people1', 'hero'].reduce((o, k) => { o[k] = PHOTO[s.cur] === k ? 'is-on' : ''; return o; }, {}),
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '2347px',
+      rootH: fluid ? 'auto' : '2315px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot, setList: this.setList
     };
