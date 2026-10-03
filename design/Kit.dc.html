@@ -19,7 +19,7 @@ body{margin:0}
 .kg-list{grid-area:list;align-self:start;margin-top:30px}
 .kit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);grid-template-areas:"head fan" "list fan";column-gap:72px;align-items:center}
 /* the six gates: fixed colour boxes, linked to the fan */
-.kg-intro{font-family:var(--f-serif);font-size:24px;line-height:1.4;color:var(--ink,#372806);margin-bottom:18px}
+.kg-intro{font-family:var(--f-serif);font-size:var(--fs-s4);line-height:1.4;color:var(--ink,#372806);margin-bottom:18px}
 .kg-boxes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .kg-box{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;min-height:112px;padding:16px 18px 16px 16px;border-radius:18px;text-align:right;
   background:var(--gt);border:1px solid rgba(55,40,6,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);
@@ -29,9 +29,9 @@ body{margin:0}
 .kg-box.is-on{background:var(--gc);transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(55,40,6,.6),0 0 0 2px #fffdf8,0 0 0 4px var(--gc)}
 .kg-box.is-on::after{inset-inline:0;opacity:0}
 .kg-box-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
-.kg-box-k{font-size:12.5px;font-weight:700;letter-spacing:.16em;color:rgba(55,40,6,.95)}
-.kg-box-name{font-family:var(--f-serif);font-size:23px;line-height:1.2;color:#372806}
-.kg-box-meta{font-size:15px;font-weight:600;color:rgba(55,40,6,.95)}
+.kg-box-k{font-size:var(--fs-u3);font-weight:600;letter-spacing:.2em;color:rgba(55,40,6,.95)}
+.kg-box-name{font-family:var(--f-serif);font-size:var(--fs-s5);line-height:1.2;color:#372806}
+.kg-box-meta{font-size:var(--fs-u2);font-weight:600;color:rgba(55,40,6,.95)}
 .kg-box-card{width:46px;height:auto;border-radius:6px;box-shadow:0 8px 16px -8px rgba(55,40,6,.55);transform:rotate(4deg);transition:transform .6s var(--ease-out)}
 .kg-box:hover .kg-box-card,.kg-box.is-on .kg-box-card{transform:rotate(-2deg) scale(1.08)}
 /* fan of real cards, one from each gate */
@@ -49,7 +49,7 @@ body{margin:0}
 .kf-card.is-on{z-index:20;transform:translate(calc(var(--o) * var(--fxa)),var(--lift)) rotate(0deg) scale(var(--sc));box-shadow:0 44px 70px -34px rgba(55,40,6,.72),0 8px 18px -8px rgba(55,40,6,.3)}
 .kf-stage.is-intro .kf-card{transition-delay:var(--d)}
 .lb[data-motion="on"] [data-in="0"] .kf-card{opacity:0;transform:translateY(70px) rotate(0deg) scale(.9);transition:none}
-.kf-note{margin:18px auto 0;max-width:40ch;text-align:center;font-family:var(--f-serif);font-size:19px;line-height:1.55;color:var(--ink-soft,#634d31)}
+.kf-note{margin:18px auto 0;max-width:40ch;text-align:center;font-family:var(--f-serif);font-size:var(--fs-s5);line-height:1.55;color:var(--ink-soft,#634d31)}
 @media (max-width: 1100px){
   .kit-grid{column-gap:44px}
   .kf-stage{--cw:164px;--ch:230px;--fx:52px}
@@ -63,14 +63,11 @@ body{margin:0}
   .kf{margin-top:20px}
   .kg-boxes{gap:10px}
   .kg-box{min-height:96px;padding:14px 14px 14px 12px;gap:8px}
-  .kg-box-name{font-size:19px}
-  .kg-box-meta{font-size:13.5px}
-  .kg-box-k{font-size:11.5px}
   .kg-box-card{display:none}
   .kg-box{grid-template-columns:minmax(0,1fr);min-height:92px}
   .kf-stage{height:318px;--cw:128px;--ch:179px;--fx:36px;--fy:6px;--fr:5deg;--fxa:8px;--lift:-40px;--sc:1.1}
   .kf-glow{width:300px;height:260px;margin:-130px 0 0 -150px}
-  .kf-note{font-size:17px;margin-top:10px}
+  .kf-note{margin-top:10px}
 }
 @media (prefers-reduced-motion: reduce){
   .kf-card{transition:none!important}

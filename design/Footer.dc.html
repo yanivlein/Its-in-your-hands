@@ -23,7 +23,7 @@ body{margin:0}
 .ft-close-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
 .ft-close-in h2{width:100%}
 .ft-logo{width:min(300px,70%);height:auto;margin-inline:auto}
-.ft-sub{margin-top:8px;font-family:var(--f-hand);font-size:34px;line-height:1.3;color:var(--ink,#372806)}
+.ft-sub{margin-top:8px;font-family:var(--f-hand);font-size:var(--fs-h1);line-height:1.3;color:var(--ink,#372806)}
 .ft-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
 /* footer bar */
 .ft-bar{position:relative;background:#2c2817;color:#e9dfca;padding-block:64px 34px;isolation:isolate}
@@ -33,25 +33,24 @@ body{margin:0}
 .ft-brand img{width:36px;height:auto;filter:invert(.9) sepia(.4) saturate(1.3) brightness(1.05);transform:scaleX(-1) rotate(-8deg)}
 .ft-brand-name{display:block;font-family:var(--f-hand);font-size:31px;line-height:1.05;background:linear-gradient(100deg,#f3ebdb 0%,#dcc27a 60%,#c9a44b 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:3px}
 .ft-brand-sub{display:block;font-size:12.5px;letter-spacing:.24em;color:#bfb296;margin-top:3px}
-.ft-note{margin-top:18px;font-size:16.5px;line-height:1.7;color:#cfc3a9;max-width:30ch}
-.ft-h{font-size:13px;font-weight:700;letter-spacing:.18em;color:#dcc27a;margin-bottom:14px}
+.ft-note{margin-top:18px;font-size:var(--fs-t3);line-height:1.7;color:#cfc3a9;max-width:30ch}
+.ft-h{font-size:var(--fs-u3);font-weight:600;letter-spacing:.2em;color:#dcc27a;margin-bottom:14px}
 .ft-links{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:4px 34px}
 .ft-links a,.ft-contact a,.ft-legal a{color:#e9dfca;text-decoration:none;transition:color .25s}
-.ft-links a{display:inline-flex;align-items:center;min-height:36px;font-size:16px}
+.ft-links a{display:inline-flex;align-items:center;min-height:36px;font-size:var(--fs-t3)}
 .ft-links a:hover,.ft-contact a:hover,.ft-legal a:hover{color:#dcc27a}
 .ft-contact li{margin-bottom:10px}
-.ft-contact a{display:inline-flex;align-items:center;gap:10px;min-height:40px;font-size:16.5px}
+.ft-contact a{display:inline-flex;align-items:center;gap:10px;min-height:40px;font-size:var(--fs-t3)}
 .ft-contact svg{width:20px;height:20px;flex:none;color:#dcc27a}
 .ft-contact .ltr{direction:ltr;unicode-bidi:isolate}
-.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;margin-top:48px;padding-top:22px;border-top:1px solid rgba(220,194,122,.2);font-size:14px;color:#bfb296}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;margin-top:48px;padding-top:22px;border-top:1px solid rgba(220,194,122,.2);font-size:var(--fs-t3);color:#bfb296}
 .ft-legal{display:flex;flex-wrap:wrap;gap:6px 20px}
-.ft-top{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(220,194,122,.35);color:#e9dfca;text-decoration:none;font-size:14.5px;font-weight:600;transition:background-color .25s,color .25s}
+.ft-top{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(220,194,122,.35);color:#e9dfca;text-decoration:none;font-size:var(--fs-u2);font-weight:600;transition:background-color .25s,color .25s}
 .ft-top:hover{background:#dcc27a;color:#2c2817}
 .ft-top svg{width:16px;height:16px}
 .ft :focus-visible{outline-color:#dcc27a}
 @media (max-width: 900px){
   .ft-close{padding-block:84px 76px}
-  .ft-sub{font-size:27px}
   .ft-ctas{flex-direction:column;align-items:stretch;width:100%}
   .ft-cols{grid-template-columns:minmax(0,1fr) !important;gap:34px}
   .ft-bar{padding-block:52px calc(110px + env(safe-area-inset-bottom,0px))}
@@ -99,7 +98,7 @@ body{margin:0}
 </div>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1151}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1156}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -132,7 +131,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inC: b.c || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1151px',
+      rootH: fluid ? 'auto' : '1156px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot
     };

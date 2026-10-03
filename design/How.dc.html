@@ -22,11 +22,11 @@ body{margin:0}
 .how-item{position:relative;display:grid;grid-template-columns:76px minmax(0,1fr);column-gap:10px;padding:30px 0 32px;border-bottom:1px solid rgba(55,40,6,.14)}
 .how-item::before{content:"";position:absolute;right:0;top:-1px;height:2px;width:0;background:var(--ac);transition:width .9s var(--ease-out)}
 .how-item.is-active::before{width:120px}
-.how-n{font-family:var(--f-serif);font-size:50px;line-height:.95;font-weight:400;background:linear-gradient(110deg,#372806 0%,#7a5a0e 50%,#b78515 100%);-webkit-background-clip:text;background-clip:text;color:transparent;align-self:start;padding-bottom:4px;justify-self:start;transition:opacity .6s,transform .8s var(--ease-out)}
+.how-n{font-family:var(--f-serif);font-size:var(--fs-n2);line-height:.95;font-weight:400;background:linear-gradient(110deg,#372806 0%,#7a5a0e 50%,#b78515 100%);-webkit-background-clip:text;background-clip:text;color:transparent;align-self:start;padding-bottom:4px;justify-self:start;transition:opacity .6s,transform .8s var(--ease-out)}
 .lb[data-motion="on"] .how-item:not(.is-active) .how-n{opacity:.4}
 .how-item.is-active .how-n{transform:translateX(-4px)}
-.how-item h3{font-size:26px;line-height:1.25;padding-top:4px}
-.how-item p{margin-top:10px;font-size:18.5px;line-height:1.85;color:var(--ink-soft,#634d31);max-width:60ch}
+.how-item h3{font-size:var(--fs-s3);line-height:1.25;padding-top:4px}
+.how-item p{margin-top:10px;font-size:var(--fs-t2);line-height:1.85;color:var(--ink-soft,#634d31);max-width:60ch}
 /* sticky side */
 .how-side{grid-area:side;position:sticky;top:calc(var(--nav-h) + 36px)}
 .how-photo{position:relative;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:5/4;background:#e9e1cf;box-shadow:0 44px 80px -48px rgba(55,40,6,.6),0 10px 22px -14px rgba(55,40,6,.25);
@@ -36,15 +36,15 @@ body{margin:0}
 .how-photo:hover .how-ph.is-on{transform:scale(1.06)}
 .lb[data-motion="on"] [data-in="0"] .how-photo{clip-path:inset(0 0 0 100% round 28px);transition:none}
 .how-counter{display:flex;align-items:baseline;gap:12px;margin-top:26px;padding-bottom:22px;border-bottom:1px solid rgba(55,40,6,.14);min-height:86px}
-.how-cn{font-family:var(--f-serif);font-size:62px;line-height:1;color:var(--gold,#b78515);font-variant-numeric:tabular-nums}
-.how-ct{font-size:16px;font-weight:600;color:var(--ink-muted,#6f6048)}
-.how-cl{margin-inline-start:auto;font-family:var(--f-serif);font-size:22px;line-height:1.3;color:var(--ink,#372806);text-align:left}
+.how-cn{font-family:var(--f-serif);font-size:var(--fs-n2);line-height:1;color:var(--gold,#b78515);font-variant-numeric:tabular-nums}
+.how-ct{font-size:var(--fs-u2);font-weight:600;color:var(--ink-muted,#6f6048)}
+.how-cl{margin-inline-start:auto;font-family:var(--f-serif);font-size:var(--fs-s5);line-height:1.3;color:var(--ink,#372806);text-align:left}
 .how-counter.k-a .how-cn,.how-counter.k-a .how-cl{animation:how-in-a .6s var(--ease-out)}
 .how-counter.k-b .how-cn,.how-counter.k-b .how-cl{animation:how-in-b .6s var(--ease-out)}
 @keyframes how-in-a{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes how-in-b{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .how-cta{margin-top:26px;padding:26px 28px;border-radius:22px;background:linear-gradient(120deg,rgba(166,171,116,.2),rgba(216,190,115,.18));border:1px solid rgba(92,102,54,.18)}
-.how-cta p{font-family:var(--f-serif);font-size:22px;line-height:1.4;color:var(--ink,#372806)}
+.how-cta p{font-family:var(--f-serif);font-size:var(--fs-s4);line-height:1.4;color:var(--ink,#372806)}
 .how-cta .lb-btn{margin-top:16px}
 .how-cta-m{display:none}
 @media (max-width: 960px){
@@ -58,9 +58,7 @@ body{margin:0}
   .how-counter,.how-cta-d{display:none}
   .how-list{margin-top:8px}
   .how-item{grid-template-columns:52px minmax(0,1fr);padding:24px 0 26px}
-  .how-n{font-size:40px}
-  .how-item h3{font-size:22px;padding-top:2px}
-  .how-item p{font-size:18px}
+  .how-item h3{padding-top:2px}
   .how-cta-m{display:block;grid-area:auto;margin-top:26px;text-align:center}
   .how-cta-m .lb-btn{width:100%}
 }
@@ -110,7 +108,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":2315}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":2334}}'>
 /* which photo shows next to each idea while it is the one being read */
 const PHOTO = { 1: 'wood', 2: 'ronit1', 3: 'ronit2', 4: 'table', 5: 'welcome', 6: 'wood', 7: 'people2', 8: 'people1', 9: 'hero' };
 const TITLES = ['שליפה אקראית', 'בחירה מודעת', 'קלף ליום או לשבוע', 'שער אחד בכל פעם', 'הגדרת מטרות', 'סיכום תהליך או תקופה', 'פתיחת שיחה', 'בעבודה טיפולית-אימונית', 'השראה יומיומית'];
@@ -165,7 +163,7 @@ class Component extends DCLogic {
       cur: String(s.cur), curTitle: TITLES[s.cur - 1], cntCls: s.k,
       ph: ['wood', 'ronit1', 'ronit2', 'table', 'welcome', 'people2', 'people1', 'hero'].reduce((o, k) => { o[k] = PHOTO[s.cur] === k ? 'is-on' : ''; return o; }, {}),
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '2315px',
+      rootH: fluid ? 'auto' : '2334px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot, setList: this.setList
     };

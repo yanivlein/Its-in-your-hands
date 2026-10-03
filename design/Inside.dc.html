@@ -13,11 +13,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.inside{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:120px 100px}
+.inside{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:96px 100px}
 .in-sides{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);column-gap:64px;align-items:center}
+/* wide screens: the text and the cards sit closer to the middle, like the opening */
+@media (min-width: 1120px){ .in-sides{grid-template-columns:minmax(0,440px) minmax(0,520px);justify-content:center;column-gap:80px} }
 .in-copy .lb-h2{margin-top:12px}
 .in-copy .lb-lead{margin-top:20px;max-width:38ch}
-.in-cap{margin-top:26px;display:flex;align-items:center;gap:12px;font-size:16px;line-height:1.5;color:var(--ink-muted,#6f6048)}
+.in-cap{margin-top:26px;display:flex;align-items:center;gap:12px;font-size:var(--fs-t3);line-height:1.5;color:var(--ink-muted,#6f6048)}
 .in-cap-dot{flex:none;width:10px;height:10px;border-radius:50%;background:#d6aa3c;box-shadow:0 0 0 3px rgba(214,170,60,.22)}
 /* the pair of real print files */
 .in-pair{position:relative;margin:0;perspective:1600px}
@@ -31,8 +33,8 @@ body{margin:0}
 .in-pair:hover .in-text{transform:rotate(1deg) translateY(18px);transition-delay:0s}
 .lb[data-motion="on"] [data-in="0"] .in-face{transform:rotate(0deg) translateX(-138px) scale(.96);transition:none}
 .lb[data-motion="on"] [data-in="0"] .in-text{transform:translateX(138px) rotateY(-110deg);opacity:0;transition:none}
-.in-label{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:700;letter-spacing:.04em;color:var(--ink-soft,#634d31)}
-.in-label b{font-family:var(--f-serif);font-weight:500;font-size:17px;letter-spacing:0;color:var(--gold-deep,#7a5a0e)}
+.in-label{display:flex;align-items:center;justify-content:center;gap:8px;font-size:var(--fs-u3);font-weight:600;letter-spacing:.2em;color:var(--ink-soft,#634d31)}
+.in-label b{font-family:inherit;font-weight:700;font-size:inherit;letter-spacing:inherit;color:var(--gold-deep,#7a5a0e)}
 .in-label-2{margin-top:26px}
 /* stand and box */
 .in-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:120px;max-width:920px;margin-inline:auto}
@@ -47,9 +49,9 @@ body{margin:0}
 .in-fig-box img{position:absolute;left:50%;bottom:0;width:auto;height:96%;object-fit:contain;transform:translateX(-50%);mix-blend-mode:multiply;transform-origin:50% 100%}
 .in-feat:hover .in-fig-box img{transform:translateX(-50%) scale(1.04)}
 .in-feat-body{padding:26px 6px 0}
-.in-feat h3{font-size:30px;line-height:1.2;display:flex;align-items:center;gap:14px}
+.in-feat h3{font-size:var(--fs-s3);line-height:1.2;display:flex;align-items:center;gap:14px}
 .in-feat h3::before{content:"";width:26px;height:1.5px;background:linear-gradient(90deg,#d8be73,#b78515);flex:none}
-.in-feat p{margin-top:12px;font-size:19px;line-height:1.8;color:var(--ink-soft,#634d31);max-width:46ch}
+.in-feat p{margin-top:12px;font-size:var(--fs-t2);line-height:1.8;color:var(--ink-soft,#634d31);max-width:46ch}
 @media (max-width: 860px){
   .inside{padding-block:84px 76px}
   .in-sides{grid-template-columns:minmax(0,1fr) !important;row-gap:40px}
@@ -61,13 +63,14 @@ body{margin:0}
   .in-text{transform:rotate(2deg) translateY(16px)}
   .lb[data-motion="on"] [data-in="0"] .in-face{transform:translateX(-50%) scale(.96)}
   .lb[data-motion="on"] [data-in="0"] .in-text{transform:translateX(50%) rotateY(-110deg)}
-  .in-label{font-size:12.5px;gap:5px}
-  .in-label b{font-size:15px}
+  .in-label{gap:5px}
   .in-label-2{margin-top:16px}
   .in-feats{grid-template-columns:minmax(0,1fr) !important;gap:48px;margin-top:84px;max-width:none}
   .in-feat-fig{border-radius:22px;clip-path:inset(0 0 0 0 round 22px)}
-  .in-feat h3{font-size:25px}
-  .in-feat p{font-size:18px}
+}
+@media (max-width: 560px){
+  .in-label{flex-direction:column;gap:2px}
+  .in-label-dot{display:none}
 }
 </style>
 </helmet>
@@ -84,8 +87,8 @@ body{margin:0}
 <div class="in-pair-grid">
 <div class="in-card in-face"><img src="/_blob/965a31d711516e4ee3ddc6c0934810fa" alt="הצד האחד של הקלף: הכותרת ״להיענות לאחרים ללא ריצוי״ בכתב יד, איור של שתי ציפורים על ענף, מספר הקלף ושם השער" width="760" height="1064"></div>
 <div class="in-card in-text"><img src="/_blob/7890307439bc875091eb2f331ee2dbbc" alt="הצד השני של הקלף: פסקת הרחבה על הפרקטיקה ושלוש שאלות להתבוננות" width="760" height="1064"></div>
-<p class="in-label"><b>הצד האחד</b>· פרקטיקה</p>
-<p class="in-label in-label-2"><b>הצד השני</b>· הרחבה ושאלות</p>
+<p class="in-label"><b>הצד האחד</b><span class="in-label-dot" aria-hidden="true">·</span><span>פרקטיקה</span></p>
+<p class="in-label in-label-2"><b>הצד השני</b><span class="in-label-dot" aria-hidden="true">·</span><span>הרחבה ושאלות</span></p>
 </div>
 </figure>
 </div>
@@ -108,7 +111,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1319}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1285}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -140,7 +143,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inC: b.c || '0', inP: b.p || '0', inS: b.s || '0', inB: b.b || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1319px',
+      rootH: fluid ? 'auto' : '1285px',
       setRoot: this.setRoot
     };
   }

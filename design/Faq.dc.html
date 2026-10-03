@@ -18,14 +18,14 @@ body{margin:0}
 .fq-side{position:sticky;top:calc(var(--nav-h) + 40px)}
 .fq-side .lb-h2{margin-top:12px}
 .fq-ask{margin-top:30px;padding:26px 26px 28px;border-radius:22px;background:linear-gradient(120deg,rgba(166,171,116,.2),rgba(216,190,115,.18));border:1px solid rgba(92,102,54,.18)}
-.fq-ask p{font-family:var(--f-serif);font-size:22px;line-height:1.4;color:var(--ink,#372806)}
+.fq-ask p{font-family:var(--f-serif);font-size:var(--fs-s4);line-height:1.4;color:var(--ink,#372806)}
 .fq-ask .lb-btn{margin-top:16px}
 .fq-list{border-top:1px solid rgba(55,40,6,.16)}
 .fq-item{border-bottom:1px solid rgba(55,40,6,.16)}
 .fq-h{margin:0;font:inherit}
 .fq-btn{width:100%;display:grid;grid-template-columns:44px minmax(0,1fr) 36px;align-items:center;gap:14px;padding:26px 4px;text-align:right;transition:color .3s}
-.fq-n{font-family:var(--f-serif);font-size:22px;color:var(--gold,#b78515);font-variant-numeric:tabular-nums}
-.fq-q{font-family:var(--f-serif);font-size:25px;line-height:1.35;color:var(--ink,#372806);transition:transform .5s var(--ease-out)}
+.fq-n{font-family:var(--f-serif);font-size:var(--fs-s5);color:var(--gold,#b78515);font-variant-numeric:tabular-nums}
+.fq-q{font-family:var(--f-serif);font-size:var(--fs-s4);line-height:1.35;color:var(--ink,#372806);transition:transform .5s var(--ease-out)}
 .fq-btn:hover .fq-q{transform:translateX(-4px)}
 .fq-plus{position:relative;width:36px;height:36px;border-radius:50%;border:1px solid rgba(55,40,6,.22);transition:background-color .35s,border-color .35s,transform .6s var(--ease-out)}
 .fq-plus::before,.fq-plus::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:1.6px;margin:-.8px 0 0 -6.5px;background:#372806;border-radius:2px;transition:transform .5s var(--ease-out)}
@@ -36,7 +36,7 @@ body{margin:0}
 .fq-item.is-open .fq-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .6s var(--ease-out),visibility 0s}
 .fq-panel-in{overflow:hidden;min-height:0}
 .fq-a{padding:0 58px 30px 48px;display:grid;gap:12px}
-.fq-a p{font-size:19px;line-height:1.9;color:var(--ink-soft,#634d31);opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-soft) .1s,transform .6s var(--ease-out) .1s}
+.fq-a p{font-size:var(--fs-t2);line-height:1.9;color:var(--ink-soft,#634d31);opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease-soft) .1s,transform .6s var(--ease-out) .1s}
 .fq-item.is-open .fq-a p{opacity:1;transform:none}
 @media (max-width: 900px){
   .fq{padding-block:84px 76px}
@@ -45,10 +45,7 @@ body{margin:0}
   .fq-side .lb-eyebrow{justify-content:center}
   .fq-ask{display:none}
   .fq-btn{grid-template-columns:30px minmax(0,1fr) 32px;gap:10px;padding:20px 2px}
-  .fq-q{font-size:20.5px}
-  .fq-n{font-size:19px}
   .fq-a{padding:0 2px 24px 40px}
-  .fq-a p{font-size:18px}
   .fq-ask-m{display:block;margin-top:26px;text-align:center}
   .fq-ask-m .lb-btn{width:100%}
 }
@@ -109,7 +106,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1158}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1134}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -149,7 +146,7 @@ class Component extends DCLogic {
       inH: b.h || '0', inL: b.l || '0',
       q1: q(1), q2: q(2), q3: q(3), q4: q(4), q5: q(5), q6: q(6), q7: q(7), q8: q(8),
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1158px',
+      rootH: fluid ? 'auto' : '1134px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       onQ: this.onQ,
       setRoot: this.setRoot

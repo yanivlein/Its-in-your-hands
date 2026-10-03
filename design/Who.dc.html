@@ -17,7 +17,7 @@ body{margin:0}
 .who-wash{width:120%;top:-18%;left:-16%;opacity:.75}
 .who-top{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);column-gap:80px;align-items:center}
 .who-copy .lb-h2{margin-top:12px}
-.who-lead{margin-top:22px;font-family:var(--f-serif);font-size:clamp(24px,2.3cqi,31px);line-height:1.5;color:var(--ink,#372806);max-width:24ch;text-wrap:balance}
+.who-lead{margin-top:22px;font-family:var(--f-serif);font-size:var(--fs-s3);line-height:1.5;color:var(--ink,#372806);max-width:24ch;text-wrap:balance}
 .who-hl{background-image:linear-gradient(transparent 62%,var(--hc) 62%,var(--hc) 92%,transparent 92%);background-repeat:no-repeat;background-position:right bottom;background-size:100% 100%;transition:background-size 1.1s var(--ease-out) var(--hd)}
 .lb[data-motion="on"] [data-in="0"] .who-hl{background-size:0% 100%;transition:none}
 /* photos */
@@ -41,22 +41,20 @@ body{margin:0}
 .who-ic{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--at);color:#372806;margin-bottom:18px;transition:transform .7s var(--ease-out)}
 .who-card:hover .who-ic{transform:rotate(-8deg) scale(1.06)}
 .who-ic svg{width:25px;height:25px}
-.who-card h3{font-size:27px;line-height:1.2}
-.who-card p{margin-top:12px;font-size:18.5px;line-height:1.85;color:var(--ink-soft,#634d31)}
+.who-card h3{font-size:var(--fs-s3);line-height:1.2}
+.who-card p{margin-top:12px;font-size:var(--fs-t2);line-height:1.85;color:var(--ink-soft,#634d31)}
 @media (max-width: 860px){
   .who{padding-block:84px 76px}
   .who-top{grid-template-columns:minmax(0,1fr) !important;row-gap:44px}
   .who-copy{text-align:center}
   .who-copy .lb-eyebrow{justify-content:center}
-  .who-lead{margin-inline:auto;font-size:23px}
+  .who-lead{margin-inline:auto}
   .who-photos{padding:0 0 46px 0;width:min(100%,420px);margin-inline:auto}
   .who-ph-a{border-radius:24px;clip-path:inset(0 0 0 0 round 24px)}
   .who-ph-b{right:-8px;width:42%;border-width:6px}
   .who-grid{grid-template-columns:minmax(0,1fr) !important;gap:16px;margin-top:56px}
   .who-card{padding:26px 24px 28px}
   .who-card::before{right:24px}
-  .who-card h3{font-size:24px}
-  .who-card p{font-size:18px}
 }
 </style>
 </helmet>
@@ -99,7 +97,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1503}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1506}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -131,7 +129,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inH: b.h || '0', inP: b.p || '0', inG: b.g || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1503px',
+      rootH: fluid ? 'auto' : '1506px',
       setRoot: this.setRoot
     };
   }

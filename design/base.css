@@ -19,6 +19,33 @@
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
+
+/* type scale – 14 styles. Every text on the site uses one of these sizes;
+   on phones (up to 760px wide) the values switch by themselves. The logo keeps its own sizes. */
+.lb{
+  /* Frank Ruhl Libre – כותרות */
+  --fs-s1:clamp(34px,4cqi,54px);   /* S1 · כותרות הסקשנים, הציטוט הגדול ב"הרעיון" */
+  --fs-s2:clamp(28px,2.6cqi,36px); /* S2 · "ברוכים הבאים", הציטוט ו"איך נולדו הקלפים" */
+  --fs-s3:28px;                    /* S3 · כותרות משנה, שורות פתיחה, החתימה */
+  --fs-s4:24px;                    /* S4 · שאלות, כותרות קטנות, שורות הנעה לפעולה, מחירי האפשרויות */
+  --fs-s5:20px;                    /* S5 · שמות השערים והממליצים, מספרי השאלות, הערות קצרות */
+  /* Frank Ruhl Libre – מספרים */
+  --fs-n1:64px;                    /* N1 · המחיר */
+  --fs-n2:54px;                    /* N2 · המספרים ב"רעיונות לשימוש" */
+  /* Assistant – טקסט */
+  --fs-t1:20px;                    /* T1 · פסקאות פתיחה */
+  --fs-t2:18.5px;                  /* T2 · טקסט רגיל */
+  --fs-t3:15.5px;                  /* T3 · כיתובים, תפקידים, טקסט הפוטר */
+  /* Assistant 600 – ממשק */
+  --fs-u1:17px;                    /* U1 · כפתורים */
+  --fs-u2:15.5px;                  /* U2 · קישורים קטנים ותגיות */
+  --fs-u3:14px;                    /* U3 · כותרות־על באותיות מרווחות */
+  /* Gveret Levin */
+  --fs-h1:36px;                    /* H1 · שורת כתב היד בפתיחה ובסיום */
+}
+@media (max-width: 760px){
+  .lb{--fs-s1:33px;--fs-s2:28px;--fs-s3:24px;--fs-s4:21px;--fs-s5:18px;--fs-n1:54px;--fs-n2:40px;--fs-t1:18.5px;--fs-t2:18px;--fs-t3:15px;--fs-h1:27px}
+}
 .lb,:where(.lb) *,:where(.lb) *::before,:where(.lb) *::after{box-sizing:border-box}
 :where(.lb) img{display:block;max-width:100%;height:auto}
 :where(.lb) :where(p,figure,blockquote,ul,ol){margin:0}
@@ -36,15 +63,14 @@
 @media (max-width: 760px){ .lb-wrap{width:calc(100% - 40px)} }
 
 /* type */
-.lb-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-sans);font-weight:600;font-size:14px;line-height:1.4;letter-spacing:.2em;color:var(--gold-deep,#7a5a0e)}
+.lb-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-sans);font-weight:600;font-size:var(--fs-u3);line-height:1.4;letter-spacing:.2em;color:var(--gold-deep,#7a5a0e)}
 .lb-eyebrow::before{content:"";width:30px;height:1px;background:currentColor;opacity:.55}
-.lb-h2{font-size:clamp(34px, 4cqi, 54px);line-height:1.12}
-.lb-lead{font-size:21px;line-height:1.75;color:var(--ink-soft,#634d31)}
-@media (max-width: 760px){ .lb-h2{font-size:33px} .lb-lead{font-size:18.5px} }
+.lb-h2{font-size:var(--fs-s1);line-height:1.12}
+.lb-lead{font-size:var(--fs-t1);line-height:1.75;color:var(--ink-soft,#634d31)}
 
 /* buttons */
 .lb-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;border:1.5px solid transparent;
-  font-family:var(--f-sans);font-weight:600;font-size:17px;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;
+  font-family:var(--f-sans);font-weight:600;font-size:var(--fs-u1);line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer;
   transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),background-color .25s,border-color .25s,color .25s}
 .lb-btn svg{width:20px;height:20px;flex:none}
 .lb-btn:hover{transform:translateY(-2px)}
@@ -55,7 +81,7 @@
 .lb-btn--gold:hover{box-shadow:0 20px 36px -18px rgba(122,90,14,.95);background:linear-gradient(135deg,#eedba6 0%,#dcc47d 55%,#cfad5a 100%)}
 .lb-btn--ghost{background:rgba(255,253,248,.5);color:var(--ink,#372806);border-color:rgba(55,40,6,.3)}
 .lb-btn--ghost:hover{background:rgba(255,253,248,.95);border-color:rgba(55,40,6,.5)}
-.lb-btn--sm{min-height:44px;padding:0 18px;font-size:15.5px}
+.lb-btn--sm{min-height:44px;padding:0 18px;font-size:var(--fs-u2)}
 .lb-btn--sm svg{width:18px;height:18px}
 @media (max-width: 760px){ .lb-btn{white-space:normal;text-align:center} }
 

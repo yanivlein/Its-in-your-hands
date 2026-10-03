@@ -13,22 +13,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.ws{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 26%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:128px 104px}
+.ws{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 26%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:96px 104px}
 .ws-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);column-gap:84px;align-items:center}
 .ws-copy .lb-h2{margin-top:12px;max-width:24ch}
 .ws-copy .lb-lead{margin-top:20px;max-width:44ch}
 .ws-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.ws-chips li{padding:8px 16px;border-radius:999px;background:rgba(255,253,248,.72);border:1px solid rgba(183,133,21,.3);font-size:15px;font-weight:600;color:var(--ink,#372806);transition:transform .4s var(--ease-out),background-color .3s}
+.ws-chips li{padding:8px 16px;border-radius:999px;background:rgba(255,253,248,.72);border:1px solid rgba(183,133,21,.3);font-size:var(--fs-u2);font-weight:600;color:var(--ink,#372806);transition:transform .4s var(--ease-out),background-color .3s}
 .ws-chips li:hover{transform:translateY(-2px);background:#fffdf8}
 .ws-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:34px}
 .ws-card{position:relative;padding:26px 26px 28px;border-radius:22px;background:#fffdf8;border:1px solid rgba(55,40,6,.08);box-shadow:0 24px 48px -40px rgba(55,40,6,.55);transition:transform .7s var(--ease-out),box-shadow .7s var(--ease-out)}
 .ws-card:hover{transform:translateY(-5px);box-shadow:0 34px 60px -40px rgba(55,40,6,.6)}
 .ws-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:rgba(216,190,115,.3);color:#372806;margin-bottom:14px}
 .ws-ic svg{width:23px;height:23px}
-.ws-card h3{font-size:24px;line-height:1.25}
-.ws-card p{margin-top:8px;font-size:18px;line-height:1.75;color:var(--ink-soft,#634d31)}
+.ws-card h3{font-size:var(--fs-s4);line-height:1.25}
+.ws-card p{margin-top:8px;font-size:var(--fs-t2);line-height:1.75;color:var(--ink-soft,#634d31)}
 .ws-cta{display:flex;align-items:center;flex-wrap:wrap;gap:14px 20px;margin-top:34px}
-.ws-cta p{font-family:var(--f-serif);font-size:21px;color:var(--ink,#372806)}
+.ws-cta p{font-family:var(--f-serif);font-size:var(--fs-s4);color:var(--ink,#372806)}
 /* photo */
 .ws-media{position:relative;width:min(470px,100%);margin-inline:auto 0;padding:26px 0 0 26px}
 .ws-wash{width:125%;top:-12%;left:-22%;opacity:.8}
@@ -87,7 +87,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":934}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":899}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -120,7 +120,7 @@ class Component extends DCLogic {
       motion: this.state.motion,
       inC: b.c || '0', inP: b.p || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '934px',
+      rootH: fluid ? 'auto' : '899px',
       waHref: 'https://wa.me/972507428319?text=' + encodeURIComponent(msg),
       setRoot: this.setRoot
     };
