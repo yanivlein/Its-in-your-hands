@@ -64,7 +64,6 @@
 
 /* type */
 .lb-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-sans);font-weight:600;font-size:var(--fs-u3);line-height:1.4;letter-spacing:.2em;color:var(--gold-deep,#7a5a0e)}
-.lb-eyebrow::before{content:"";width:30px;height:1px;background:currentColor;opacity:.55}
 .lb-h2{font-size:var(--fs-s1);line-height:1.12}
 .lb-lead{font-size:var(--fs-t1);line-height:1.75;color:var(--ink-soft,#634d31)}
 

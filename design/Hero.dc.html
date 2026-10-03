@@ -49,14 +49,16 @@ body{margin:0}
 .hero-stage:hover .hero-photo img{transform:scale(1.07)}
 .lb[data-motion="on"] [data-in="0"] .hero-photo{clip-path:inset(10% 10% 10% 10% round 32px)}
 .hero-photo{clip-path:inset(0 0 0 0 round 32px);transition:transform 1.2s var(--ease-out),box-shadow 1.2s var(--ease-out),clip-path 1.6s var(--ease-out) .2s}
+/* phones: a smaller logo, and the buttons right after the text – before the photo */
 @media (max-width: 760px){
   .hero{padding-block:calc(64px + 18px) 52px;text-align:center}
-  .hero-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "visual" "buy" !important;row-gap:26px !important}
+  .hero-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "buy" "visual" !important;row-gap:0 !important}
   .hero-head,.hero-buy{justify-self:center;align-self:auto}
-  .hero-lockup{width:214px;margin:-4px auto -12px}
+  .hero-lockup{width:172px;margin:-4px auto -10px}
   .hero-lead{margin-inline:auto}
-  .hero-ctas{flex-direction:column;align-items:stretch;margin-top:22px}
-  .hero-stage{width:min(262px,76%);margin-inline:auto}
+  .hero-ctas{flex-direction:column;align-items:stretch;margin-top:24px}
+  .hero-visual{margin-top:40px}
+  .hero-stage{width:min(240px,70%);margin-inline:auto}
   .hero-frame{transform:translate(-12px,12px) rotate(2deg)}
 }
 </style>

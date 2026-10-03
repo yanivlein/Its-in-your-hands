@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
-<title>שני צדדים לכל קלף · סטנד וקופסא</title>
+<title>שני צדדים לכל קלף</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="ds/livingbetter/tokens.css">
 <link rel="stylesheet" href="base.css">
@@ -13,11 +13,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.inside{background-color:#f9f4ea;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b);background-size:320px 320px;padding-block:96px 100px}
+.inside{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f1ebde 0%,#f1ebde 70%,#f9f4ea 100%);background-size:320px 320px,100% 100%;padding-block:32px 100px}
 .in-sides{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);column-gap:64px;align-items:center}
 /* wide screens: the text and the cards sit closer to the middle, like the opening */
 @media (min-width: 1120px){ .in-sides{grid-template-columns:minmax(0,440px) minmax(0,520px);justify-content:center;column-gap:80px} }
-.in-copy .lb-h2{margin-top:12px}
+.in-copy .in-title{margin-top:0;font-size:var(--fs-s2);line-height:1.2}
 .in-copy .lb-lead{margin-top:20px;max-width:38ch}
 .in-cap{margin-top:26px;display:flex;align-items:center;gap:12px;font-size:var(--fs-t3);line-height:1.5;color:var(--ink-muted,#6f6048)}
 .in-cap-dot{flex:none;width:10px;height:10px;border-radius:50%;background:#d6aa3c;box-shadow:0 0 0 3px rgba(214,170,60,.22)}
@@ -36,27 +36,10 @@ body{margin:0}
 .in-label{display:flex;align-items:center;justify-content:center;gap:8px;font-size:var(--fs-u3);font-weight:600;letter-spacing:.2em;color:var(--ink-soft,#634d31)}
 .in-label b{font-family:inherit;font-weight:700;font-size:inherit;letter-spacing:inherit;color:var(--gold-deep,#7a5a0e)}
 .in-label-2{margin-top:26px}
-/* stand and box */
-.in-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:120px;max-width:920px;margin-inline:auto}
-.in-feat-fig{position:relative;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:560/500;background:#f1ebde;box-shadow:0 36px 70px -46px rgba(55,40,6,.55);
-  clip-path:inset(0 0 0 0 round 28px);transition:clip-path 1.5s var(--ease-out),box-shadow .8s var(--ease-out),transform .8s var(--ease-out)}
-.lb[data-motion="on"] [data-in="0"] .in-feat-fig{clip-path:inset(14% 10% 14% 10% round 28px);transition:none}
-.in-feat-fig img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s var(--ease-out)}
-.in-feat:hover .in-feat-fig{transform:translateY(-4px);box-shadow:0 46px 80px -46px rgba(55,40,6,.6)}
-.in-feat:hover .in-feat-fig img{transform:scale(1.05)}
-.in-fig-table img{object-position:50% 62%}
-.in-fig-box{background:radial-gradient(90% 80% at 50% 45%,#fbf7ef 0%,#f1ebde 70%)}
-.in-fig-box img{position:absolute;left:50%;bottom:0;width:auto;height:96%;object-fit:contain;transform:translateX(-50%);mix-blend-mode:multiply;transform-origin:50% 100%}
-.in-feat:hover .in-fig-box img{transform:translateX(-50%) scale(1.04)}
-.in-feat-body{padding:26px 6px 0}
-.in-feat h3{font-size:var(--fs-s3);line-height:1.2;display:flex;align-items:center;gap:14px}
-.in-feat h3::before{content:"";width:26px;height:1.5px;background:linear-gradient(90deg,#d8be73,#b78515);flex:none}
-.in-feat p{margin-top:12px;font-size:var(--fs-t2);line-height:1.8;color:var(--ink-soft,#634d31);max-width:46ch}
 @media (max-width: 860px){
-  .inside{padding-block:84px 76px}
+  .inside{padding-block:24px 76px}
   .in-sides{grid-template-columns:minmax(0,1fr) !important;row-gap:40px}
   .in-copy{text-align:center}
-  .in-copy .lb-eyebrow{justify-content:center}
   .in-copy .lb-lead{margin-inline:auto}
   .in-cap{justify-content:center;text-align:right}
   .in-pair-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px}
@@ -65,10 +48,9 @@ body{margin:0}
   .lb[data-motion="on"] [data-in="0"] .in-text{transform:translateX(50%) rotateY(-110deg)}
   .in-label{gap:5px}
   .in-label-2{margin-top:16px}
-  .in-feats{grid-template-columns:minmax(0,1fr) !important;gap:48px;margin-top:84px;max-width:none}
-  .in-feat-fig{border-radius:22px;clip-path:inset(0 0 0 0 round 22px)}
 }
-@media (max-width: 560px){
+/* where the cards are narrow, each label goes on two lines: the side, then what is on it */
+@media (min-width: 861px) and (max-width: 1119px), (max-width: 560px){
   .in-label{flex-direction:column;gap:2px}
   .in-label-dot{display:none}
 }
@@ -78,40 +60,23 @@ body{margin:0}
 <div class="lb-wrap">
 <div class="in-sides">
 <div class="in-copy" data-blk="c" data-in="{{ inC }}">
-<p class="lb-eyebrow lb-rv">מבנה הערכה</p>
-<h2 id="inside-title" class="lb-h2 lb-rv lb-d1">שני צדדים לכל קלף</h2>
+<h2 id="inside-title" class="lb-h2 in-title lb-rv lb-d1">שני צדדים לכל קלף</h2>
 <p class="lb-lead lb-rv lb-d2">בצידו האחד של כל קלף מוצגת פרקטיקה לחיים טובים יותר ובצידו השני פירוט והרחבה על מהותה ושאלות להעמקת מודעות, לחקירה פנימית ולהנעה לפעולה.</p>
 <p class="in-cap lb-rv lb-d3"><span class="in-cap-dot" aria-hidden="true"></span>בתמונה: קלף 54, ״להיענות לאחרים ללא ריצוי״, מהשער מערכות יחסים</p>
 </div>
 <figure class="in-pair" data-blk="p" data-in="{{ inP }}">
 <div class="in-pair-grid">
-<div class="in-card in-face"><img src="/_blob/965a31d711516e4ee3ddc6c0934810fa" alt="הצד האחד של הקלף: הכותרת ״להיענות לאחרים ללא ריצוי״ בכתב יד, איור של שתי ציפורים על ענף, מספר הקלף ושם השער" width="760" height="1064"></div>
-<div class="in-card in-text"><img src="/_blob/7890307439bc875091eb2f331ee2dbbc" alt="הצד השני של הקלף: פסקת הרחבה על הפרקטיקה ושלוש שאלות להתבוננות" width="760" height="1064"></div>
-<p class="in-label"><b>הצד האחד</b><span class="in-label-dot" aria-hidden="true">·</span><span>פרקטיקה</span></p>
-<p class="in-label in-label-2"><b>הצד השני</b><span class="in-label-dot" aria-hidden="true">·</span><span>הרחבה ושאלות</span></p>
+<div class="in-card in-face"><img src="/_blob/965a31d711516e4ee3ddc6c0934810fa" alt="הצד הקדמי של הקלף: הכותרת ״להיענות לאחרים ללא ריצוי״ בכתב יד, איור של שתי ציפורים על ענף, מספר הקלף ושם השער" width="760" height="1064"></div>
+<div class="in-card in-text"><img src="/_blob/7890307439bc875091eb2f331ee2dbbc" alt="הצד האחורי של הקלף: פסקת הרחבה על הפרקטיקה ושלוש שאלות להתבוננות" width="760" height="1064"></div>
+<p class="in-label"><b>הצד הקדמי</b><span class="in-label-dot" aria-hidden="true">·</span><span>פרקטיקה</span></p>
+<p class="in-label in-label-2"><b>הצד האחורי</b><span class="in-label-dot" aria-hidden="true">·</span><span>הרחבה ושאלות</span></p>
 </div>
 </figure>
-</div>
-<div class="in-feats">
-<article class="in-feat" data-blk="s" data-in="{{ inS }}">
-<figure class="in-feat-fig in-fig-table lb-rv lb-rv--fade"><img src="/_blob/47be40d8b7187aecb3a3dc5079f2132f" alt="שלושה קלפים מהערכה עומדים על סטנדים מעץ, על שולחן אוכל ליד קערת פירות" width="1153" height="1060"></figure>
-<div class="in-feat-body">
-<h3 class="lb-rv lb-d2">סטנד מעץ</h3>
-<p class="lb-rv lb-d3">לערכת הקלפים מצורף סטנד מעץ להעמדת קלף – לתזכורת והשראה בהישג עין ולשדרוג כל פינה בבית, בסטודיו או במשרד.</p>
-</div>
-</article>
-<article class="in-feat" data-blk="b" data-in="{{ inB }}">
-<figure class="in-feat-fig in-fig-box lb-rv lb-rv--fade lb-d2"><img src="/_blob/6d5f5014c52affb9aed313315a4913f9" alt="הערכה פתוחה: קופסא קשיחה עם הקלפים, שקית בד כותנה וקלף על סטנד עץ" width="362" height="630"></figure>
-<div class="in-feat-body">
-<h3 class="lb-rv lb-d3">קופסא קשיחה ושקית בד</h3>
-<p class="lb-rv lb-d4">הערכה מגיעה בקופסא קשיחה וזו ארוזה בתוך שקית בד כותנה, כך שניתן לבחור האם לאחסן או לקחת את הקלפים בקופסא או בשקית בד בהתאם לצורך והנוחות.</p>
-</div>
-</article>
 </div>
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":1285}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":537}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -141,9 +106,9 @@ class Component extends DCLogic {
     const b = this.state.inb;
     return {
       motion: this.state.motion,
-      inC: b.c || '0', inP: b.p || '0', inS: b.s || '0', inB: b.b || '0',
+      inC: b.c || '0', inP: b.p || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '1285px',
+      rootH: fluid ? 'auto' : '537px',
       setRoot: this.setRoot
     };
   }

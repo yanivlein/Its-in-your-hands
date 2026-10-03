@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@300;400;500;700&amp;family=Gveret+Levin&amp;display=swap">
 <style>
 body{margin:0}
-.kit{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 22%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:96px 96px}
+.kit{background-color:#f1ebde;background-image:url(/_blob/f9de67bc7ddc4698ac86636f6245888b),linear-gradient(180deg,#f9f4ea 0%,#f1ebde 22%,#f1ebde 100%);background-size:320px 320px,100% 100%;padding-block:96px 48px}
 .kit-head{grid-area:head;align-self:end}
 .kit-head .lb-h2{margin-top:12px}
 .kg-list{grid-area:list;align-self:start;margin-top:30px}
@@ -30,8 +30,7 @@ body{margin:0}
 .kg-box.is-on::after{inset-inline:0;opacity:0}
 .kg-box-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
 .kg-box-k{font-size:var(--fs-u3);font-weight:600;letter-spacing:.2em;color:rgba(55,40,6,.95)}
-.kg-box-name{font-family:var(--f-serif);font-size:var(--fs-s5);line-height:1.2;color:#372806}
-.kg-box-meta{font-size:var(--fs-u2);font-weight:600;color:rgba(55,40,6,.95)}
+.kg-box-name{font-family:var(--f-serif);font-size:var(--fs-s4);font-weight:500;line-height:1.2;color:#372806}
 .kg-box-card{width:46px;height:auto;border-radius:6px;box-shadow:0 8px 16px -8px rgba(55,40,6,.55);transform:rotate(4deg);transition:transform .6s var(--ease-out)}
 .kg-box:hover .kg-box-card,.kg-box.is-on .kg-box-card{transform:rotate(-2deg) scale(1.08)}
 /* fan of real cards, one from each gate */
@@ -55,7 +54,7 @@ body{margin:0}
   .kf-stage{--cw:164px;--ch:230px;--fx:52px}
 }
 @media (max-width: 860px){
-  .kit{padding-block:84px 76px}
+  .kit{padding-block:56px 40px}
   .kit-grid{grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"head" "fan" "list" !important}
   .kit-head{text-align:center}
   .kit-head .lb-eyebrow{justify-content:center}
@@ -79,18 +78,18 @@ body{margin:0}
 
 <div class="kit-grid">
 <header class="kit-head" data-blk="h" data-in="{{ inH }}">
-<p class="lb-eyebrow lb-rv">מה בערכה</p>
+<p class="lb-eyebrow lb-rv">למה לצפות</p>
 <h2 id="kit-title" class="lb-h2 lb-rv lb-d1">מבנה הערכה</h2>
 </header>
 <div class="kg-list" data-blk="l" data-in="{{ inL }}">
 <p class="kg-intro lb-rv">הקלפים מחולקים לשישה שערים:</p>
 <div class="kg-boxes lb-rv lb-d1">
-<button type="button" class="kg-box {{ g1.card }}" style="--gc: #acc3cf; --gt: #dae3e6;" data-g="1" onClick="{{ onCard }}" aria-pressed="{{ g1.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 1</span><span class="kg-box-name">התבוננות ושחרור</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">1–11</span></span></span><img class="kg-box-card" src="/_blob/894a86b3fd3fee7c3c9512b58fac91d7" alt="" width="680" height="952"></button>
-<button type="button" class="kg-box {{ g2.card }}" style="--gc: #c5c4b9; --gt: #e5e3dc;" data-g="2" onClick="{{ onCard }}" aria-pressed="{{ g2.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 2</span><span class="kg-box-name">דיוק עצמי</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">12–22</span></span></span><img class="kg-box-card" src="/_blob/6d8ec7590de15234547cf99d7ab659b2" alt="" width="680" height="952"></button>
-<button type="button" class="kg-box {{ g3.card }}" style="--gc: #c087bb; --gt: #e3c8dd;" data-g="3" onClick="{{ onCard }}" aria-pressed="{{ g3.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 3</span><span class="kg-box-name">איזון בעשייה</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">23–33</span></span></span><img class="kg-box-card" src="/_blob/d0a75280ab3f6239eb0fcfc88d0e7ad1" alt="" width="680" height="952"></button>
-<button type="button" class="kg-box {{ g4.card }}" style="--gc: #f193bb; --gt: #f9cddd;" data-g="4" onClick="{{ onCard }}" aria-pressed="{{ g4.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 4</span><span class="kg-box-name">בריאות הגוף והנפש</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">34–44</span></span></span><img class="kg-box-card" src="/_blob/4decc336a8f59173bd8a3f2c9e514835" alt="" width="680" height="952"></button>
-<button type="button" class="kg-box {{ g5.card }}" style="--gc: #d6aa3c; --gt: #ecd8a3;" data-g="5" onClick="{{ onCard }}" aria-pressed="{{ g5.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 5</span><span class="kg-box-name">מערכות יחסים</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">45–55</span></span></span><img class="kg-box-card" src="/_blob/4ce6bcb0d68a579c2e5e850c8a06bf7c" alt="" width="680" height="952"></button>
-<button type="button" class="kg-box {{ g6.card }}" style="--gc: #bbc374; --gt: #e0e3bd;" data-g="6" onClick="{{ onCard }}" aria-pressed="{{ g6.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 6</span><span class="kg-box-name">צמיחה והתרחבות</span><span class="kg-box-meta">11 קלפים · <span dir="ltr">56–66</span></span></span><img class="kg-box-card" src="/_blob/ef0a7b2f50da1553968f0108f35e7c7a" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g1.card }}" style="--gc: #acc3cf; --gt: #dae3e6;" data-g="1" onClick="{{ onCard }}" aria-pressed="{{ g1.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 1</span><span class="kg-box-name">התבוננות ושחרור</span></span><img class="kg-box-card" src="/_blob/894a86b3fd3fee7c3c9512b58fac91d7" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g2.card }}" style="--gc: #c5c4b9; --gt: #e5e3dc;" data-g="2" onClick="{{ onCard }}" aria-pressed="{{ g2.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 2</span><span class="kg-box-name">דיוק עצמי</span></span><img class="kg-box-card" src="/_blob/6d8ec7590de15234547cf99d7ab659b2" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g3.card }}" style="--gc: #c087bb; --gt: #e3c8dd;" data-g="3" onClick="{{ onCard }}" aria-pressed="{{ g3.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 3</span><span class="kg-box-name">איזון בעשייה</span></span><img class="kg-box-card" src="/_blob/d0a75280ab3f6239eb0fcfc88d0e7ad1" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g4.card }}" style="--gc: #f193bb; --gt: #f9cddd;" data-g="4" onClick="{{ onCard }}" aria-pressed="{{ g4.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 4</span><span class="kg-box-name">בריאות הגוף והנפש</span></span><img class="kg-box-card" src="/_blob/4decc336a8f59173bd8a3f2c9e514835" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g5.card }}" style="--gc: #d6aa3c; --gt: #ecd8a3;" data-g="5" onClick="{{ onCard }}" aria-pressed="{{ g5.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 5</span><span class="kg-box-name">מערכות יחסים</span></span><img class="kg-box-card" src="/_blob/4ce6bcb0d68a579c2e5e850c8a06bf7c" alt="" width="680" height="952"></button>
+<button type="button" class="kg-box {{ g6.card }}" style="--gc: #bbc374; --gt: #e0e3bd;" data-g="6" onClick="{{ onCard }}" aria-pressed="{{ g6.pressed }}"><span class="kg-box-txt"><span class="kg-box-k">שער 6</span><span class="kg-box-name">צמיחה והתרחבות</span></span><img class="kg-box-card" src="/_blob/ef0a7b2f50da1553968f0108f35e7c7a" alt="" width="680" height="952"></button>
 </div>
 </div>
 
@@ -111,7 +110,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":754}}'>
+<script type="text/x-dc" data-dc-script data-props='{"fluid":{"editor":null,"default":false},"$preview":{"width":1440,"height":695}}'>
 const GLOW = { 1: '#acc3cf', 2: '#c9c7ba', 3: '#caa0c6', 4: '#f3a9c8', 5: '#e2bd62', 6: '#c6cd86' };
 class Component extends DCLogic {
   constructor(props) {
@@ -152,7 +151,7 @@ class Component extends DCLogic {
       motion: s.motion,
       inH: b.h || '0', inL: b.l || '0', inF: b.f || '0',
       rootW: fluid ? '100%' : '1440px',
-      rootH: fluid ? 'auto' : '754px',
+      rootH: fluid ? 'auto' : '695px',
       g1: gate(1), g2: gate(2), g3: gate(3), g4: gate(4), g5: gate(5), g6: gate(6),
       glow: GLOW[s.g],
       fanCls: s.intro ? 'is-intro' : '',
